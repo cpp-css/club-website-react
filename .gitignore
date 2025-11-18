@@ -59,3 +59,7 @@ typings/
 
 # Yarn Integrity file
 .yarn-integrity
+
+.env
+# Local Netlify folder
+.netlify

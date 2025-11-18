@@ -30,8 +30,6 @@ export const Contact = () => {
             });
 
             console.log('Function response status:', response.status);
-            const text = await response.text();
-            console.log('Function response text:', text);
 
             if (response.ok) {
                 setStatus('Message sent successfully!');

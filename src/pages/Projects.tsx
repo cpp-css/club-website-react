@@ -34,6 +34,28 @@ export const Projects = () => {
                         Services: AWS EC2, Route53, VPC
                     </li>
                     <li>
+                        Frontend:
+                        <a href="https://www.linkedin.com/in/jacob-lembach-a06166249/">Jacob Lembach</a>,&nbsp;
+                        <a href="https://www.linkedin.com/in/allison-nguyen-/">Allison Nguyen</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/rovenrivera/">Roven Rivera</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/vivian-dtrieu/">Vivian Trieu</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/natasha-wong-marie/">Natasha Wong</a>
+                    </li>
+                    <li>
+                        Backend:
+                        <a href="https://www.linkedin.com/in/jacpalonzo/">Jacob Alonzo</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/phyu-lwin/">Kelly Lwin</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/ryan-pham-0a1479268/">Ryan Pham</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/bt7274/">Brandon Tseng</a>
+                    </li>
+                    <li>
+                        UI/UX:
+                        <a href="https://www.linkedin.com/in/tavina-chen/">Tavina Chen</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/jenexe/">Jennifer Garcia</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/stella-sinlao/">Stella Sinlao</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/javi-wu-1056a12b6/">Javi Wu</a>
+                    </li>
+                    <li>
                         Project Lead: <a href="https://www.linkedin.com/in/jaydenvinhnguyen/" target="_blank">Jayden Nguyen</a>
                     </li>
                     <li className='button-container'>
@@ -61,10 +83,20 @@ export const Projects = () => {
                         Tech Stack: JavaScript, HTML, Tailwind CSS, Figma, Git/GitHub
                     </li>
                     <li>
-                        Project Leads: <a href="https://www.linkedin.com/in/christopher-j-lo?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADDC094BvO94gbKZ6Y3_-VOatXIz7hAjtJQ">Christopher Lo</a>, 
-                        <a href="https://www.linkedin.com/in/justin-mn?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADsXKfYB8UWKPdPIM9Hf78TQqT5y1Xz_f2A&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BIcU78MuxRv2eJedQGPOf4Q%3D%3D">Justin Nguyen</a>, 
-                        <a href="https://www.linkedin.com/in/danielpasion/">Daniel Pasion</a>, 
+                        Project Leads: <a href="https://www.linkedin.com/in/christopher-j-lo?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADDC094BvO94gbKZ6Y3_-VOatXIz7hAjtJQ">Christopher Lo</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/justin-mn?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADsXKfYB8UWKPdPIM9Hf78TQqT5y1Xz_f2A&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BIcU78MuxRv2eJedQGPOf4Q%3D%3D">Justin Nguyen</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/danielpasion/">Daniel Pasion</a>, &nbsp;
                         <a href="https://www.linkedin.com/in/michael-ml-wu?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAAEWZscMBfQ54IYozdR-EN4DipWAvwBOB0aw&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BL2%2FfU1tjSoOAjG%2F6hI7KEQ%3D%3D">Michael Wu</a>
+                    </li>
+                    <li>
+                        Developers:&nbsp;
+                        <a href="https://www.linkedin.com/in/gerardosolisit/">Gerardo Solis</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/tommmyphao">Thomas Phao</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/jairuslegion/">Jairus Legion</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/rebecca-l-smith-3075604/">Rebecca Smith</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/ranedy">Rane Dy</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/arminerika">Armin Erika Polanco</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/mmisaacs/">Maddie Issacs</a>
                     </li>
                     <li className='button-container'>
                         <a className='button app-demo' href='https://www.broncohacks.org' target='_blank'>Click Here to View the Website</a>
@@ -101,6 +133,17 @@ export const Projects = () => {
                     <li>
                         Project Lead: <a href="https://www.linkedin.com/in/danielpasion/" target="_blank">Daniel Pasion</a>
                     </li>
+                    <li>
+                        Developers:
+                        <a href="https://www.linkedin.com/in/nicholas-amancio/" target="_blank">Nicholas Amancio</a>, &nbsp;
+                        <a href="https://www.linkedin.com/in/caleb-k-chung-3774852a9/" target="_blank">Caleb Chung</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/cesarhenrydepaula" target="_blank">Cesar Henry dePaula</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/jade-nguyen-52a591239/" target="_blank">Jade Nguyen</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/tony-tong-699631240/" target="_blank">Tony Tong</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/justin-mn/" target="_blank">Justin Nguyen</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/thomasphao/" target="_blank">Tommy Phao</a>, &nbsp; 
+                        <a href="https://www.linkedin.com/in/jaydenvinhnguyen/" target="_blank">Jayden Nguyen</a>
+                    </li>
                     <li className='button-container'>
                         <a className='button app-demo' href='https://www.broncohacksportal.org/' target='_blank'>Click Here to View the Website</a>
                         <a className='button app-demo' href='https://github.com/BroncoHacks-Website/BroncoHacks-Portal' target='_blank'>Click Here to View the GitHub Repository</a>
@@ -127,6 +170,22 @@ export const Projects = () => {
                     </li>
                     <li>
                         Project Lead: <a href="https://www.linkedin.com/in/michelle-reyes-5a9bb2246/" target="_blank">Michelle Reyes</a>
+                    </li>
+                    <li>
+                        Members: Megan Bee, 
+                        Michael Castillo, &nbsp; 
+                        <a href="https://www.linkedin.com/in/britney-collier-1401602a7/" target="_blank">Britney Collier</a>,
+                        Bijou Raj, &nbsp; 
+                        <a href="https://www.linkedin.com/in/nicholas-hoang-7b1644235/" target="_blank">Nicholas Hoang</a>, 
+                        Hanmo Zhang, &nbsp; 
+                        <a href="https://www.linkedin.com/in/gabrielrobles/" target="_blank">Gabriel Robles</a>, 
+                        Johnny Garcia
+                    </li>
+                    <li>
+                        Python Libraries: Scikit-learn, TensorFlow, Seaborn, Matplotlib, Pandas, NumPy
+                    </li>
+                    <li>
+                        Code Editors: Visual Studio Code, Jupyter Notebook
                     </li>
                     <li className='button-container'>
                         <a className='button app-demo' href='https://github.com/CSS-Exploring-Machine-Learning-Models/Machine_Learning_Algorithms.git' target='_blank'>Click Here to View the GitHub Repository</a>

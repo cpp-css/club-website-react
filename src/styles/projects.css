@@ -62,6 +62,23 @@
     color: #1bc778;
 }
 
+.project-description li.button-container .button {
+    align-self: center;
+    border: 1px solid white;
+    display: inline-block;
+    font-family: 'Josefin Sans', 'sans-serif';
+    font-weight: 300;
+    text-decoration: none;
+    padding: 0.45rem;
+}
+
+.project-description li.button-container .button:active {
+    background-color: #fff;
+    color: #1bc778;
+    border-color:#1bc778
+}
+
+
 .app-demo {
     color: var(--blue);
     text-decoration: none;

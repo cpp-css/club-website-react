@@ -8,6 +8,7 @@ import instagramIcon from "../assets/instagram.svg";
 import facebookIcon from "../assets/facebook.svg";
 import youtubeIcon from "../assets/youtube.svg";
 import githubIcon from "../assets/github.svg";
+import emailIcon from "../assets/email.svg";
 
 import { useEffect } from "react";
 
@@ -71,14 +72,20 @@ export default function Navbar(){
         {/* Footer */}
             <footer id='contact-us'>
                 <div className='footer-container'>
-                    <div className='logo-stuff'>
-                        <img className='comp-sci-logo' src={logo2025} alt='CSS Logo' />
-                    </div>
                     <div className='social-stuff'>
                         <div className='email-container'>
+                            <div className='logo-stuff'>
+                                <img className='comp-sci-logo' src={logo2025} alt='CSS Logo' />
+                            </div>
                             <ul>
-                                <li>REACH US AT OUR EMAIL</li>
-                                <li>css.cpp.edu@gmail.com</li>
+                                <li className="email-container">
+                                    <a href='mailto:css.cpp.edu@gmail.com' target='_blank' rel='noopener noreferrer'>
+                                        <img className="email-icon" src={emailIcon} alt='email' />
+                                    </a>
+                                    <a className='socials-link' href="mailto:css.cpp.edu@gmail.com">
+                                        css.cpp.edu@gmail.com
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                         <div className='css-socials'>

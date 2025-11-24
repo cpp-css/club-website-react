@@ -1,22 +1,24 @@
+
 /* ---------- Desktop styles (>=768px) ---------- */
 @media only screen and (min-width: 768px) {
     /* navigation bar rules */
     .header {
+        align-items: center;
+        background-color: transparent;
         display: flex;
         justify-content: center; 
-        align-items: center;
         padding: 1rem 0;
         height: 3rem;
         width: 100%;
         position: fixed;
+        transition: background-color 300ms ease-in-out;
         top: 0;
         left: 0;
         z-index: 1000;
     }
+
     .header.scrolled {
         background-color: var(--dark-gray, #4A4A4A);
-        transition: background-color 600ms ease-in-out;
-        opacity: 1;
     }
 
     .navbar-logo {
@@ -133,7 +135,6 @@
     }
 
     .logo-stuff {
-        width: 90%;
         height: auto;
         display: flex;
         align-items: center;
@@ -173,6 +174,16 @@
         padding: 0 75px;
     }
 
+    .email-icon{
+        height: 2.4rem;
+        margin-right: 1.5rem;
+    }
+
+    .email-container li {
+        display: flex;
+        flex-direction: row;
+    }
+
     .css-socials {
         display: flex;
         flex-flow: column nowrap;
@@ -184,7 +195,10 @@
         flex-flow: row nowrap;
         text-align: left;
     }
-
+    .css-socials li a {
+        flex-flow: row nowrap;
+        text-align: left;
+    }
     .css-socials img {
         max-height: 2.4rem;
         margin-right: 1.5rem;
@@ -194,6 +208,15 @@
 
     .css-socials img:hover {
         filter: drop-shadow(0px 0px 3px #bbb);
+    }
+
+    .socials-link {
+        color: white;
+        text-decoration: none;
+    }
+    .socials-link:hover {
+        text-decoration: underline;
+        color: #1bc778;
     }
 
     .footer-nav-links {
@@ -393,7 +416,7 @@
     .footer-container {
         margin-top: 3rem;
         display: flex;
-        flex-flow:row nowrap;
+        flex-direction: column;
         align-items: center;
         text-align: center;
         position: relative;
@@ -401,7 +424,6 @@
     }
 
     .logo-stuff {
-        width: 90%;
         height: auto;
         display: flex;
         align-items: center;
@@ -422,9 +444,11 @@
     }
 
     .social-stuff {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
         width: 80%;
         justify-content: space-between;
-        align-items: center;
     }
 
     .footer-container li {
@@ -436,19 +460,32 @@
     .email-container {
         display: flex;
         flex-flow: column nowrap;
-        padding: 0 50px;
+    }
+
+    .email-container li {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .email-icon{
+        height: 2.4rem;
+        margin-right: 1.5rem;
     }
 
     .css-socials {
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
+        align-items: flex-end;
         color: white;
-        padding: 0 50px 0 0;
+        max-width: 255px;
     }
 
     .css-socials li {
+        display: flex;
         flex-flow: row nowrap;
+        justify-content: center;
         text-align: left;
     }
 
@@ -461,6 +498,16 @@
 
     .css-socials img:hover {
         filter: drop-shadow(0px 0px 3px #bbb);
+    }
+    
+    .socials-link {
+        color: white;
+        text-decoration: none;
+    }
+
+    .socials-link:hover {
+        text-decoration: underline;
+        color: #1bc778;
     }
 
     .footer-nav-links {
@@ -529,5 +576,6 @@
         padding: 2rem 0;
         position: initial;
     }
+
 
 }

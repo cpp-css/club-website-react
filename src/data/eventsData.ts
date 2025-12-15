@@ -7,7 +7,7 @@ import halloweenSocial2025 from "../assets/eventFlyers/HalloweenSocial2025.png";
 import dockerWorkshop2025 from "../assets/eventFlyers/DockerWorkshop2025.png";
 import offensiveWebSec2025 from "../assets/eventFlyers/OffensiveWebSec2025.png";
 import gitWorkshop2025 from "../assets/eventFlyers/GitWorkshop2025.png";
-import resumeWorkshop2025 from "../assets/eventFlyers/resumeWorkshop2025.png";
+import resumeWorkshop2025 from "../assets/eventFlyers/ResumeWorkshop2025.png";
 import kyleSpeaker2025 from "../assets/eventFlyers/MetaKyleGuestSpeaker2025.png";
 import dexterSpeaker2025 from "../assets/eventFlyers/MetaDexterGuestSpeaker2025.png";
 import aaronSpeaker2025 from "../assets/eventFlyers/JPLAaronGuestSpeaker2025.png";

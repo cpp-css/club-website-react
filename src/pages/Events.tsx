@@ -1,6 +1,5 @@
 import "../styles/events.css";
 import { useState } from "react";
-import splatterBg from "../assets/Path75.png";
 import { eventsData, upcomingEvents } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
 

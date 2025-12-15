@@ -1,7 +1,7 @@
 import "../styles/events.css";
 import { useState } from "react";
 import splatterBg from "../assets/Path75.png";
-import { eventsData } from "../data/eventsData";
+import { eventsData, upcomingEvents } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
 
 export const Events = () => {
@@ -17,14 +17,32 @@ export const Events = () => {
     return (
         <div className="events-container">
             <section className="events-section">
-                <img
-                    src={splatterBg}
-                    alt="decorative line"
-                    className="events-decorative-bg"
-                />
-
                 <div className="events-filter">
-                    <label>Previous Events:</label>
+                    <h3 className="prev-events">Upcoming Events:</h3>
+                </div>
+                <div className="events-card-grid">
+                    {upcomingEvents.length === 0 && (
+                        <p>No upcoming events at this time.</p>
+                    )}
+                    {upcomingEvents.map((event: EventItem) => (
+                        <div key={event.id} className="events-card">
+                            {event.flyer && (
+                                <img
+                                    src={event.flyer}
+                                    alt={event.title + " flyer"}
+                                    className="events-card-flyer"
+                                />
+                            )}
+                            <h3 className="events-card-title">{event.title}</h3>
+                            <p className="events-card-date">{event.date}</p>
+                            <p className="events-card-desc">{event.description}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Previous Events Section */}
+                <div className="events-filter">
+                    <h3 className="prev-events">Previous Events:</h3>
                     <select
                         value={selectedSemester}
                         onChange={(e) => setSelectedSemester(e.target.value)}
@@ -32,7 +50,7 @@ export const Events = () => {
                     >
                         {semesters.map((sem) => (
                             <option key={sem} value={sem}>
-                            {sem}
+                                {sem}
                             </option>
                         ))}
                     </select>
@@ -46,16 +64,16 @@ export const Events = () => {
                     {semesterEvents.map((event: EventItem) => (
                         <div key={event.id} className="events-card">
                             {event.flyer && (
-                            <img
-                                src={event.flyer}
-                                alt={event.title}
-                                className="events-card-flyer"
-                            />
+                                <img
+                                    src={event.flyer}
+                                    alt={event.title + " flyer"}
+                                    className="events-card-flyer"
+                                />
                             )}
 
-                        <h3 className="events-card-title">{event.title}</h3>
-                        <p className="events-card-date">{event.date}</p>
-                        <p className="events-card-desc">{event.description}</p>
+                            <h3 className="events-card-title">{event.title}</h3>
+                            <p className="events-card-date">{event.date}</p>
+                            <p className="events-card-desc">{event.description}</p>
                         </div>
                     ))}
                 </div>

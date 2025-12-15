@@ -9,7 +9,6 @@ import projectsBanner from "../assets/11377175_10203435304518305_496501038361739
 export const Projects = () => {
     return (
         <section id='projects'>
-        {/* Projects section */}
             <div className='projects-title-container'><h1 className='projects-title'>PROJECTS</h1></div>
             <div className='project-container'>
                 <div className='project-title-container' id='second-project'>

@@ -77,6 +77,7 @@ header::before {
 
 /* mission section rules */
 #mission {
+    background-color: #FFF;
     height: auto;
     display: flex;
     flex-flow: column nowrap;
@@ -171,7 +172,7 @@ header::before {
     align-items: center;
     background-color: white;
     text-align: center;
-    height: 100vh;
+    min-height: 800px;
 }
 
 .about-title {

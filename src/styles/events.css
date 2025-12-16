@@ -1,10 +1,11 @@
 .events-container {
-    width: 100%;
+    background-color: #444;
     min-height: 100vh;
     padding: 6rem 2rem 4rem;
     display: flex;
     justify-content: center;
     position: relative;
+    width: 100%;
 }
 
 .events-decorative-bg {
@@ -41,7 +42,6 @@
 .events-select {
     padding: 0.6rem 1rem;
     font-size: 1rem;
-    border: 2px solid #111;
     border-radius: 8px;
     background: white;
     cursor: pointer;
@@ -58,7 +58,6 @@
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     margin-top: 1rem;
     justify-items: center;
-    padding: 15px;
 }
 
 .events-card {

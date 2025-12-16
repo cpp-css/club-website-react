@@ -7,7 +7,7 @@
     min-height: 80vh;
     background: #444; 
     color: white;
-    padding: 2rem;
+    padding: 3rem;
 }
 
 /* Title */
@@ -32,14 +32,14 @@
 .e-board-active-info h2 {
     font-size: 1.8rem;
     margin-bottom: 0.2rem;
-    text-shadow: 1px 1px 1px #B9BEBEff;
+    text-shadow: 0.5px 0.5px 0px #B9BEBEff;
 }
 
 .e-board-active-info h4 {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    text-shadow: 1px 1px 1px #B9BEBEff;
+    text-shadow: 0.5px 0.5px 0px #B9BEBEff;
 }
 
 .e-board-active-info p {
@@ -89,7 +89,7 @@
 
 @media only screen and (max-width: 768px) {
     #e-board {
-        padding: 1rem;
+        padding: 3rem;
         min-height: 60vh;
     }
 

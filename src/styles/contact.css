@@ -1,6 +1,6 @@
 .contact-container{
     display: flex;
-    background-color: #2a2a2a; 
+    background-color: #444444; 
     box-sizing: border-box;
     padding: 5rem;
     width: 100%;
@@ -11,7 +11,7 @@
     align-content: center;
     padding-right: 20px;
     color: white;
-    text-shadow: 0.5px 0.5px 1px #66ffcc;
+    text-shadow: 0.5px 0.5px 0px #66ffcc;
 }
 .contact-forms{
     display: flex;
@@ -27,6 +27,7 @@
 .contact-message{
     resize: none;
     box-shadow: #92D050;
+    border: #66ffcc;
     margin: 10px;
     display: block;
     width: 100%;    
@@ -41,6 +42,9 @@
 
 .contact-submit{
     align-items: center;
+    border-radius: 15px;
+    border: #66ffcc;
+    padding: 5px;
 }
 
 .contact-message{
@@ -64,7 +68,7 @@
 @media (max-width: 768px) {
     .contact-container{
         display: flex;
-        background-color: #2a2a2a; 
+        background-color: #444444; 
         width: 100%;
         padding: 2rem 1rem; 
         box-sizing: border-box;

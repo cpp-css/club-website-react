@@ -161,7 +161,7 @@
 
     #projects {
         color: white;
-        background-color: #222222;
+        background-color: #444444;
         position: relative;
     }
 
@@ -207,7 +207,7 @@
         padding: 0;
         color: white;
         border-bottom: none;
-        background-color: #222222;
+        background-color: #444444;
         z-index: 2;                     
         position: absolute;
         top: -1.4rem;

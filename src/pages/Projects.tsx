@@ -117,8 +117,7 @@ export const Projects = () => {
                     <li>
                         Application Portal to sign up for our BroncoHacks Hackathon @ CPP! This website is used to create or join teams
                         for our Hackathons. This website also displays information of your current team members in order to
-                        easily connect with them. This ensures for a smoother experience while hackers get prepared
-                        for a fun 24 hours of non-stop coding!
+                        easily connect with them.
                     </li>
                     <li>
                         Front-end Technologies: React TypeScript, Tailwind CSS, Figma, Git/GitHub

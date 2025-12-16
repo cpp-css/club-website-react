@@ -153,7 +153,7 @@ header::before {
 
 /* add blur to website title */
 .inner h1 {
-    text-shadow: 1px 1px 2px #90d0ee;
+    text-shadow: 0.5px 0.5px 0px #90d0ee;
     font-size: 3rem;
     margin: 1rem 0;
 }

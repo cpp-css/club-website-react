@@ -34,6 +34,9 @@
 .projects-banner {
     display: none;
 }
+.projects-banner{
+    border-radius: 15px;
+}
 
 .project-title-container {
     font-size: 0.75rem;
@@ -66,7 +69,7 @@
     align-self: center;
     border: 1px solid white;
     display: inline-block;
-    font-family: 'Josefin Sans', 'sans-serif';
+    font-family: 'Josefin Sans';
     font-weight: 300;
     text-decoration: none;
     padding: 0.45rem;
@@ -88,10 +91,12 @@
     display: initial;
     width: 75%;
     object-fit: cover;
+    border-radius: 15px;
 }
 
 .old-website-video {
     width: 100%;
+    border-radius: 15px;
 }
 
 /* alumni rules */
@@ -274,7 +279,7 @@
         align-self: center;
         border: 1px solid white;
         display: inline-block;
-        font-family: 'Josefin Sans', 'sans-serif';
+        font-family: 'Josefin Sans';
         font-weight: 300;
         text-decoration: none;
         padding: 0.45rem;

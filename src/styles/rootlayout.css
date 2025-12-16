@@ -1,4 +1,6 @@
-
+*{
+    font-family:serif;
+}
 /* ---------- Desktop styles (>=768px) ---------- */
 @media only screen and (min-width: 768px) {
     /* navigation bar rules */
@@ -108,7 +110,7 @@
     .inner p, 
     .inner h1,  
     .inner a {
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Josefin Sans';
     }
 
     .inner p {
@@ -279,7 +281,7 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Josefin Sans';
         height: 10vh;
         width: 100%;
         position: fixed;
@@ -569,7 +571,7 @@
     }
 
     #copyright {
-        font-family: 'Josefin Sans', sans-serif;
+        font-family: 'Josefin Sans';
         font-size: 0.75rem;
         color: #aaa;
         margin: auto 4rem;

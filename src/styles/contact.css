@@ -2,8 +2,7 @@
     display: flex;
     background-color: #2a2a2a; 
     box-sizing: border-box;
-    padding: 2rem 1rem; 
-    height: 100vh;
+    padding: 5rem;
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -12,11 +11,15 @@
     align-content: center;
     padding-right: 20px;
     color: white;
-    text-shadow: 1px 1px 2px #B9BEBEff;
+    text-shadow: 0.5px 0.5px 1px #66ffcc;
 }
 .contact-forms{
+    display: flex;
+    flex-direction: column;
     padding: 10px;
-
+    align-content: center;
+    align-items: center;
+    width: 300px;
 }
 .contact-name,
 .contact-email,
@@ -31,8 +34,17 @@
     padding: 5px;
 }
 
+.contact-status{
+    color: white;
+    margin: 10px;
+}
+
+.contact-submit{
+    align-items: center;
+}
+
 .contact-message{
-    height: 300px;
+    height: 200px;
 }
 
 .events-decorative-bg{
@@ -62,7 +74,10 @@
     }
     .contact-forms{
         align-content: center;
+        width: 200px;
     }
-
+    .contact-message{
+        height: 150px;
+    }
 
 }

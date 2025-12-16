@@ -1,3 +1,5 @@
+// 2026 event flyers
+import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.png";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.png";
@@ -28,8 +30,8 @@ export const upcomingEvents: EventItem[] = [
   {
     id: "broncohacks2026",
     title: "BroncoHacks Hackathon",
-    description: "TBD",
-    flyer: "/src/assets/events/broncohacks.png",
+    description: "TBD - Updated flyer and details coming soon!",
+    flyer: broncoHacks2026,
     date: "March 2026",
     semester: "Spring 2026",
     category: "Hackathons",

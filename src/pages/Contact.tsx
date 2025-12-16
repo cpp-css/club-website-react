@@ -19,17 +19,36 @@ export const Contact = () => {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Submitting form data:', formData);
+
+        const { name, email, message } = formData;
+
+        // Basic email regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        // Validation checks
+        if (!name.trim()) {
+            setStatus('Please enter your name.');
+            return;
+        }
+
+        if (!emailRegex.test(email)) {
+            setStatus('Please enter a valid email address.');
+            return;
+        }
+
+        if (!message.trim()) {
+            setStatus('Please enter a message.');
+            return;
+        }
+
         setStatus('Sending...');
 
         try {
             const response = await fetch('/.netlify/functions/send-email', {
                 method: 'POST',
-                headers: { "Content-Type": "application/json" },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(formData),
             });
-
-            console.log('Function response status:', response.status);
 
             if (response.ok) {
                 setStatus('Message sent successfully!');
@@ -39,11 +58,12 @@ export const Contact = () => {
                 console.error('Function error:', err);
                 setStatus('Failed to send message.');
             }
-        } catch (err) {
-            console.error('Network/error:', err);
-            setStatus('Failed to send message.');
+        } catch (error) {
+            console.error('Submission error:', error);
+            setStatus('Something went wrong. Please try again.');
         }
     };
+
     
     return (
         <section className="contact-container">

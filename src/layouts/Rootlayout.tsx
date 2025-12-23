@@ -1,11 +1,11 @@
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { CgClose } from "react-icons/cg";
 import '../styles/rootlayout.css'
 
 import logo2025 from "../assets/logo_for_web_2_2025.png";
 import instagramIcon from "../assets/instagram.svg";
-import facebookIcon from "../assets/facebook.svg";
+import linkedinIcon from "../assets/linkedin.svg";
 import youtubeIcon from "../assets/youtube.svg";
 import githubIcon from "../assets/github.svg";
 import emailIcon from "../assets/email.svg";
@@ -22,6 +22,11 @@ export default function Navbar(){
         onScroll(); // initialize on mount
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+    }, [location.pathname]);
 
     return (
         <div className="root-layout-container">
@@ -96,15 +101,15 @@ export default function Navbar(){
                                         <img src={instagramIcon} alt='instagram' />
                                     </a>
                                     <a className='socials-link' href='https://www.instagram.com/cppcss/' target='_blank' rel='noopener noreferrer'>
-                                        cppcss
+                                        CPP CSS
                                     </a>
                                 </li>
                                 <li>
-                                    <a href='https://www.facebook.com/groups/cppcss/' target='_blank' rel='noopener noreferrer'>
-                                        <img src={facebookIcon} alt='facebook' />
+                                    <a href='https://www.linkedin.com/company/cppcss/' target='_blank' rel='noopener noreferrer'>
+                                        <img src={linkedinIcon} alt='linkedin' />
                                     </a>
-                                    <a className='socials-link' href='https://www.facebook.com/groups/cppcss/' target='_blank' rel='noopener noreferrer'>
-                                        cppcss
+                                    <a className='socials-link' href='https://www.linkedin.com/company/cppcss/' target='_blank' rel='noopener noreferrer'>
+                                        CPP CSS
                                     </a>
                                 </li>
                                 <li>

@@ -1,6 +1,6 @@
 .contact-container{
     display: flex;
-    background-color: #444444; 
+    background-color: #2a2a2a; 
     box-sizing: border-box;
     padding: 5rem;
     width: 100%;
@@ -68,7 +68,7 @@
 @media (max-width: 768px) {
     .contact-container{
         display: flex;
-        background-color: #444444; 
+        background-color: #2a2a2a; 
         width: 100%;
         padding: 2rem 1rem; 
         box-sizing: border-box;

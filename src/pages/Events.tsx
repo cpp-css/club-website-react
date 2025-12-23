@@ -72,7 +72,12 @@ export const Events = () => {
 
                             <h3 className="events-card-title">{event.title}</h3>
                             <p className="events-card-date">{event.date}</p>
-                            <p className="events-card-desc">{event.description}</p>
+                            <div className="events-tooltip">
+                                <span className="events-tooltip-trigger">Details</span>
+                                <div className="events-tooltip-content">
+                                    {event.description}
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

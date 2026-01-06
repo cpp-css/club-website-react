@@ -27,6 +27,48 @@
     max-width: 800px;
 }
 
+.e-board-toggle {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 2rem;
+}
+
+.e-board-toggle button {
+	padding: 0.5rem 1.2rem;
+	border-radius: 999px;
+	border: none;
+	cursor: pointer;
+	background: #eee;
+}
+
+.e-board-toggle button.active {
+	background: #111;
+	color: #fff;
+}
+
+.e-board-socials {
+	display: flex;
+	gap: 0.8rem;
+	margin: 0.6rem 0 1rem;
+}
+
+.e-board-socials img {
+	width: 26px;
+	height: 26px;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.e-board-socials a img:hover {
+	transform: scale(1.1);
+	opacity: 0.9;
+}
+
+.e-board-socials img.disabled {
+	opacity: 0.35;
+	cursor: default;
+	pointer-events: none;
+}
 
 
 .e-board-active-info h2 {

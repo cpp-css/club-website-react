@@ -1,5 +1,6 @@
 import "../styles/contact.css";
-import splatterBg1 from "../assets/Path74.png";
+import aerialSsb from "../assets/aerial-ssb 1.png";
+import logo2025 from "../assets/logo_for_web_2_2025.png";
 import { useState } from "react";
 
 export const Contact = () => {
@@ -66,49 +67,69 @@ export const Contact = () => {
 
     
     return (
-        <section className="contact-container">
-            <img src={splatterBg1} alt="decorative line" className="events-decorative-bg" />
-            <div className="contact-title">
-                <h1>CONTACT US</h1>
-                <h3>ONLINE INQUIRY</h3>
-            </div>
+        <section className="contact-hero">
+		<img
+			src={aerialSsb}
+			alt="CPP Engineering Building"
+			className="contact-bg"
+		/>
 
-            <form className="contact-forms" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    className="contact-name"
-                    name="name"
-                    placeholder="Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                />
-                <input
-                    type="email"
-                    className="contact-email"
-                    name="email"
-                    placeholder="Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                />
-                <input
-                    type="tel"
-                    className="contact-number"
-                    name="number"
-                    placeholder="Phone Number"
-                    value={formData.number}
-                    onChange={handleChange}
-                />
-                <textarea
-                    className="contact-message"
-                    name="message"
-                    placeholder="Message"
-                    value={formData.message}
-                    onChange={handleChange}
-                />
-                <button type="submit" className="contact-submit">Send</button>
-            </form>
+		<div className="contact-card">
+			<div className="contact-header">
+				<img
+					src={logo2025}
+					alt="CSS Logo"
+					className="contact-logo"
+				/>
+				<h1>Contact Us</h1>
+			</div>
 
-            {status && <p className="contact-status">{status}</p>}
-        </section>
+			<form
+				className="contact-forms"
+				onSubmit={handleSubmit}
+			>
+				<input
+					type="text"
+					name="name"
+					placeholder="Name"
+					value={formData.name}
+					onChange={handleChange}
+				/>
+
+				<input
+					type="email"
+					name="email"
+					placeholder="Email"
+					value={formData.email}
+					onChange={handleChange}
+				/>
+
+				<input
+					type="tel"
+					name="number"
+					placeholder="Phone Number"
+					value={formData.number}
+					onChange={handleChange}
+				/>
+
+				<textarea
+					name="message"
+					placeholder="Message"
+					value={formData.message}
+					onChange={handleChange}
+				/>
+
+				<button type="submit">
+					Send
+				</button>
+
+				{status !== "" && (
+					<p className="contact-status">
+						{status}
+					</p>
+				)}
+			</form>
+		</div>
+	</section>
     ) 
 }

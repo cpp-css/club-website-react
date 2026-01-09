@@ -1,4 +1,3 @@
-/* Section container */
 #e-board {
     display: flex;
     flex-direction: column;
@@ -10,7 +9,6 @@
     padding: 3rem;
 }
 
-/* Title */
 .desktop-e-board-title {
     font-size: 2.5rem;
     margin-bottom: 2rem;
@@ -18,7 +16,6 @@
     align-self: flex-start;
 }
 
-/* Active member display */
 .e-board-active {
     display: flex;
     align-items: flex-start;

@@ -2,7 +2,7 @@
 header {
     position: relative;
     width: 100%;
-    height: 100vh; /* full screen section */
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -2; /* very back */
+    z-index: -2;
 }
 
 header::before {

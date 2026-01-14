@@ -4,10 +4,13 @@
     flex-flow: column nowrap;
     height: auto;
     align-items: center;
+    color: white;
+    background-color: #2a2a2a;
+    position: relative;
 }
 
 .projects-title-container {
-    color: black;
+    color: rgb(255, 255, 255);
     margin-top: 1rem;
 }
 
@@ -27,6 +30,8 @@
 .project-description li.button-container {
     display: flex;
     flex-direction: column;
+    padding: 5px;
+    gap: 0.5rem;
 }
 
 /* hide desktop projects elements */

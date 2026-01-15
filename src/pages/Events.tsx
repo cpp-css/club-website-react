@@ -2,7 +2,6 @@ import "../styles/events.css";
 import { useState } from "react";
 import { eventsData, upcomingEvents } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
-import calendarSVG from "../assets/calendar-event.svg";
 
 export const Events = () => {
     const semesters = Array.from(new Set(eventsData.map((e) => e.semester))).sort();

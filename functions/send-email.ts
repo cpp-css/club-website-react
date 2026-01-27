@@ -16,7 +16,7 @@ export const handler: Handler = async (event) => {
 
         const data = await resend.emails.send({
             from: "Your Website <onboarding@resend.dev>",
-            to: "antoniojloyola@gmail.com", // TODO: replace with club email
+            to: "css.cpp.edu@gmail.com",
             subject: "New Contact Form Submission",
             html: `
                 <h1>New Contact Form Request</h1>

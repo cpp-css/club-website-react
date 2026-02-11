@@ -6,7 +6,7 @@ import type { EventItem } from "../data/eventsData";
 export const Events = () => {
     const semesters = Array.from(new Set(eventsData.map((e) => e.semester))).sort();
 
-    const [selectedSemester, setSelectedSemester] = useState(semesters[0]);
+    const [selectedSemester, setSelectedSemester] = useState(semesters[1]);
 
     // Filter events for selected semester
     const semesterEvents = eventsData.filter(
@@ -33,7 +33,6 @@ export const Events = () => {
                                 />
                             )}
                             <h3 className="events-card-title">{event.title}</h3>
-                            <p className="events-card-desc">{event.description}</p>
 
                             <div className="events-date-splitter">
                                 <svg
@@ -45,6 +44,12 @@ export const Events = () => {
                                 <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                                 </svg>
                                 <p className="events-card-date">{event.date}</p>
+                            </div>
+                            <div className="events-tooltip">
+                                <span className="events-tooltip-trigger">View Details <span className="arrow">→</span></span>
+                                <div className="events-tooltip-content">
+                                    {event.description}
+                                </div>
                             </div>
                         </div>
                     ))}

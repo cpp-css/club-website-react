@@ -1,5 +1,7 @@
 // 2026 event flyers
 import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.png";
+import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.png";
+import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.png";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.png";
@@ -27,6 +29,15 @@ export interface EventItem {
 
 export const upcomingEvents: EventItem[] = [
   // Move these events to eventsData when they are completed
+  { 
+    id: "speaker2tony2026",
+    title: "Guest Speaker: Tony from CSS",
+    description: "Interested in learning about web technologies? Join us this Thursday with our Events & Outreach Chair Tony Tong for an introduction to web caches and how they work. We'll then pivot to explore common web cache misconfigurations and learn how these vulnerabilities can then be properly identified and exploited. ",
+    flyer: speaker2Tony2026,
+    date: "February 2026",
+    semester: "Spring 2026",
+    category: "Speaker Events",
+  },
   {
     id: "broncohacks2026",
     title: "BroncoHacks Hackathon",
@@ -40,6 +51,15 @@ export const upcomingEvents: EventItem[] = [
 
 export const eventsData: EventItem[] = [
   // Past events add newer events at the top
+  {
+    id: "speaker1lucero2026",
+    title: "Guest Speaker: Lucero from Google",
+    description: "We hosted Crisrael Lucero, Software Engineer at Google and former JPL intern, for a talk on the importance of accessible systems programming. He shared insights from his industry experience, discussed real-world systems applications, and highlighted why accessibility matters at every level of software development",
+    flyer: speaker1Lucero2026,
+    date: "February 2026",
+    semester: "Spring 2026",
+    category: "Speaker Events",
+  },
   { 
     id: "wintersocial2025",
     title: "Winter Social",

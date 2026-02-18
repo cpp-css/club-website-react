@@ -2,6 +2,7 @@
 import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.png";
 import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.png";
 import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.png";
+import speaker3Tony2026 from "../assets/eventFlyers/s26speaker3.png";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.png";
@@ -29,11 +30,11 @@ export interface EventItem {
 
 export const upcomingEvents: EventItem[] = [
   // Move these events to eventsData when they are completed
-  { 
-    id: "speaker2tony2026",
+  {
+    id: "speaker3tony2026",
     title: "Guest Speaker: Tony from CSS",
-    description: "Interested in learning about web technologies? Join us this Thursday with our Events & Outreach Chair Tony Tong for an introduction to web caches and how they work. We'll then pivot to explore common web cache misconfigurations and learn how these vulnerabilities can then be properly identified and exploited. ",
-    flyer: speaker2Tony2026,
+    description: "Join us this Thursday with our Events & Outreach Chair Tony Tong as we build off our last meeting on web caches and dive into bug bounty hunting. In this meeting we'll discuss what bug bounty is and how real-world vulnerabilities are discovered and responsbly reported.",
+    flyer: speaker3Tony2026,
     date: "February 2026",
     semester: "Spring 2026",
     category: "Speaker Events",
@@ -51,6 +52,15 @@ export const upcomingEvents: EventItem[] = [
 
 export const eventsData: EventItem[] = [
   // Past events add newer events at the top
+  { 
+    id: "speaker2tony2026",
+    title: "Guest Speaker: Tony from CSS",
+    description: "nterested in learning about web technologies, attendees joined us for a session led by Events & Outreach Chair Tony Tong, who introduced web caches and how they work. The session then explored common web cache misconfigurations and demonstrated how these vulnerabilities can be identified and exploited.",
+    flyer: speaker2Tony2026,
+    date: "February 2026",
+    semester: "Spring 2026",
+    category: "Speaker Events",
+  },
   {
     id: "speaker1lucero2026",
     title: "Guest Speaker: Lucero from Google",

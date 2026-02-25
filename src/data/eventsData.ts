@@ -3,6 +3,7 @@ import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.png";
 import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.png";
 import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.png";
 import speaker3Tony2026 from "../assets/eventFlyers/s26speaker3.png";
+import speaker42026 from "../assets/eventFlyers/s26speaker4.png";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.png";
@@ -32,9 +33,9 @@ export const upcomingEvents: EventItem[] = [
   // Move these events to eventsData when they are completed
   {
     id: "speaker3tony2026",
-    title: "Guest Speaker: Tony from CSS",
-    description: "Join us this Thursday with our Events & Outreach Chair Tony Tong as we build off our last meeting on web caches and dive into bug bounty hunting. In this meeting we'll discuss what bug bounty is and how real-world vulnerabilities are discovered and responsbly reported.",
-    flyer: speaker3Tony2026,
+    title: "Guest Speaker: Minh Khoi Tran",
+    description:"Join us this Thursday with SEA for An Introduction to Linux Desktop for CS Students with Minh Khoi Tran, an incoming Google SWE! Learn all about Linux, the free Open-Source Operating System made for Software Engineers! Learning Linux is crucial for building a high-demand, versatile career (covering cloud, DevOps, and security) and provides superior system control, stability, and security.",
+    flyer: speaker42026,
     date: "February 2026",
     semester: "Spring 2026",
     category: "Speaker Events",
@@ -52,10 +53,19 @@ export const upcomingEvents: EventItem[] = [
 
 export const eventsData: EventItem[] = [
   // Past events add newer events at the top
+  {
+    id: "speaker3tony2026",
+    title: "Guest Speaker: Tony from CSS",
+    description: "Last Thursday, we met with our Events & Outreach Chair, Tony Tong, to build on our previous session on web caches and dive into bug bounty hunting. We discussed what bug bounty programs are and how real-world vulnerabilities are discovered and responsibly reported",
+    flyer: speaker3Tony2026,
+    date: "February 2026",
+    semester: "Spring 2026",
+    category: "Speaker Events",
+  },
   { 
     id: "speaker2tony2026",
     title: "Guest Speaker: Tony from CSS",
-    description: "nterested in learning about web technologies, attendees joined us for a session led by Events & Outreach Chair Tony Tong, who introduced web caches and how they work. The session then explored common web cache misconfigurations and demonstrated how these vulnerabilities can be identified and exploited.",
+    description: "Interested in learning about web technologies, attendees joined us for a session led by Events & Outreach Chair Tony Tong, who introduced web caches and how they work. The session then explored common web cache misconfigurations and demonstrated how these vulnerabilities can be identified and exploited.",
     flyer: speaker2Tony2026,
     date: "February 2026",
     semester: "Spring 2026",

@@ -1,16 +1,36 @@
 import "../styles/events.css";
 import { useState } from "react";
-import { eventsData, upcomingEvents } from "../data/eventsData";
+import { eventsData } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
 
 export const Events = () => {
-    const semesters = Array.from(new Set(eventsData.map((e) => e.semester))).sort();
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // prevent timezone edge bugs
 
-    const [selectedSemester, setSelectedSemester] = useState(semesters[1]);
+    // Auto split events based on current date
+    const upcomingEventsAuto = eventsData.filter(
+    (e) => new Date(e.date) >= today
+    );
 
-    // Filter events for selected semester
-    const semesterEvents = eventsData.filter(
-        (e) => e.semester === selectedSemester
+    const pastEvents = eventsData.filter(
+    (e) => new Date(e.date) < today
+    );
+
+    const parseLocalDate = (dateString: string) => {
+        const [year, month, day] = dateString.split("-").map(Number);
+        return new Date(year, month - 1, day);
+    };
+
+    // Build semesters ONLY from past events
+    const semesters = Array.from(
+    new Set(pastEvents.map((e) => e.semester))
+    ).sort().reverse();
+
+    const [selectedSemester, setSelectedSemester] = useState(semesters[0]);
+
+    // Filter past events by selected semester
+    const semesterEvents = pastEvents.filter(
+    (e) => e.semester === selectedSemester
     );
 
     return (
@@ -20,10 +40,10 @@ export const Events = () => {
                     <h3 className="prev-events">Upcoming Events:</h3>
                 </div>
                 <div className="events-card-grid">
-                    {upcomingEvents.length === 0 && (
+                    {upcomingEventsAuto.length === 0 && (
                         <p>No upcoming events at this time.</p>
                     )}
-                    {upcomingEvents.map((event: EventItem) => (
+                    {upcomingEventsAuto.map((event: EventItem) => (
                         <div key={event.id} className="events-card">
                             {event.flyer && (
                                 <img
@@ -43,7 +63,13 @@ export const Events = () => {
                                 >
                                 <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                                 </svg>
-                                <p className="events-card-date">{event.date}</p>
+                                <p className="events-card-date">
+                                    {parseLocalDate(event.date).toLocaleDateString("en-US", {
+                                        month: "long",
+                                        day: "numeric",
+                                        year: "numeric",
+                                    })}
+                                </p>
                             </div>
                             <div className="events-tooltip">
                                 <span className="events-tooltip-trigger">View Details <span className="arrow">→</span></span>
@@ -96,7 +122,13 @@ export const Events = () => {
                                 >
                                 <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/>
                                 </svg>
-                                <p className="events-card-date">{event.date}</p>
+                                <p className="events-card-date">
+                                    {parseLocalDate(event.date).toLocaleDateString("en-US", {
+                                        month: "long",
+                                        day: "numeric",
+                                        year: "numeric",
+                                    })}
+                                </p>
                             </div>
                             <div className="events-tooltip">
                                 <span className="events-tooltip-trigger">View Details <span className="arrow">→</span></span>

@@ -9,4 +9,4 @@
 
 ### Test Locally
 
-`netlify dev`
+`$ netlify dev`

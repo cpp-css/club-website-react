@@ -29,36 +29,32 @@ export interface EventItem {
   category: string; // Hackathons, Workshops, Speaker Events, etc.
 }
 
-export const upcomingEvents: EventItem[] = [
-  // Move these events to eventsData when they are completed
+export const eventsData: EventItem[] = [
+  // Add events with flyers here
   {
-    id: "speaker3tony2026",
+    id: "broncohacks2026",
+    title: "BroncoHacks Hackathon",
+    description: "This is a 24 hour, in-person hackathon affiliated with Major League Hacking (MLH), the official student hackathon league. Participation is completely free! The event is open to students of all majors, featuring competition tracks of various disciplines. We especially encourage engineering students to participate, as there will be a dedicated hardware prize. Whether you’re a seasoned developer or a complete beginner with no coding experience, join us for workshops, free food, and hacking! More details and the registration form can be found on https://broncohacks.org/  ",
+    flyer: broncoHacks2026,
+    date: "2026-04-25",
+    semester: "Spring 2026",
+    category: "Hackathons",
+  },
+  {
+    id: "speaker42026",
     title: "Guest Speaker: Minh Khoi Tran",
-    description:"Join us this Thursday with SEA for An Introduction to Linux Desktop for CS Students with Minh Khoi Tran, an incoming Google SWE! Learn all about Linux, the free Open-Source Operating System made for Software Engineers! Learning Linux is crucial for building a high-demand, versatile career (covering cloud, DevOps, and security) and provides superior system control, stability, and security.",
+    description:"In Collaboration with SEA for An Introduction to Linux Desktop for CS Students with Minh Khoi Tran, an incoming Google SWE! Learn all about Linux, the free Open-Source Operating System made for Software Engineers! Learning Linux is crucial for building a high-demand, versatile career (covering cloud, DevOps, and security) and provides superior system control, stability, and security.",
     flyer: speaker42026,
-    date: "February 2026",
+    date: "2026-02-26",
     semester: "Spring 2026",
     category: "Speaker Events",
   },
   {
-    id: "broncohacks2026",
-    title: "BroncoHacks Hackathon",
-    description: "TBD - Updated flyer and details coming soon!",
-    flyer: broncoHacks2026,
-    date: "March 2026",
-    semester: "Spring 2026",
-    category: "Hackathons",
-  },
-];
-
-export const eventsData: EventItem[] = [
-  // Past events add newer events at the top
-  {
     id: "speaker3tony2026",
     title: "Guest Speaker: Tony from CSS",
-    description: "Last Thursday, we met with our Events & Outreach Chair, Tony Tong, to build on our previous session on web caches and dive into bug bounty hunting. We discussed what bug bounty programs are and how real-world vulnerabilities are discovered and responsibly reported",
+    description: "We met with our Events & Outreach Chair, Tony Tong, to build on our previous session on web caches and dive into bug bounty hunting. We discussed what bug bounty programs are and how real-world vulnerabilities are discovered and responsibly reported",
     flyer: speaker3Tony2026,
-    date: "February 2026",
+    date: "2026-02-19",
     semester: "Spring 2026",
     category: "Speaker Events",
   },
@@ -67,7 +63,7 @@ export const eventsData: EventItem[] = [
     title: "Guest Speaker: Tony from CSS",
     description: "Interested in learning about web technologies, attendees joined us for a session led by Events & Outreach Chair Tony Tong, who introduced web caches and how they work. The session then explored common web cache misconfigurations and demonstrated how these vulnerabilities can be identified and exploited.",
     flyer: speaker2Tony2026,
-    date: "February 2026",
+    date: "2026-02-12",
     semester: "Spring 2026",
     category: "Speaker Events",
   },
@@ -76,7 +72,7 @@ export const eventsData: EventItem[] = [
     title: "Guest Speaker: Lucero from Google",
     description: "We hosted Crisrael Lucero, Software Engineer at Google and former JPL intern, for a talk on the importance of accessible systems programming. He shared insights from his industry experience, discussed real-world systems applications, and highlighted why accessibility matters at every level of software development",
     flyer: speaker1Lucero2026,
-    date: "February 2026",
+    date: "2026-02-05",
     semester: "Spring 2026",
     category: "Speaker Events",
   },
@@ -137,7 +133,7 @@ export const eventsData: EventItem[] = [
   {
     id: "gitworkshop2025",
     title: "Git Workshop",
-    description: "Join us this week for a Git Workshop with CSS! Learn how to use Git to track changes, collaborate with others, and keep your projects organized. We'll walk through the basics, share tips and best practices, and build your general knowledge with Git. This is a great opportunity to learn practical skills you'll use in real projects. Don't miss out!",
+    description: "Git Workshop with CSS! Learn how to use Git to track changes, collaborate with others, and keep your projects organized. We'll walk through the basics, share tips and best practices, and build your general knowledge with Git. This is a great opportunity to learn practical skills you'll use in real projects. Don't miss out!",
     flyer: gitWorkshop2025,
     date: "October 2025",
     semester: "Fall 2025",
@@ -146,7 +142,7 @@ export const eventsData: EventItem[] = [
   {
     id: "resumeworkshop2025",
     title: "Resume Workshop",
-    description: "Join us this week for a Resume Workshop with CSS! We'll cover tips, strategies, and best practices to help you create a strong, professional resume that stands out to companies. This is a great opportunity to polish your resume, ask questions, and get feedback on your own resume. Don't miss out!",
+    description: "Resume Workshop with CSS! We'll cover tips, strategies, and best practices to help you create a strong, professional resume that stands out to companies. This is a great opportunity to polish your resume, ask questions, and get feedback on your own resume. Don't miss out!",
     flyer: resumeWorkshop2025,
     date: "September 2025",
     semester: "Fall 2025",

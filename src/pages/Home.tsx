@@ -3,6 +3,8 @@ import { Terminal, Braces, Users, Zap, Lightbulb, Github } from "lucide-react";
 
 import aerialSsb from "../assets/aerial-ssb 1.png";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
+import HomeImage from "../assets/redesignPhotos/HomeImage.png";
+import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
 
 export const Home = () => {
   return (
@@ -113,7 +115,7 @@ export const Home = () => {
       </section>
 
       {/* About Section */}
-      <section className="py-24 px-6 bg-[#121212]">
+      <section className="py-12 px-6 bg-[#121212]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
@@ -131,11 +133,31 @@ export const Home = () => {
               is "Connect passion to empathy". 💚
             </p>
           </div>
+          <div className="flex gap-8 justify-center flex-wrap">
+            <img
+              src={HomeImage}
+              alt="Home page event"
+              className="w-full max-w-[560px] h-[360px] bject-cover rounded-xl
+              order border-white/10
+              shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+              brightness-95 contrast-110
+              transition-transform duration-500 hover:scale-[1.02]"
+            />
+            <img
+              src={HomeImage2}
+              alt="Home page event2"
+              className="w-full max-w-[560px] h-[360px] bject-cover rounded-xl
+              order border-white/10
+              shadow-[0_20px_60px_rgba(0,0,0,0.6)]
+              brightness-95 contrast-110
+              transition-transform duration-500 hover:scale-[1.02]"
+            />
+          </div>
         </div>
       </section>
 
       {/* Mission / Values */}
-      <section className="py-24 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
@@ -222,7 +244,7 @@ export const Home = () => {
       </section>
 
       {/* Preview Events */}
-      <section className="py-24 px-6 bg-[#121212]">
+      <section className="py-12 px-6 bg-[#121212]">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -281,7 +303,7 @@ export const Home = () => {
       </section>
 
       {/* Preview Projects */}
-      <section className="py-24 px-6">
+      <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-12">
             <div>
@@ -331,7 +353,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <div className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all">
+            <div className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2">
               <div className="h-56 bg-gradient-to-br from-[#34F5A3]/10 to-transparent" />
               <div className="p-8">
                 <div className="flex items-center gap-2 mb-4">

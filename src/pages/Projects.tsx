@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   X,
   ExternalLink,
@@ -369,6 +369,43 @@ export const Projects = () => {
     setSelectedProject(null);
     document.body.style.overflow = "auto";
   };
+  const totalContributors = projects.reduce((sum, project) => {
+    const membersInProject = project.team.reduce(
+      (teamSum, group) => teamSum + group.members.length,
+      0,
+    );
+    return sum + membersInProject;
+  }, 0);
+
+  const liveApps = projects.filter((project) =>
+    project.links.some((link) => link.label.toLowerCase().includes("website")),
+  ).length;
+
+  const stats = [
+    { target: projects.length, suffix: "", label: "Projects" },
+    { target: totalContributors, suffix: "+", label: "Contributors" },
+    { target: liveApps, suffix: "", label: "Live Apps" },
+  ];
+
+  const [counts, setCounts] = useState([0, 0, 0]);
+  const hasAnimated = useRef(false);
+
+  useEffect(() => {
+    if (hasAnimated.current) return;
+    hasAnimated.current = true;
+    const duration = 1400;
+    const start = performance.now();
+
+    const animate = (now: number) => {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCounts(stats.map((s) => Math.round(s.target * eased)));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+
+    requestAnimationFrame(animate);
+  }, []);
 
   return (
     <section id="projects" className="bg-black text-white">
@@ -401,8 +438,8 @@ export const Projects = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-6">
-            <span className="text-sm text-[#34F5A3] font-mono">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
+            <span className="text-sm text-[#34F5A3] font-mono ">
               featured_projects[]
             </span>
           </div>
@@ -418,7 +455,43 @@ export const Projects = () => {
           </p>
         </div>
       </section>
-
+      {/* Stats strip */}
+      <div className="-mt-5 px-31">
+        <div className="max-w-3xl mx-auto relative">
+          {/* Ambient glow behind card */}
+          <div className="absolute -inset-px rounded-[28px] bg-linear-to-r from-[#34F5A3]/20 via-[#34F5A3]/5 to-[#34F5A3]/20 blur-md pointer-events-none" />
+          <div className="relative rounded-[28px] border border-white/10 bg-[#0b0b0b] backdrop-blur-xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
+            {/* Top accent line */}
+            <div className="absolute top-0 left-10 right-10 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
+            <div className="grid grid-cols-3">
+              {stats.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`group/stat relative py-9 px-4 text-center cursor-default transition-all duration-300 hover:bg-[#34F5A3]/5 ${
+                    index !== stats.length - 1 ? "border-r border-white/10" : ""
+                  }`}
+                >
+                  {/* Hover bottom accent */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#34F5A3]/70 rounded-full transition-all duration-300 group-hover/stat:w-3/4" />
+                  <p
+                    className={`text-4xl md:text-5xl font-bold tracking-tight tabular-nums transition-colors duration-300 ${
+                      stat.label === "Contributors"
+                        ? "text-[#34F5A3]"
+                        : "text-white group-hover/stat:text-[#34F5A3]"
+                    }`}
+                  >
+                    {counts[index]}
+                    {stat.suffix}
+                  </p>
+                  <p className="mt-2.5 text-xs md:text-sm uppercase tracking-[0.2em] text-gray-500 transition-colors duration-300 group-hover/stat:text-gray-300">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
       {/* Projects Grid */}
       <section className="py-24 px-6 bg-black">
         <div className="max-w-7xl mx-auto">

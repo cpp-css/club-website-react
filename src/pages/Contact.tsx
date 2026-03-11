@@ -155,12 +155,12 @@ export const Contact = () => {
                     <div>
                       <p className="text-sm text-gray-500 mb-1">Instagram</p>
                       <a
-                        href="https://instagram.com/css_cpp"
+                        href="https://www.instagram.com/cppcss/"
                         target="_blank"
                         rel="noreferrer"
                         className="text-white hover:text-[#34F5A3] transition-colors"
                       >
-                        @css_cpp
+                        @cppcss
                       </a>
                     </div>
                   </div>
@@ -172,12 +172,12 @@ export const Contact = () => {
                     <div>
                       <p className="text-sm text-gray-500 mb-1">GitHub</p>
                       <a
-                        href="https://github.com/CSS-CPP"
+                        href="https://github.com/cpp-css"
                         target="_blank"
                         rel="noreferrer"
                         className="text-white hover:text-[#34F5A3] transition-colors"
                       >
-                        CSS-CPP
+                        cpp-css
                       </a>
                     </div>
                   </div>
@@ -189,7 +189,7 @@ export const Contact = () => {
                     <div>
                       <p className="text-sm text-gray-500 mb-1">LinkedIn</p>
                       <a
-                        href="https://linkedin.com"
+                        href="https://www.linkedin.com/company/cppcss/"
                         target="_blank"
                         rel="noreferrer"
                         className="text-white hover:text-[#34F5A3] transition-colors"

@@ -1,4 +1,11 @@
 ﻿import { useState, useEffect, useRef } from "react";
+
+const PROJECTS_HERO_STYLES = `
+  @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+  .pha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
+  .pha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
+  .pha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+`;
 import {
   X,
   ExternalLink,
@@ -411,6 +418,7 @@ export const Projects = () => {
 
   return (
     <section id="projects" className="bg-black text-white">
+      <style>{PROJECTS_HERO_STYLES}</style>
       {/* Hero */}
       <section className="relative pt-32 pb-34 px-6 overflow-hidden bg-[#121212]">
         <div className="absolute inset-0 z-0 flex">
@@ -440,17 +448,17 @@ export const Projects = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
+          <div className="pha1 inline-flex items-center gap-2 px-3 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
             <span className="text-sm text-[#34F5A3] font-mono ">
               featured_projects[]
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl mb-6 tracking-tight">
+          <h1 className="pha2 text-5xl md:text-7xl mb-6 tracking-tight">
             Our <span className="text-[#34F5A3]">Projects</span>
           </h1>
 
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="pha3 text-xl text-gray-400 max-w-3xl mx-auto">
             Explore the platforms, applications, and technical projects built by
             our community. Click any card to view the full tech stack, team, and
             project links.

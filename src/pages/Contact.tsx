@@ -1,4 +1,11 @@
 import { useState } from "react";
+
+const CONTACT_HERO_STYLES = `
+  @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+  .cha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
+  .cha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
+  .cha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+`;
 import { Mail, Send, Instagram, Github, Linkedin } from "lucide-react";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import contactBackground from "../assets/redesignPhotos/Contact Background.jpg";
@@ -65,6 +72,7 @@ export const Contact = () => {
 
   return (
     <div className="relative min-h-screen overflow-hidden">
+      <style>{CONTACT_HERO_STYLES}</style>
       {/* Page Background */}
       <img
         src={contactBackground}
@@ -78,24 +86,24 @@ export const Contact = () => {
       {/* Contact Content */}
       <section className="relative z-10 pt-12 pb-16 px-4 md:px-6">
         <div className="max-w-7xl mx-auto mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
+          <div className="cha1 inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
             <span className="text-sm text-[#34F5A3] font-mono">
               contact.css_society
             </span>
           </div>
 
-          <div className="inline-flex items-center gap-3">
+          <div className="cha2 inline-flex items-center gap-3">
             <img
               src={cssLogo}
               alt="CSS Logo"
               className="w-15 h-15 object-contain translate-x-[15px] translate-y-[17px]"
             />
           </div>
-          <h1 className="text-4xl md:text-6xl mb-4 tracking-tight text-white">
+          <h1 className="cha2 text-4xl md:text-6xl mb-4 tracking-tight text-white">
             Contact <span className="text-[#34F5A3]">Us</span>
           </h1>
 
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="cha3 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
             Have a question, idea, or want to get involved? Reach out and
             we&apos;ll get back to you.
           </p>

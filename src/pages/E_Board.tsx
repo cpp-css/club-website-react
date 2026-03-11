@@ -123,17 +123,17 @@ export const EBoard = () => {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="text-center mb-8">
-            <div className="inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
+            <div className="ha1 inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
               <span className="text-sm text-[#34F5A3] font-mono">
                 meet_the_team
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl mb-6 tracking-tight text-white">
+            <h1 className="ha2 text-5xl md:text-7xl mb-6 tracking-tight text-white">
               E-<span className="text-[#34F5A3]">Board</span>
             </h1>
 
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+            <p className="ha3 text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
               Meet the passionate students leading CSS and making awesome things
               happen! 🌟
             </p>

@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import { Terminal, Braces, Users, Zap, Lightbulb, Github } from "lucide-react";
 
+const HOME_HERO_STYLES = `
+  @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+  .hha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
+  .hha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
+  .hha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+  .hha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
+`;
+
 import aerialSsb from "../assets/aerial-ssb 1.png";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import HomeImage from "../assets/redesignPhotos/HomeImage.png";
@@ -9,6 +17,7 @@ import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
 export const Home = () => {
   return (
     <div>
+      <style>{HOME_HERO_STYLES}</style>
       {/* Hero Section */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
         {/* Background Campus Image */}
@@ -16,7 +25,7 @@ export const Home = () => {
           <img
             src={aerialSsb}
             alt="Cal Poly Pomona campus"
-            className="w-full h-full object-cover opacity-30"
+            className="w-full h-full object-cover opacity-65"
           />
         </div>
         {/* Background Grid Pattern */}
@@ -57,36 +66,36 @@ export const Home = () => {
 
         <div className="max-w-7xl mx-auto relative">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-8">
-              <Terminal className="w-4 h-4 text-[#34F5A3]" />
+            <div className="hha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-8">
+              <Terminal className="w-6 h-6 text-[#34F5A3]" />
               <span className="text-sm text-[#34F5A3] font-mono">
                 ~/cpp/css
               </span>
             </div>
 
-            <div className="inline-flex items-center gap-3">
+            <div className="hha2 inline-flex items-center gap-3">
               <img
                 src={cssLogo}
                 alt="CSS Logo"
-                className="w-15 h-15 object-contain translate-x-[15px] translate-y-[17px]"
+                className="w-18 h-18 object-contain translate-x-[15px] translate-y-[17px]"
               />
             </div>
 
-            <h1 className="text-5xl md:text-7xl mb-6 tracking-tight font-semibold">
+            <h1 className="hha2 text-5xl md:text-7xl mb-6 tracking-tight font-semibold">
               Computer Science
               <br />
               <span className="text-[#34F5A3]">Society</span>
             </h1>
 
-            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="hha3 text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
               CPP's student developer community. Learn, code, and create amazing
               projects together. No experience? No problem! 🚀
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-14">
+            <div className="hha4 flex flex-col sm:flex-row gap-4 justify-center mb-14">
               <Link
                 to="/events"
-                className="group px-8 py-4 bg-[#34F5A3] text-black rounded-lg hover:bg-[#2de091] hover:shadow-lg hover:shadow-[#34F5A3]/20 transition-all font-semibold"
+                className="group px-10 py-6 bg-[#34F5A3] text-black rounded-lg hover:bg-[#2de091] hover:shadow-lg hover:shadow-[#34F5A3]/20 transition-all font-semibold"
               >
                 <span className="flex items-center gap-2 justify-center">
                   View Events
@@ -98,7 +107,7 @@ export const Home = () => {
 
               <Link
                 to="/contact"
-                className="group px-8 py-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 hover:border-[#34F5A3]/30 transition-all font-semibold"
+                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 hover:border-[#34F5A3]/30 transition-all font-semibold"
               >
                 <span className="flex items-center gap-2 justify-center">
                   <Braces className="w-5 h-5 text-[#34F5A3]" />
@@ -171,22 +180,23 @@ export const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="group relative bg-[#121212] border border-gray-800 rounded-2xl p-8 hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/5 transition-all">
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="font-mono text-xs text-[#34F5A3]">
-                  {"</>"}
-                </span>
-              </div>
-
-              <div className="w-14 h-14 bg-[#34F5A3]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/20 group-hover:scale-110 transition-all">
+            {/* Card 1 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
                 <Users className="w-7 h-7 text-[#34F5A3]" />
               </div>
-
-              <h3 className="text-2xl mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
                 Connectivity
                 <span className="text-lg">🤝</span>
               </h3>
-
+              <div className="w-8 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
               <p className="text-gray-400 leading-relaxed">
                 Connectivity, both socially and technically, is something our
                 club focuses on as we prioritize opportunities for members to
@@ -194,22 +204,23 @@ export const Home = () => {
               </p>
             </div>
 
-            <div className="group relative bg-[#121212] border border-gray-800 rounded-2xl p-8 hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/5 transition-all">
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="font-mono text-xs text-[#34F5A3]">
-                  {"</>"}
-                </span>
-              </div>
-
-              <div className="w-14 h-14 bg-[#34F5A3]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/20 group-hover:scale-110 transition-all">
+            {/* Card 2 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
                 <Zap className="w-7 h-7 text-[#34F5A3]" />
               </div>
-
-              <h3 className="text-2xl mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
                 Development
                 <span className="text-lg">⚡</span>
               </h3>
-
+              <div className="w-12 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
               <p className="text-gray-400 leading-relaxed">
                 We aim to spread knowledge through workshops, activities, and
                 experiences that help members improve both technical and
@@ -217,22 +228,23 @@ export const Home = () => {
               </p>
             </div>
 
-            <div className="group relative bg-[#121212] border border-gray-800 rounded-2xl p-8 hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/5 transition-all">
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <span className="font-mono text-xs text-[#34F5A3]">
-                  {"</>"}
-                </span>
-              </div>
-
-              <div className="w-14 h-14 bg-[#34F5A3]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/20 group-hover:scale-110 transition-all">
+            {/* Card 3 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
                 <Lightbulb className="w-7 h-7 text-[#34F5A3]" />
               </div>
-
-              <h3 className="text-2xl mb-4 flex items-center gap-2">
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
                 Innovation
                 <span className="text-lg">💡</span>
               </h3>
-
+              <div className="w-8 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
               <p className="text-gray-400 leading-relaxed">
                 We encourage members to solve real problems, think creatively,
                 and develop long-term skills that prepare them for a changing

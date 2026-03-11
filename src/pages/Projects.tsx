@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef } from "react";
 import {
   X,
   ExternalLink,
@@ -369,6 +369,8 @@ export const Projects = () => {
     setSelectedProject(null);
     document.body.style.overflow = "auto";
   };
+
+  // Derived states, when the page loads, all three stats count up to their real calculates values
   const totalContributors = projects.reduce((sum, project) => {
     const membersInProject = project.team.reduce(
       (teamSum, group) => teamSum + group.members.length,
@@ -415,12 +417,12 @@ export const Projects = () => {
           <img
             src={projectPageHeaderBackground}
             alt="Project Page Header Background"
-            className="w-188 h-120 object-cover opacity-30"
+            className="w-188 h-120 object-cover opacity-60"
           />
           <img
             src={projectPageHeaderBackground2}
             alt="Project Page Header Background2"
-            className="w-190 h-120 object-cover opacity-30"
+            className="w-190 h-120 object-cover opacity-60"
           />
         </div>
         <div className="absolute inset-0 opacity-20">
@@ -438,7 +440,7 @@ export const Projects = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
             <span className="text-sm text-[#34F5A3] font-mono ">
               featured_projects[]
             </span>

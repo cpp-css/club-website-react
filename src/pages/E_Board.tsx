@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "../styles/e-board.css";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
+import eboardImg from "../assets/redesignPhotos/eboardImage.jpg";
 import jaydenImg from "../assets/jayden.jpg";
 import michaelImg from "../assets/michael.jpg";
 import brandonImg from "../assets/Brandon.png";
@@ -19,8 +19,21 @@ const EBOARD_STYLES = `
   .ha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
   .ha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
   .ha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+  .ha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
   @keyframes card-in{from{opacity:0;transform:scale(.97) translateY(16px)}to{opacity:1;transform:none}}
   .feat-in { animation: card-in .45s cubic-bezier(.16,1,.3,1) both; }
+  @keyframes pulse-glow {
+    0%,100%{opacity:.5;transform:scale(1)}
+    50%{opacity:.85;transform:scale(1.07)}
+  }
+  .glow-pulse{animation:pulse-glow 4.5s ease-in-out infinite}
+  @keyframes float-dot{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-7px)}
+  }
+  .fdot-a{animation:float-dot 3.2s ease-in-out infinite}
+  .fdot-b{animation:float-dot 4.1s ease-in-out infinite .6s}
+  .fdot-c{animation:float-dot 3.7s ease-in-out infinite 1.1s}
 `;
 
 const currentOfficers = [
@@ -106,39 +119,155 @@ export const EBoard = () => {
     <>
       <style>{EBOARD_STYLES}</style>
       {/* Hero Section */}
-      <section className="relative pt-32 pb-4 px-6 overflow-hidden bg-[#121212]">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-[#080808]">
+        {/* Grid texture */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(52,245,163,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(52,245,163,0.03) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+
+        {/* Ambient glow blobs */}
+        <div className="glow-pulse absolute top-[-80px] left-[26%] w-[540px] h-[540px] rounded-full bg-[#34F5A3]/7 blur-[140px] pointer-events-none z-0" />
+        <div className="absolute bottom-0 right-[8%] w-[300px] h-[300px] rounded-full bg-[#34F5A3]/5 blur-[100px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-[40%] w-[160px] h-[160px] rounded-full bg-[#34F5A3]/6 blur-[60px] pointer-events-none z-0" />
+
+        {/* Hero image — left half, masked into layout */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[58%] z-10 pointer-events-none">
+          <img
+            src={eboardImg}
+            alt="CSS E-Board"
+            className="w-full h-full object-cover object-center"
+            style={{ filter: "brightness(0.7) contrast(1.06) saturate(0.88)" }}
+          />
+          {/* right bleed */}
           <div
             className="absolute inset-0"
             style={{
-              backgroundImage:
-                "linear-gradient(#34F5A3 1px, transparent 1px), linear-gradient(90deg, #34F5A3 1px, transparent 1px)",
-              backgroundSize: "50px 50px",
-              opacity: 0.03,
+              background:
+                "linear-gradient(to right, transparent 80%, rgba(8,8,8,0.65) 95%, #080808 100%)",
+            }}
+          />
+          {/* bottom fade */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to top, #080808 0%, transparent 28%)",
+            }}
+          />
+          {/* top fade */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, #080808 0%, transparent 18%)",
+            }}
+          />
+          {/* subtle green grade */}
+          <div
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(52,245,163,0.05) 75%, transparent 95%)",
             }}
           />
         </div>
 
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[420px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
+        {/* Content — right side */}
+        <div className="relative z-20 max-w-7xl mx-auto px-6 w-full py-36 lg:py-0">
+          <div className="flex justify-end">
+            <div className="w-full lg:w-[52%] xl:w-[47%]">
+              {/* Glass panel */}
+              <div
+                className="relative rounded-3xl p-8 md:p-10"
+                style={{
+                  background:
+                    "linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
+                  border: "1px solid rgba(255,255,255,0.07)",
+                  backdropFilter: "blur(2px)",
+                  boxShadow:
+                    "inset 0 1px 0 rgba(255,255,255,0.06), 0 32px 80px rgba(0,0,0,0.5)",
+                }}
+              >
+                {/* top accent line */}
+                <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#34F5A3]/40 to-transparent" />
 
-        <div className="max-w-7xl mx-auto relative">
-          <div className="text-center mb-8">
-            <div className="ha1 inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
-              <span className="text-sm text-[#34F5A3] font-mono">
-                meet_the_team
-              </span>
+                {/* Badge */}
+                <div className="ha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/25 rounded-full mb-7">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#34F5A3] inline-block" />
+                  <span className="text-sm text-[#34F5A3] font-mono tracking-wide">
+                    meet_the_team()
+                  </span>
+                </div>
+
+                {/* Title */}
+                <h1 className="ha2 pha2 text-5xl md:text-7xl mb-6 tracking-tight">
+                  E-<span className="text-[#34F5A3]">Board</span>
+                </h1>
+
+                {/* Accent divider */}
+                <div className="ha3 h-px w-16 bg-[#34F5A3]/50 mb-6" />
+
+                {/* Subtitle */}
+                <p className="ha3 text-lg text-gray-300 leading-relaxed max-w-sm mb-8">
+                  Meet the passionate students leading CSS and making awesome
+                  things happen!&nbsp;🌟
+                </p>
+
+                {/* Stats row */}
+                <div className="ha4 flex items-center gap-6">
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-white">
+                      {currentOfficers.length}
+                    </p>
+                    <p className="text-xs text-gray-500 font-mono mt-0.5">
+                      officers
+                    </p>
+                  </div>
+                  <div className="w-px h-10 bg-white/10" />
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-white">25-26</p>
+                    <p className="text-xs text-gray-500 font-mono mt-0.5">
+                      school year
+                    </p>
+                  </div>
+                  <div className="w-px h-10 bg-white/10" />
+                  <div className="text-center">
+                    <p className="text-2xl font-bold text-[#34F5A3]">CPP</p>
+                    <p className="text-xs text-gray-500 font-mono mt-0.5">
+                      campus
+                    </p>
+                  </div>
+                </div>
+
+                {/* bottom accent line */}
+                <div className="absolute bottom-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+              </div>
+
+              {/* Floating decorative dots */}
+              <div className="hidden lg:flex items-center gap-3 mt-6 pl-2">
+                <span className="fdot-a w-2 h-2 rounded-full bg-[#34F5A3]/60 inline-block" />
+                <span className="fdot-b w-1.5 h-1.5 rounded-full bg-[#34F5A3]/30 inline-block" />
+                <span className="fdot-c w-1 h-1 rounded-full bg-[#34F5A3]/20 inline-block" />
+                <span className="text-xs font-mono text-gray-600 ml-1">
+                  // scroll down to meet the team
+                </span>
+              </div>
             </div>
-
-            <h1 className="ha2 text-5xl md:text-7xl mb-6 tracking-tight text-white">
-              E-<span className="text-[#34F5A3]">Board</span>
-            </h1>
-
-            <p className="ha3 text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              Meet the passionate students leading CSS and making awesome things
-              happen! 🌟
-            </p>
           </div>
         </div>
+
+        {/* Bottom page fade */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none z-20"
+          style={{
+            background: "linear-gradient(to bottom, transparent, #080808)",
+          }}
+        />
       </section>
 
       {/* Main Board Section */}

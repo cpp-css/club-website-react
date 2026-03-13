@@ -1,3 +1,4 @@
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { Link } from "react-router-dom";
 import {
   Terminal,
@@ -5,11 +6,13 @@ import {
   Users,
   Zap,
   Lightbulb,
-  Github,
   Calendar,
   ExternalLink,
 } from "lucide-react";
-import { eventsData } from "../data/eventsData";
+import { EventDetailsModal } from "../components/ui/EventDetailsModal";
+import { ProjectDetailsModal } from "../components/ui/ProjectDetailsModal";
+import { eventsData, type EventItem } from "../data/eventsData";
+import { projectsData, type Project } from "../data/projectsData";
 import {
   compareEventDatesAsc,
   compareEventDatesDesc,
@@ -17,13 +20,12 @@ import {
   getStartOfToday,
   parseEventDate,
 } from "../lib/eventDate";
-import broncoBondImg from "../assets/broncobond.png";
-import broncoHacksSiteImg from "../assets/broncoHacks2025.png";
 import aerialSsb from "../assets/aerial-ssb 1.png";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import HomeImage from "../assets/redesignPhotos/HomeImage.png";
 import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
 import { SectionBadge } from "../components/ui/SectionBadge";
+import { useModalController } from "../lib/useModalController";
 
 const HOME_HERO_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
@@ -36,26 +38,45 @@ const HOME_HERO_STYLES = `
 const PREVIEW_PROJECTS = [
   {
     id: 1,
-    title: "Bronco Bond",
     tags: ["Mobile App", "Flutter"],
-    description:
-      "A student networking app to help Cal Poly Pomona students connect with people, places, programs, and events at CPP.",
-    image: broncoBondImg,
-    link: "https://broncobond.com/",
   },
   {
     id: 2,
-    title: "Bronco Hacks Website",
     tags: ["Web", "Hackathon"],
-    description:
-      "The official website for BroncoHacks, CPP's annual hackathon — displaying event info, schedules, and registration details.",
-    image: broncoHacksSiteImg,
-    link: "https://www.broncohacks.org",
   },
 ];
 
+const previewProjects = PREVIEW_PROJECTS.flatMap(({ id, tags }) => {
+  const project = projectsData.find((entry) => entry.id === id);
+
+  return project ? [{ ...project, tags }] : [];
+});
+
+const openOnEnterOrSpace = <T,>(
+  event: ReactKeyboardEvent<HTMLElement>,
+  item: T,
+  open: (item: T) => void,
+) => {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+
+  event.preventDefault();
+  open(item);
+};
+
 export const Home = () => {
   const today = getStartOfToday();
+  const {
+    selected: selectedEvent,
+    open: openEvent,
+    close: closeEvent,
+  } = useModalController<EventItem>();
+  const {
+    selected: selectedProject,
+    open: openProject,
+    close: closeProject,
+  } = useModalController<Project>();
 
   const upcomingPreviews = eventsData
     .filter((e) => parseEventDate(e.dateISO) >= today)
@@ -329,10 +350,15 @@ export const Home = () => {
 
           <div className="grid md:grid-cols-3 gap-8">
             {eventPreviews.map((event) => (
-              <Link
-                to="/events"
+              <article
                 key={event.id}
-                className="group relative bg-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-lg hover:shadow-[#34F5A3]/10"
+                role="button"
+                tabIndex={0}
+                onClick={() => openEvent(event)}
+                onKeyDown={(keyboardEvent) =>
+                  openOnEnterOrSpace(keyboardEvent, event, openEvent)
+                }
+                className="group relative bg-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-lg hover:shadow-[#34F5A3]/10 text-left cursor-pointer"
               >
                 <div className="absolute top-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
 
@@ -375,7 +401,7 @@ export const Home = () => {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </article>
             ))}
           </div>
         </div>
@@ -406,10 +432,16 @@ export const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {PREVIEW_PROJECTS.map((project) => (
-              <div
+            {previewProjects.map((project) => (
+              <article
                 key={project.id}
-                className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2"
+                role="button"
+                tabIndex={0}
+                onClick={() => openProject(project)}
+                onKeyDown={(keyboardEvent) =>
+                  openOnEnterOrSpace(keyboardEvent, project, openProject)
+                }
+                className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
               >
                 <div className="h-56 overflow-hidden">
                   <img
@@ -434,17 +466,22 @@ export const Home = () => {
                     {project.description}
                   </p>
                   <div className="flex items-center gap-4">
-                    <Link
-                      to="/projects"
+                    <button
+                      type="button"
+                      onClick={(clickEvent) => {
+                        clickEvent.stopPropagation();
+                        openProject(project);
+                      }}
                       className="text-[#34F5A3] hover:underline text-sm flex items-center gap-2"
                     >
-                      <Github className="w-4 h-4" />
-                      View Projects
-                    </Link>
+                      <Braces className="w-4 h-4" />
+                      View Details
+                    </button>
                     <a
-                      href={project.link}
+                      href={project.links[0]?.href}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={(clickEvent) => clickEvent.stopPropagation()}
                       className="text-gray-400 hover:text-[#34F5A3] hover:underline text-sm flex items-center gap-2 transition-colors"
                     >
                       <ExternalLink className="w-4 h-4" />
@@ -452,11 +489,26 @@ export const Home = () => {
                     </a>
                   </div>
                 </div>
-              </div>
+              </article>
             ))}
           </div>
         </div>
       </section>
+
+      <EventDetailsModal
+        event={selectedEvent}
+        onClose={closeEvent}
+        backdropStyle={{
+          background: "rgba(0,0,0,.85)",
+          backdropFilter: "blur(12px)",
+        }}
+      />
+
+      <ProjectDetailsModal
+        project={selectedProject}
+        onClose={closeProject}
+        backdropClassName="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+      />
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, X, ChevronDown, Clock, ArrowRight } from "lucide-react";
+import { Calendar, ChevronDown, Clock, ArrowRight } from "lucide-react";
 import { eventsData } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
 import {
@@ -11,9 +11,9 @@ import {
 } from "../lib/eventDate";
 import eventsPageHeaderBackground from "../assets/redesignPhotos/EventsPageHeader.webp";
 import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader2.webp";
+import { EventDetailsModal } from "../components/ui/EventDetailsModal";
 import { HeroBadge } from "../components/ui/HeroBadge";
 import { useModalController } from "../lib/useModalController";
-import { ModalShell } from "../components/ui/ModalShell";
 
 /* Keyframes & utility styles */
 const EVENTS_STYLES = `
@@ -408,65 +408,15 @@ export const Events = () => {
         </div>
       </div>
 
-      {/* Modal */}
-      {selectedEvent && (
-        <ModalShell
-          onClose={closeEvent}
-          backdropStyle={{
-            background: "rgba(0,0,0,.85)",
-            backdropFilter: "blur(12px)",
-          }}
-        >
-          <div className="modal-in relative w-full max-w-2xl max-h-[92vh] overflow-y-auto no-scrollbar bg-[#0f0f0f] border border-white/10 rounded-3xl shadow-2xl">
-            {/* Accent top bar */}
-            <div className="h-0.75 w-full bg-[#34F5A3]/40 rounded-t-3xl" />
-
-            {/* Close */}
-            <button
-              onClick={closeEvent}
-              className="sticky top-4 ml-auto mr-4 mt-4 z-20 flex items-center justify-center w-10 h-10 rounded-full bg-white/8 hover:bg-white/15 border border-white/10 transition-all"
-            >
-              <X className="w-4 h-4 text-gray-300" />
-            </button>
-
-            <div className="px-15 md:px-10 pb-10 -mt-6">
-              {/* Flyer */}
-              {selectedEvent.flyer && (
-                <div className="rounded-2xl overflow-hidden border border-white/8 mb-7 max-w-sm mx-auto">
-                  <img
-                    src={selectedEvent.flyer}
-                    alt={selectedEvent.title}
-                    className="w-full object-contain max-h-126"
-                  />
-                </div>
-              )}
-
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-2 mb-5">
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono border border-white/8 bg-white/3 text-gray-400">
-                  <Calendar className="w-3 h-3" />
-                  {formatEventDate(selectedEvent.dateISO, {
-                    weekday: "long",
-                    month: "long",
-                    day: "numeric",
-                    year: "numeric",
-                  })}
-                </span>
-              </div>
-
-              <h2 className="text-3xl md:text-4xl text-white mb-4 leading-tight">
-                {selectedEvent.title}
-              </h2>
-
-              <div className="h-px bg-white/8 mb-6" />
-
-              <p className="text-gray-300 leading-[1.85] text-base">
-                {selectedEvent.description}
-              </p>
-            </div>
-          </div>
-        </ModalShell>
-      )}
+      <EventDetailsModal
+        event={selectedEvent}
+        onClose={closeEvent}
+        backdropStyle={{
+          background: "rgba(0,0,0,.85)",
+          backdropFilter: "blur(12px)",
+        }}
+        dialogClassName="modal-in"
+      />
     </section>
   );
 };

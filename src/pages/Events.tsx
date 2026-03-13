@@ -291,8 +291,8 @@ export const Events = () => {
           </h1>
 
           <p className="eha3 text-xl text-gray-300 max-w-2xl mx-auto mb-10">
-            Workshops, hackathons, guest speakers, - explore everything CSS has
-            hosted and what's on the horizon.
+            Workshops, hackathons, guest speakers, and more 🎟️ explore
+            everything CSS has hosted and what's next. 📅
           </p>
         </div>
 

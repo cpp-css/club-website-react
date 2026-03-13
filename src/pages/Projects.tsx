@@ -134,9 +134,9 @@ export const Projects = () => {
           </h1>
 
           <p className="pha3 text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore the platforms, applications, and technical projects built by
+            Explore the applications, platforms, and technical projects built by
             our community. Click any card to view the full tech stack, team, and
-            project links.
+            project links. 🛠️
           </p>
         </div>
       </section>

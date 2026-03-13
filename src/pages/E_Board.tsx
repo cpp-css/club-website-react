@@ -132,7 +132,7 @@ export const EBoard = () => {
                 {/* Subtitle */}
                 <p className="ha3 text-lg text-gray-300 leading-relaxed max-w-sm mb-8">
                   Meet the passionate students leading CSS and making awesome
-                  things happen!&nbsp;🌟
+                  things happen!⭐👥
                 </p>
 
                 {/* Stats row */}

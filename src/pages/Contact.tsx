@@ -103,8 +103,8 @@ export const Contact = () => {
           </h1>
 
           <p className="cha3 text-lg md:text-xl text-gray-300 max-w-2xl mx-auto">
-            Have a question, idea, or want to get involved? Reach out and
-            we&apos;ll get back to you.
+            Have a question, idea, or want to get involved? 📬 Reach out and
+            we'll get back to you.
           </p>
         </div>
 

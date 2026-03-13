@@ -1,10 +1,25 @@
-﻿import { useState, useEffect, useRef } from "react";
+﻿import { useState, useEffect, useRef, type ReactNode } from "react";
 
 const PROJECTS_HERO_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
   .pha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
   .pha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
   .pha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+
+  @keyframes scan-line {
+    0%   { transform: translateY(-100%) }
+    100% { transform: translateY(100vh) }
+  }
+
+  .scan-line {
+    position:absolute; inset:0; pointer-events:none; overflow:hidden; z-index:1;
+  }
+  .scan-line::after {
+    content:'';
+    position:absolute; left:0; right:0; height:2px;
+    background:linear-gradient(90deg,transparent,rgba(52,245,163,.15),transparent);
+    animation: scan-line 5s linear infinite;
+  }
 `;
 import {
   X,
@@ -25,10 +40,62 @@ import projectsBanner from "../assets/11377175_10203435304518305_496501038361739
 import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.png";
 import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.png";
 
-export const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState(null);
+type ProjectTechnologyKey =
+  | "frontend"
+  | "backend"
+  | "services"
+  | "stack"
+  | "libraries"
+  | "tools";
 
-  const projects = [
+interface ProjectLink {
+  label: string;
+  href: string;
+  icon: ReactNode;
+}
+
+interface ProjectMember {
+  name: string;
+  linkedin?: string;
+}
+
+interface ProjectTeamGroup {
+  role: string;
+  members: ProjectMember[];
+}
+
+type ProjectTechnologies = Partial<Record<ProjectTechnologyKey, string[]>> & {
+  [key: string]: string[] | undefined;
+};
+
+interface Project {
+  id: number;
+  title: string;
+  category: string;
+  emoji: string;
+  description: string;
+  fullDescription: string;
+  image: string;
+  imageType: "image" | "video";
+  links: ProjectLink[];
+  technologies: ProjectTechnologies;
+  team: ProjectTeamGroup[];
+}
+
+const getTechnologyValues = (technologies: ProjectTechnologies) =>
+  Object.values(technologies).filter((value): value is string[] =>
+    Array.isArray(value),
+  );
+
+const getTechnologyEntries = (technologies: ProjectTechnologies) =>
+  Object.entries(technologies).filter((entry): entry is [string, string[]] =>
+    Array.isArray(entry[1]),
+  );
+
+export const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const projects: Project[] = [
     {
       id: 1,
       title: "Bronco Bond",
@@ -367,7 +434,7 @@ export const Projects = () => {
     },
   ];
 
-  const openProject = (project) => {
+  const openProject = (project: Project) => {
     setSelectedProject(project);
     document.body.style.overflow = "hidden";
   };
@@ -398,6 +465,7 @@ export const Projects = () => {
 
   const [counts, setCounts] = useState([0, 0, 0]);
   const hasAnimated = useRef(false);
+  const statsRef = useRef(stats);
 
   useEffect(() => {
     if (hasAnimated.current) return;
@@ -409,7 +477,7 @@ export const Projects = () => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      setCounts(stats.map((s) => Math.round(s.target * eased)));
+      setCounts(statsRef.current.map((s) => Math.round(s.target * eased)));
       if (progress < 1) requestAnimationFrame(animate);
     };
 
@@ -419,20 +487,23 @@ export const Projects = () => {
   return (
     <section id="projects" className="bg-black text-white">
       <style>{PROJECTS_HERO_STYLES}</style>
-      {/* Hero */}
+      {/* Hero Section */}
       <section className="relative pt-32 pb-34 px-6 overflow-hidden bg-[#121212]">
         <div className="absolute inset-0 z-0 flex">
           <img
             src={projectPageHeaderBackground}
             alt="Project Page Header Background"
-            className="w-188 h-120 object-cover opacity-60"
+            className="w-188 h-120 object-cover opacity-70"
           />
           <img
             src={projectPageHeaderBackground2}
             alt="Project Page Header Background2"
-            className="w-190 h-120 object-cover opacity-60"
+            className="w-190 h-120 object-cover opacity-70"
           />
         </div>
+        {/* Scan line */}
+        <div className="scan-line" />
+
         <div className="absolute inset-0 opacity-20">
           <div
             className="absolute inset-0"
@@ -448,17 +519,24 @@ export const Projects = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="pha1 inline-flex items-center gap-2 px-3 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
-            <span className="text-sm text-[#34F5A3] font-mono ">
+          <div className="pha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/25 rounded-full mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#34F5A3] inline-block" />
+            <span className="text-sm text-[#34F5A3] font-mono tracking-wide">
               featured_projects[]
             </span>
           </div>
 
-          <h1 className="pha2 text-5xl md:text-7xl mb-6 tracking-tight">
-            Our <span className="text-[#34F5A3]">Projects</span>
+          <h1 className="pha2 text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight leading-none">
+            Our{" "}
+            <span
+              className="text-[#34F5A3]"
+              style={{ textShadow: "0 0 40px rgba(52,245,163,.35)" }}
+            >
+              Projects
+            </span>
           </h1>
 
-          <p className="pha3 text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className="pha3 text-xl text-gray-300 max-w-3xl mx-auto">
             Explore the platforms, applications, and technical projects built by
             our community. Click any card to view the full tech stack, team, and
             project links.
@@ -551,7 +629,7 @@ export const Projects = () => {
                   </p>
 
                   <div className="flex flex-wrap gap-3 mb-6">
-                    {Object.values(project.technologies)
+                    {getTechnologyValues(project.technologies)
                       .flat()
                       .slice(0, 4)
                       .map((tech) => (
@@ -676,7 +754,7 @@ export const Projects = () => {
                       </h3>
 
                       <div className="space-y-4">
-                        {Object.entries(selectedProject.technologies).map(
+                        {getTechnologyEntries(selectedProject.technologies).map(
                           ([key, values]) => (
                             <div key={key}>
                               <p className="text-white font-medium capitalize mb-2">

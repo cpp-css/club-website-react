@@ -2,6 +2,13 @@ import { useState, useEffect } from "react";
 import { Calendar, X, ChevronDown, Clock, ArrowRight } from "lucide-react";
 import { eventsData } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
+import {
+  compareEventDatesAsc,
+  compareEventDatesDesc,
+  formatEventDate,
+  getStartOfToday,
+  parseEventDate,
+} from "../lib/eventDate";
 import eventsPageHeaderBackground from "../assets/redesignPhotos/EventsPageHeader.webp";
 import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader2.webp";
 
@@ -61,14 +68,6 @@ const EVENTS_STYLES = `
   .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none }
 `;
 
-/* ─── Date helpers ─────────────────────────────────────────────────── */
-const parseLocal = (d: string) => {
-  const p = d.split("-").map(Number);
-  return p.length === 3 ? new Date(p[0], p[1] - 1, p[2]) : new Date(d);
-};
-const fmt = (d: string, opts: Intl.DateTimeFormatOptions) =>
-  parseLocal(d).toLocaleDateString("en-US", opts);
-
 /* ─── Ticker content ───────────────────────────────────────────────── */
 const TICKER_ITEMS = [
   "WORKSHOPS",
@@ -120,7 +119,7 @@ function FeaturedCard({
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-px bg-[#34F5A3]" />
             <span className="text-[#34F5A3] font-mono text-sm tracking-widest uppercase">
-              {fmt(event.dateISO, {
+              {formatEventDate(event.dateISO, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -186,10 +185,10 @@ function PastRow({
           #{String(index + 1).padStart(2, "0")}
         </span>
         <span className="text-white font-mono text-lg font-bold leading-none">
-          {fmt(event.dateISO, { day: "numeric" })}
+          {formatEventDate(event.dateISO, { day: "numeric" })}
         </span>
         <span className="text-gray-500 text-xs font-mono uppercase mt-0.5">
-          {fmt(event.dateISO, { month: "short" })}
+          {formatEventDate(event.dateISO, { month: "short" })}
         </span>
       </div>
 
@@ -224,21 +223,14 @@ function PastRow({
 
 /* Main page */
 export const Events = () => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = getStartOfToday();
 
   const upcomingEvents = eventsData
-    .filter((e) => parseLocal(e.dateISO) >= today)
-    .sort(
-      (a, b) =>
-        parseLocal(a.dateISO).getTime() - parseLocal(b.dateISO).getTime(),
-    );
+    .filter((e) => parseEventDate(e.dateISO) >= today)
+    .sort((a, b) => compareEventDatesAsc(a.dateISO, b.dateISO));
   const pastEvents = eventsData
-    .filter((e) => parseLocal(e.dateISO) < today)
-    .sort(
-      (a, b) =>
-        parseLocal(b.dateISO).getTime() - parseLocal(a.dateISO).getTime(),
-    );
+    .filter((e) => parseEventDate(e.dateISO) < today)
+    .sort((a, b) => compareEventDatesDesc(a.dateISO, b.dateISO));
 
   const semesters = Array.from(new Set(pastEvents.map((e) => e.semester)))
     .sort()
@@ -467,7 +459,7 @@ export const Events = () => {
               <div className="flex flex-wrap items-center gap-2 mb-5">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono border border-white/8 bg-white/3 text-gray-400">
                   <Calendar className="w-3 h-3" />
-                  {fmt(selectedEvent.dateISO, {
+                  {formatEventDate(selectedEvent.dateISO, {
                     weekday: "long",
                     month: "long",
                     day: "numeric",

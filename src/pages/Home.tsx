@@ -10,6 +10,13 @@ import {
   ExternalLink,
 } from "lucide-react";
 import { eventsData } from "../data/eventsData";
+import {
+  compareEventDatesAsc,
+  compareEventDatesDesc,
+  formatEventDate,
+  getStartOfToday,
+  parseEventDate,
+} from "../lib/eventDate";
 import broncoBondImg from "../assets/broncobond.png";
 import broncoHacksSiteImg from "../assets/broncoHacks2025.png";
 import aerialSsb from "../assets/aerial-ssb 1.png";
@@ -24,11 +31,6 @@ const HOME_HERO_STYLES = `
   .hha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
   .hha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
 `;
-
-const parseLocal = (d: string) => {
-  const p = d.split("-").map(Number);
-  return p.length === 3 ? new Date(p[0], p[1] - 1, p[2]) : new Date(d);
-};
 
 const PREVIEW_PROJECTS = [
   {
@@ -52,25 +54,18 @@ const PREVIEW_PROJECTS = [
 ];
 
 export const Home = () => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  const today = getStartOfToday();
 
   const upcomingPreviews = eventsData
-    .filter((e) => parseLocal(e.dateISO) >= today)
-    .sort(
-      (a, b) =>
-        parseLocal(a.dateISO).getTime() - parseLocal(b.dateISO).getTime(),
-    )
+    .filter((e) => parseEventDate(e.dateISO) >= today)
+    .sort((a, b) => compareEventDatesAsc(a.dateISO, b.dateISO))
     .slice(0, 3);
 
   const eventPreviews =
     upcomingPreviews.length > 0
       ? upcomingPreviews
-      : eventsData
-          .sort(
-            (a, b) =>
-              parseLocal(b.dateISO).getTime() - parseLocal(a.dateISO).getTime(),
-          )
+      : [...eventsData]
+          .sort((a, b) => compareEventDatesDesc(a.dateISO, b.dateISO))
           .slice(0, 3);
 
   return (
@@ -357,7 +352,7 @@ export const Home = () => {
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#34F5A3]/15 border border-[#34F5A3]/25 text-[#34F5A3] rounded-full font-mono text-xs">
                       <Calendar className="w-3 h-3" />
-                      {parseLocal(event.dateISO).toLocaleDateString("en-US", {
+                      {formatEventDate(event.dateISO, {
                         month: "short",
                         day: "numeric",
                         year: "numeric",

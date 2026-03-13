@@ -1,5 +1,21 @@
 import { Link } from "react-router-dom";
-import { Terminal, Braces, Users, Zap, Lightbulb, Github } from "lucide-react";
+import {
+  Terminal,
+  Braces,
+  Users,
+  Zap,
+  Lightbulb,
+  Github,
+  Calendar,
+  ExternalLink,
+} from "lucide-react";
+import { eventsData } from "../data/eventsData";
+import broncoBondImg from "../assets/broncobond.png";
+import broncoHacksSiteImg from "../assets/broncoHacks2025.png";
+import aerialSsb from "../assets/aerial-ssb 1.png";
+import cssLogo from "../assets/logo_for_web_2_2025.png";
+import HomeImage from "../assets/redesignPhotos/HomeImage.png";
+import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
 
 const HOME_HERO_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
@@ -9,12 +25,54 @@ const HOME_HERO_STYLES = `
   .hha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
 `;
 
-import aerialSsb from "../assets/aerial-ssb 1.png";
-import cssLogo from "../assets/logo_for_web_2_2025.png";
-import HomeImage from "../assets/redesignPhotos/HomeImage.png";
-import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
+const parseLocal = (d: string) => {
+  const p = d.split("-").map(Number);
+  return p.length === 3 ? new Date(p[0], p[1] - 1, p[2]) : new Date(d);
+};
+
+const PREVIEW_PROJECTS = [
+  {
+    id: 1,
+    title: "Bronco Bond",
+    tags: ["Mobile App", "Flutter"],
+    description:
+      "A student networking app to help Cal Poly Pomona students connect with people, places, programs, and events at CPP.",
+    image: broncoBondImg,
+    link: "https://broncobond.com/",
+  },
+  {
+    id: 2,
+    title: "Bronco Hacks Website",
+    tags: ["Web", "Hackathon"],
+    description:
+      "The official website for BroncoHacks, CPP's annual hackathon — displaying event info, schedules, and registration details.",
+    image: broncoHacksSiteImg,
+    link: "https://www.broncohacks.org",
+  },
+];
 
 export const Home = () => {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const upcomingPreviews = eventsData
+    .filter((e) => parseLocal(e.dateISO) >= today)
+    .sort(
+      (a, b) =>
+        parseLocal(a.dateISO).getTime() - parseLocal(b.dateISO).getTime(),
+    )
+    .slice(0, 3);
+
+  const eventPreviews =
+    upcomingPreviews.length > 0
+      ? upcomingPreviews
+      : eventsData
+          .sort(
+            (a, b) =>
+              parseLocal(b.dateISO).getTime() - parseLocal(a.dateISO).getTime(),
+          )
+          .slice(0, 3);
+
   return (
     <div>
       <style>{HOME_HERO_STYLES}</style>
@@ -87,7 +145,7 @@ export const Home = () => {
               <span className="text-[#34F5A3]">Society</span>
             </h1>
 
-            <p className="hha3 text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
+            <p className="hha3 text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
               CPP's student developer community. Learn, code, and create amazing
               projects together. No experience? No problem! 🚀
             </p>
@@ -174,9 +232,7 @@ export const Home = () => {
                 {"<our_values />"}
               </span>
             </div>
-            <h2 className="text-4xl md:text-5xl mb-6">
-              What We&apos;re All About
-            </h2>
+            <h2 className="text-4xl md:text-5xl mb-6">What We're All About</h2>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -265,7 +321,7 @@ export const Home = () => {
                   upcoming_events[]
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl">What&apos;s Happening 📅</h2>
+              <h2 className="text-4xl md:text-5xl">Whats' Happening 📅</h2>
             </div>
 
             <Link
@@ -280,35 +336,54 @@ export const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: "Workshop",
-                date: "March..",
-                desc: "Hands-on technical sessions to help members build practical skills.",
-              },
-              {
-                title: "Social Event",
-                date: "March..",
-                desc: "Meet other students, make friends, and grow your network in tech.",
-              },
-              {
-                title: "Industry Talk",
-                date: "March..",
-                desc: "Hear from professionals about internships, careers, and new technology.",
-              },
-            ].map((event) => (
-              <div
-                key={event.title}
-                className="group bg-[#0a0a0a] border border-gray-800 rounded-2xl p-6 hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2"
+            {eventPreviews.map((event) => (
+              <Link
+                to="/events"
+                key={event.id}
+                className="group relative bg-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-lg hover:shadow-[#34F5A3]/10"
               >
-                <div className="flex items-center gap-2 text-sm mb-3">
-                  <span className="px-2 py-1 bg-[#34F5A3]/20 text-[#34F5A3] rounded font-mono text-xs">
-                    {event.date}
-                  </span>
+                <div className="absolute top-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
+
+                {event.flyer && (
+                  <div className="h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-3">
+                    <img
+                      src={event.flyer}
+                      alt={event.title}
+                      className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#34F5A3]/15 border border-[#34F5A3]/25 text-[#34F5A3] rounded-full font-mono text-xs">
+                      <Calendar className="w-3 h-3" />
+                      {parseLocal(event.dateISO).toLocaleDateString("en-US", {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span className="px-2.5 py-1 bg-white/5 border border-white/10 text-gray-400 rounded-full font-mono text-xs">
+                      {event.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl mb-2 line-clamp-2 min-h-14 group-hover:text-[#34F5A3] transition-colors">
+                    {event.title}
+                  </h3>
+
+                  <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
+                    {event.description}
+                  </p>
+
+                  <div className="mt-4 inline-flex items-center text-xs font-mono uppercase tracking-[0.16em] text-[#34F5A3]/80 group-hover:text-[#34F5A3] transition-colors">
+                    View Event
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl mb-2">{event.title}</h3>
-                <p className="text-gray-400 text-sm">{event.desc}</p>
-              </div>
+              </Link>
             ))}
           </div>
         </div>
@@ -339,57 +414,54 @@ export const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2">
-              <div className="h-56 bg-gradient-to-br from-[#34F5A3]/20 to-[#34F5A3]/5" />
-              <div className="p-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono ">
-                    Web
-                  </span>
-                  <span className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono ">
-                    Club
-                  </span>
+            {PREVIEW_PROJECTS.map((project) => (
+              <div
+                key={project.id}
+                className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2"
+              >
+                <div className="h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  />
                 </div>
-                <h3 className="text-2xl mb-3">Bronco Board</h3>
-                <p className="text-gray-400 mb-4">
-                  Explore club and student-built work ranging from websites to
-                  creative technical projects.
-                </p>
-                <Link
-                  to="/projects"
-                  className="text-[#34F5A3] hover:underline text-sm flex items-center gap-2"
-                >
-                  <Github className="w-4 h-4" />
-                  View Projects
-                </Link>
-              </div>
-            </div>
-
-            <div className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2">
-              <div className="h-56 bg-gradient-to-br from-[#34F5A3]/10 to-transparent" />
-              <div className="p-8">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono">
-                    Community
-                  </span>
-                  <span className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono">
-                    Growth
-                  </span>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl mb-3">{project.title}</h3>
+                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      to="/projects"
+                      className="text-[#34F5A3] hover:underline text-sm flex items-center gap-2"
+                    >
+                      <Github className="w-4 h-4" />
+                      View Projects
+                    </Link>
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-gray-400 hover:text-[#34F5A3] hover:underline text-sm flex items-center gap-2 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Site
+                    </a>
+                  </div>
                 </div>
-                <h3 className="text-2xl mb-3">Bronco Hacks Site</h3>
-                <p className="text-gray-400 mb-4">
-                  Join other students to learn, collaborate, and turn ideas into
-                  real projects through the club.
-                </p>
-                <Link
-                  to="/contact"
-                  className="text-[#34F5A3] hover:underline text-sm flex items-center gap-2"
-                >
-                  <Braces className="w-4 h-4" />
-                  Get Involved
-                </Link>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

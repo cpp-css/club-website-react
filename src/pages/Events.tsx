@@ -120,7 +120,7 @@ function FeaturedCard({
           <div className="flex items-center gap-3 mb-3">
             <div className="w-8 h-px bg-[#34F5A3]" />
             <span className="text-[#34F5A3] font-mono text-sm tracking-widest uppercase">
-              {fmt(event.date, {
+              {fmt(event.dateISO, {
                 month: "long",
                 day: "numeric",
                 year: "numeric",
@@ -186,10 +186,10 @@ function PastRow({
           #{String(index + 1).padStart(2, "0")}
         </span>
         <span className="text-white font-mono text-lg font-bold leading-none">
-          {fmt(event.date, { day: "numeric" })}
+          {fmt(event.dateISO, { day: "numeric" })}
         </span>
         <span className="text-gray-500 text-xs font-mono uppercase mt-0.5">
-          {fmt(event.date, { month: "short" })}
+          {fmt(event.dateISO, { month: "short" })}
         </span>
       </div>
 
@@ -228,14 +228,16 @@ export const Events = () => {
   today.setHours(0, 0, 0, 0);
 
   const upcomingEvents = eventsData
-    .filter((e) => new Date(e.date) >= today)
+    .filter((e) => parseLocal(e.dateISO) >= today)
     .sort(
-      (a, b) => parseLocal(a.date).getTime() - parseLocal(b.date).getTime(),
+      (a, b) =>
+        parseLocal(a.dateISO).getTime() - parseLocal(b.dateISO).getTime(),
     );
   const pastEvents = eventsData
-    .filter((e) => new Date(e.date) < today)
+    .filter((e) => parseLocal(e.dateISO) < today)
     .sort(
-      (a, b) => parseLocal(b.date).getTime() - parseLocal(a.date).getTime(),
+      (a, b) =>
+        parseLocal(b.dateISO).getTime() - parseLocal(a.dateISO).getTime(),
     );
 
   const semesters = Array.from(new Set(pastEvents.map((e) => e.semester)))
@@ -465,7 +467,7 @@ export const Events = () => {
               <div className="flex flex-wrap items-center gap-2 mb-5">
                 <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono border border-white/8 bg-white/3 text-gray-400">
                   <Calendar className="w-3 h-3" />
-                  {fmt(selectedEvent.date, {
+                  {fmt(selectedEvent.dateISO, {
                     weekday: "long",
                     month: "long",
                     day: "numeric",

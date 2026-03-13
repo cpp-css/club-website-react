@@ -1,12 +1,12 @@
-import jaydenImg from "../assets/jayden.jpg";
-import michaelImg from "../assets/michael.jpg";
-import brandonImg from "../assets/Brandon.png";
-import jadeImg from "../assets/Jade.jpeg";
-import julianImg from "../assets/Julian.jpg";
-import allisonImg from "../assets/Allison.jpg";
-import calebImg from "../assets/caleb.jpg";
-import tonyImg from "../assets/tony.png";
-import antonioImg from "../assets/Antonio.jpeg";
+import jaydenImg from "../assets/boardMembers/jayden.jpg";
+import michaelImg from "../assets/boardMembers/michael.jpg";
+import brandonImg from "../assets/boardMembers/Brandon.png";
+import jadeImg from "../assets/boardMembers/Jade.jpeg";
+import julianImg from "../assets/boardMembers/Julian.jpg";
+import allisonImg from "../assets/boardMembers/Allison.jpg";
+import calebImg from "../assets/boardMembers/caleb.jpg";
+import tonyImg from "../assets/boardMembers/tony.png";
+import antonioImg from "../assets/boardMembers/Antonio.jpeg";
 
 export interface BoardMember {
   name: string;

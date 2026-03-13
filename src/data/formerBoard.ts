@@ -1,11 +1,11 @@
-import kaylaImg from "../assets/kayla.png";
-import chrisImg from "../assets/Chris.jpg";
-import justinImg from "../assets/justin.png";
-import amarImg from "../assets/amar.png";
-import phuImg from "../assets/phu.png";
-import danielImg from "../assets/daniel.jpg";
-import nicholasImg from "../assets/nicholas.jpg";
-import placeholder from "../assets/placeholder.png";
+import kaylaImg from "../assets/boardMembers/kayla.png";
+import chrisImg from "../assets/boardMembers/Chris.jpg";
+import justinImg from "../assets/boardMembers/justin.png";
+import amarImg from "../assets/boardMembers/amar.png";
+import phuImg from "../assets/boardMembers/phu.png";
+import danielImg from "../assets/boardMembers/daniel.jpg";
+import nicholasImg from "../assets/boardMembers/nicholas.jpg";
+import placeholder from "../assets/boardMembers/placeholder.png";
 import type { BoardMember } from "./currentBoard";
 
 export const formerBoard: BoardMember[] = [

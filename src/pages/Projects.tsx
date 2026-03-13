@@ -64,7 +64,11 @@ const renderProjectLinkIcon = (icon: ProjectLinkIcon) => {
 };
 
 export const Projects = () => {
-  const { selected: selectedProject, open: openProject, close: closeProject } = useModalController<Project>();
+  const {
+    selected: selectedProject,
+    open: openProject,
+    close: closeProject,
+  } = useModalController<Project>();
   const projects = projectsData;
 
   // Derived states, when the page loads, all three stats count up to their real calculates values
@@ -491,7 +495,6 @@ export const Projects = () => {
               </div>
             </div>
           </div>
-
         </ModalShell>
       )}
     </section>

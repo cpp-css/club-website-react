@@ -240,7 +240,11 @@ export const Events = () => {
     .reverse();
 
   const [selectedSemester, setSelectedSemester] = useState(semesters[0] ?? "");
-  const { selected: selectedEvent, open: openEvent, close: closeEvent } = useModalController<EventItem>();
+  const {
+    selected: selectedEvent,
+    open: openEvent,
+    close: closeEvent,
+  } = useModalController<EventItem>();
 
   const semesterEvents = pastEvents.filter(
     (e) => e.semester === selectedSemester,
@@ -408,7 +412,10 @@ export const Events = () => {
       {selectedEvent && (
         <ModalShell
           onClose={closeEvent}
-          backdropStyle={{ background: "rgba(0,0,0,.85)", backdropFilter: "blur(12px)" }}
+          backdropStyle={{
+            background: "rgba(0,0,0,.85)",
+            backdropFilter: "blur(12px)",
+          }}
         >
           <div className="modal-in relative w-full max-w-2xl max-h-[92vh] overflow-y-auto no-scrollbar bg-[#0f0f0f] border border-white/10 rounded-3xl shadow-2xl">
             {/* Accent top bar */}
@@ -458,7 +465,6 @@ export const Events = () => {
               </p>
             </div>
           </div>
-
         </ModalShell>
       )}
     </section>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Calendar, X, ChevronDown, Clock, ArrowRight } from "lucide-react";
 import { eventsData } from "../data/eventsData";
 import type { EventItem } from "../data/eventsData";
@@ -12,6 +12,8 @@ import {
 import eventsPageHeaderBackground from "../assets/redesignPhotos/EventsPageHeader.webp";
 import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader2.webp";
 import { HeroBadge } from "../components/ui/HeroBadge";
+import { useModalController } from "../lib/useModalController";
+import { ModalShell } from "../components/ui/ModalShell";
 
 /* Keyframes & utility styles */
 const EVENTS_STYLES = `
@@ -238,27 +240,11 @@ export const Events = () => {
     .reverse();
 
   const [selectedSemester, setSelectedSemester] = useState(semesters[0] ?? "");
-  const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
+  const { selected: selectedEvent, open: openEvent, close: closeEvent } = useModalController<EventItem>();
 
   const semesterEvents = pastEvents.filter(
     (e) => e.semester === selectedSemester,
   );
-
-  const openEvent = (event: EventItem) => {
-    setSelectedEvent(event);
-    document.body.style.overflow = "hidden";
-  };
-  const closeEvent = () => {
-    setSelectedEvent(null);
-    document.body.style.overflow = "";
-  };
-  useEffect(() => {
-    const h = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeEvent();
-    };
-    window.addEventListener("keydown", h);
-    return () => window.removeEventListener("keydown", h);
-  }, []);
 
   return (
     <section className="bg-[#080808] text-white min-h-screen">
@@ -420,12 +406,9 @@ export const Events = () => {
 
       {/* Modal */}
       {selectedEvent && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{
-            background: "rgba(0,0,0,.85)",
-            backdropFilter: "blur(12px)",
-          }}
+        <ModalShell
+          onClose={closeEvent}
+          backdropStyle={{ background: "rgba(0,0,0,.85)", backdropFilter: "blur(12px)" }}
         >
           <div className="modal-in relative w-full max-w-2xl max-h-[92vh] overflow-y-auto no-scrollbar bg-[#0f0f0f] border border-white/10 rounded-3xl shadow-2xl">
             {/* Accent top bar */}
@@ -476,13 +459,7 @@ export const Events = () => {
             </div>
           </div>
 
-          {/* Backdrop click */}
-          <button
-            onClick={closeEvent}
-            className="absolute inset-0 -z-10"
-            aria-label="Close"
-          />
-        </div>
+        </ModalShell>
       )}
     </section>
   );

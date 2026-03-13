@@ -42,6 +42,8 @@ import {
   type ProjectTechnologies,
 } from "../data/projectsData";
 import { HeroBadge } from "../components/ui/HeroBadge";
+import { useModalController } from "../lib/useModalController";
+import { ModalShell } from "../components/ui/ModalShell";
 
 const getTechnologyValues = (technologies: ProjectTechnologies) =>
   Object.values(technologies).filter((value): value is string[] =>
@@ -62,18 +64,8 @@ const renderProjectLinkIcon = (icon: ProjectLinkIcon) => {
 };
 
 export const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const { selected: selectedProject, open: openProject, close: closeProject } = useModalController<Project>();
   const projects = projectsData;
-
-  const openProject = (project: Project) => {
-    setSelectedProject(project);
-    document.body.style.overflow = "hidden";
-  };
-
-  const closeProject = () => {
-    setSelectedProject(null);
-    document.body.style.overflow = "auto";
-  };
 
   // Derived states, when the page loads, all three stats count up to their real calculates values
   const totalContributors = projects.reduce((sum, project) => {
@@ -311,7 +303,10 @@ export const Projects = () => {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+        <ModalShell
+          onClose={closeProject}
+          backdropClassName="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+        >
           <div className="relative w-full max-w-5xl max-h-[90vh] overflow-y-auto bg-[#111111] border border-[#34F5A3]/20 rounded-[28px] shadow-2xl">
             <button
               onClick={closeProject}
@@ -497,12 +492,7 @@ export const Projects = () => {
             </div>
           </div>
 
-          <button
-            onClick={closeProject}
-            className="absolute inset-0 -z-10 cursor-default"
-            aria-label="Close modal backdrop"
-          />
-        </div>
+        </ModalShell>
       )}
     </section>
   );

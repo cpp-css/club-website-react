@@ -4,6 +4,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Rootlayout from "./layouts/Rootlayout.tsx";
+import { ROUTE_PATHS } from "./lib/navigation.ts";
 import { Contact } from "./pages/Contact.tsx";
 import { EBoard } from "./pages/E_Board.tsx";
 import { Events } from "./pages/Events.tsx";
@@ -18,11 +19,11 @@ const router = createBrowserRouter(
     {
       element: <Rootlayout />,
       children: [
-        { path: "/", element: <Home /> },
-        { path: "/e-board", element: <EBoard /> },
-        { path: "/events", element: <Events /> },
-        { path: "/projects", element: <Projects /> },
-        { path: "/contact", element: <Contact /> },
+        { path: ROUTE_PATHS.home, element: <Home /> },
+        { path: ROUTE_PATHS.eBoard, element: <EBoard /> },
+        { path: ROUTE_PATHS.events, element: <Events /> },
+        { path: ROUTE_PATHS.projects, element: <Projects /> },
+        { path: ROUTE_PATHS.contact, element: <Contact /> },
       ],
     },
   ],

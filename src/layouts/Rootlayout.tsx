@@ -7,13 +7,28 @@ import {
   Mail,
   Instagram,
 } from "lucide-react";
+import {
+  CONTACT_EMAIL,
+  FOOTER_NAV_LINKS,
+  NAV_LINKS,
+  ROUTE_PATHS,
+  SOCIAL_LINKS,
+  type SocialPlatform,
+} from "../lib/navigation";
+
+const SOCIAL_ICON_MAP = {
+  instagram: Instagram,
+  linkedin: Linkedin,
+  youtube: Youtube,
+  github: Github,
+} as const satisfies Record<SocialPlatform, typeof Instagram>;
 
 export default function Rootlayout() {
   const location = useLocation();
 
   const isActive = (path: string) => {
-    if (path === "/") {
-      return location.pathname === "/";
+    if (path === ROUTE_PATHS.home) {
+      return location.pathname === ROUTE_PATHS.home;
     }
     return location.pathname.startsWith(path);
   };
@@ -25,7 +40,7 @@ export default function Rootlayout() {
         <div className="max-w-7xl mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-2">
+            <Link to={ROUTE_PATHS.home} className="flex items-center gap-2">
               <div className="relative">
                 <Braces className="w-8 h-8 text-[#34F5A3]" />
                 <div className="absolute -top-1 -right-1 w-2 h-2 bg-[#34F5A3] rounded-full animate-pulse"></div>
@@ -35,40 +50,15 @@ export default function Rootlayout() {
 
             {/* Desktop Nav */}
             <div className="hidden md:flex items-center gap-8">
-              <Link
-                to="/"
-                className={`transition-colors ${isActive("/") ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-              >
-                Home
-              </Link>
-
-              <Link
-                to="/events"
-                className={`transition-colors ${isActive("/events") ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-              >
-                Events
-              </Link>
-
-              <Link
-                to="/projects"
-                className={`transition-colors ${isActive("/projects") ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-              >
-                Projects
-              </Link>
-
-              <Link
-                to="/e-board"
-                className={`transition-colors ${isActive("/e-board") ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-              >
-                E-Board
-              </Link>
-
-              <Link
-                to="/contact"
-                className={`transition-colors ${isActive("/contact") ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-              >
-                Contact
-              </Link>
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`transition-colors ${isActive(link.path) ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
+                >
+                  {link.label}
+                </Link>
+              ))}
             </div>
           </div>
         </div>
@@ -104,30 +94,15 @@ export default function Rootlayout() {
               <h4 className="font-semibold mb-4">Quick Links</h4>
 
               <div className="space-y-2">
-                <Link
-                  to="/"
-                  className="block text-gray-400 hover:text-[#34F5A3] text-sm"
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/events"
-                  className="block text-gray-400 hover:text-[#34F5A3] text-sm"
-                >
-                  Events
-                </Link>
-                <Link
-                  to="/projects"
-                  className="block text-gray-400 hover:text-[#34F5A3] text-sm"
-                >
-                  Projects
-                </Link>
-                <Link
-                  to="/e-board"
-                  className="block text-gray-400 hover:text-[#34F5A3] text-sm"
-                >
-                  E-Board
-                </Link>
+                {FOOTER_NAV_LINKS.map((link) => (
+                  <Link
+                    key={link.path}
+                    to={link.path}
+                    className="block text-gray-400 hover:text-[#34F5A3] text-sm"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
               </div>
             </div>
 
@@ -138,45 +113,28 @@ export default function Rootlayout() {
               <div className="flex items-center gap-2 text-gray-400 text-sm mb-4">
                 <Mail className="w-4 h-4 text-[#34F5A3]" />
                 <a
-                  href="mailto:css.cpp.edu@gmail.com"
+                  href={`mailto:${CONTACT_EMAIL}`}
                   className="hover:text-[#34F5A3]"
                 >
-                  css.cpp.edu@gmail.com
+                  {CONTACT_EMAIL}
                 </a>
               </div>
 
               <div className="flex items-center gap-3">
-                <a
-                  href="https://www.instagram.com/cppcss/"
-                  target="_blank"
-                  className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
+                {SOCIAL_LINKS.map((social) => {
+                  const Icon = SOCIAL_ICON_MAP[social.platform];
 
-                <a
-                  href="https://www.linkedin.com/company/cppcss/"
-                  target="_blank"
-                  className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
-
-                <a
-                  href="https://www.youtube.com/channel/UC8sXz4RNrixxpLXBI56_jGw"
-                  target="_blank"
-                  className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
-                >
-                  <Youtube className="w-5 h-5" />
-                </a>
-
-                <a
-                  href="https://github.com/cpp-css"
-                  target="_blank"
-                  className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
-                >
-                  <Github className="w-5 h-5" />
-                </a>
+                  return (
+                    <a
+                      key={social.platform}
+                      href={social.href}
+                      target="_blank"
+                      className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
+                    >
+                      <Icon className="w-5 h-5" />
+                    </a>
+                  );
+                })}
               </div>
             </div>
           </div>

@@ -11,6 +11,7 @@ import {
 } from "../lib/eventDate";
 import eventsPageHeaderBackground from "../assets/redesignPhotos/EventsPageHeader.webp";
 import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader2.webp";
+import { HeroBadge } from "../components/ui/HeroBadge";
 
 /* Keyframes & utility styles */
 const EVENTS_STYLES = `
@@ -287,12 +288,7 @@ export const Events = () => {
 
         <div className="max-w-7xl mx-auto relative text-center pb-16">
           {/* Badge */}
-          <div className="eha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/25 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#34F5A3] inline-block" />
-            <span className="text-sm text-[#34F5A3] font-mono tracking-wide">
-              events[]
-            </span>
-          </div>
+          <HeroBadge label="events[]" className="eha1 mb-6" />
 
           <h1 className="eha2 text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight leading-none">
             Our{" "}

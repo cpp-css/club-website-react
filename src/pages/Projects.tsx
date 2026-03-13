@@ -41,6 +41,7 @@ import {
   type ProjectLinkIcon,
   type ProjectTechnologies,
 } from "../data/projectsData";
+import { HeroBadge } from "../components/ui/HeroBadge";
 
 const getTechnologyValues = (technologies: ProjectTechnologies) =>
   Object.values(technologies).filter((value): value is string[] =>
@@ -149,12 +150,7 @@ export const Projects = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-[#34F5A3]/10 rounded-full blur-[120px]" />
 
         <div className="max-w-7xl mx-auto relative text-center">
-          <div className="pha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/25 rounded-full mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#34F5A3] inline-block" />
-            <span className="text-sm text-[#34F5A3] font-mono tracking-wide">
-              featured_projects[]
-            </span>
-          </div>
+          <HeroBadge label="featured_projects[]" className="pha1 mb-6" />
 
           <h1 className="pha2 text-5xl md:text-7xl lg:text-8xl mb-6 tracking-tight leading-none">
             Our{" "}

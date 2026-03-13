@@ -5,6 +5,7 @@ import eboardImg from "../assets/redesignPhotos/eboardImage.jpg";
 
 import { currentBoard as currentOfficers } from "../data/currentBoard";
 import { formerBoard } from "../data/formerBoard";
+import { HeroBadge } from "../components/ui/HeroBadge";
 
 const EBOARD_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
@@ -118,12 +119,7 @@ export const EBoard = () => {
                 <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-[#34F5A3]/40 to-transparent" />
 
                 {/* Badge */}
-                <div className="ha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/25 rounded-full mb-7">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#34F5A3] inline-block" />
-                  <span className="text-sm text-[#34F5A3] font-mono tracking-wide">
-                    meet_the_team()
-                  </span>
-                </div>
+                <HeroBadge label="meet_the_team()" className="ha1 mb-7" />
 
                 {/* Title */}
                 <h1 className="ha2 pha2 text-5xl md:text-7xl mb-6 tracking-tight">

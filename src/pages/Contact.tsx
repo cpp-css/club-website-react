@@ -9,6 +9,9 @@ const CONTACT_HERO_STYLES = `
 import { Mail, Send, Instagram, Github, Linkedin } from "lucide-react";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import contactBackground from "../assets/redesignPhotos/Contact Background.jpg";
+import { HeroBadge } from "../components/ui/HeroBadge";
+import { SectionBadge } from "../components/ui/SectionBadge";
+import { SocialLinkRow } from "../components/ui/SocialLinkRow";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -86,11 +89,7 @@ export const Contact = () => {
       {/* Contact Content */}
       <section className="relative z-10 pt-12 pb-16 px-4 md:px-6">
         <div className="max-w-7xl mx-auto mb-10 text-center">
-          <div className="cha1 inline-flex items-center gap-2 px-3.5 py-2.5 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-6">
-            <span className="text-sm text-[#34F5A3] font-mono">
-              contact.css_society
-            </span>
-          </div>
+          <HeroBadge label="contact.css_society" className="cha1 mb-6" />
 
           <div className="cha2 inline-flex items-center gap-3">
             <img
@@ -116,11 +115,7 @@ export const Contact = () => {
 
             <div className="relative z-10 p-8 md:p-10 h-full flex flex-col justify-between">
               <div>
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-6">
-                  <span className="text-sm text-[#34F5A3] font-mono">
-                    let&apos;s_connect()
-                  </span>
-                </div>
+                <SectionBadge label="let's_connect()" className="mb-6" />
 
                 <h2 className="text-3xl md:text-4xl mb-4 text-white">
                   Join CPP&apos;s Developer Community
@@ -133,71 +128,33 @@ export const Contact = () => {
                 </p>
 
                 <div className="space-y-5">
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 flex items-center justify-center shrink-0">
-                      <Mail className="w-5 h-5 text-[#34F5A3]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">Email</p>
-                      <a
-                        href="mailto:css.cpp.edu@gmail.com"
-                        className="text-white hover:text-[#34F5A3] transition-colors"
-                      >
-                        css.cpp.edu@gmail.com
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 flex items-center justify-center shrink-0">
-                      <Instagram className="w-5 h-5 text-[#34F5A3]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">Instagram</p>
-                      <a
-                        href="https://www.instagram.com/cppcss/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-white hover:text-[#34F5A3] transition-colors"
-                      >
-                        @cppcss
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 flex items-center justify-center shrink-0">
-                      <Github className="w-5 h-5 text-[#34F5A3]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">GitHub</p>
-                      <a
-                        href="https://github.com/cpp-css"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-white hover:text-[#34F5A3] transition-colors"
-                      >
-                        cpp-css
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-4">
-                    <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 flex items-center justify-center shrink-0">
-                      <Linkedin className="w-5 h-5 text-[#34F5A3]" />
-                    </div>
-                    <div>
-                      <p className="text-sm text-gray-500 mb-1">LinkedIn</p>
-                      <a
-                        href="https://www.linkedin.com/company/cppcss/"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-white hover:text-[#34F5A3] transition-colors"
-                      >
-                        CSS at CPP
-                      </a>
-                    </div>
-                  </div>
+                  <SocialLinkRow
+                    icon={<Mail className="w-5 h-5 text-[#34F5A3]" />}
+                    label="Email"
+                    href="mailto:css.cpp.edu@gmail.com"
+                    linkText="css.cpp.edu@gmail.com"
+                  />
+                  <SocialLinkRow
+                    icon={<Instagram className="w-5 h-5 text-[#34F5A3]" />}
+                    label="Instagram"
+                    href="https://www.instagram.com/cppcss/"
+                    linkText="@cppcss"
+                    isExternal
+                  />
+                  <SocialLinkRow
+                    icon={<Github className="w-5 h-5 text-[#34F5A3]" />}
+                    label="GitHub"
+                    href="https://github.com/cpp-css"
+                    linkText="cpp-css"
+                    isExternal
+                  />
+                  <SocialLinkRow
+                    icon={<Linkedin className="w-5 h-5 text-[#34F5A3]" />}
+                    label="LinkedIn"
+                    href="https://www.linkedin.com/company/cppcss/"
+                    linkText="CSS at CPP"
+                    isExternal
+                  />
                 </div>
               </div>
 
@@ -213,11 +170,7 @@ export const Contact = () => {
           {/* Form Panel */}
           <div className="rounded-3xl border border-white/10 bg-[#121212]/85 backdrop-blur-md p-8 md:p-10">
             <div className="mb-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
-                <span className="text-sm text-[#34F5A3] font-mono">
-                  send_message()
-                </span>
-              </div>
+              <SectionBadge label="send_message()" className="mb-4" />
 
               <h2 className="text-3xl mb-3 text-white">Send us a message</h2>
               <p className="text-gray-400">

@@ -23,6 +23,7 @@ import aerialSsb from "../assets/aerial-ssb 1.png";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import HomeImage from "../assets/redesignPhotos/HomeImage.png";
 import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
+import { SectionBadge } from "../components/ui/SectionBadge";
 
 const HOME_HERO_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
@@ -180,11 +181,7 @@ export const Home = () => {
       <section className="py-12 px-6 bg-[#121212]">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
-              <span className="text-sm text-[#34F5A3] font-mono">
-                &#123; who_we_are &#125;
-              </span>
-            </div>
+            <SectionBadge label="{ who_we_are }" className="mb-4" />
             <h2 className="text-4xl md:text-5xl mb-6">
               CPP's Developer Community
             </h2>

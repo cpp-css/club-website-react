@@ -170,11 +170,11 @@ export const Home = () => {
             <div className="hha4 flex flex-col sm:flex-row gap-4 justify-center mb-14">
               <Link
                 to="/events"
-                className="group px-10 py-6 bg-[#34F5A3] text-black rounded-lg hover:bg-[#2de091] hover:shadow-lg hover:shadow-[#34F5A3]/20 transition-all font-semibold"
+                className="group px-10 py-6 bg-[#34F5A3] text-black rounded-lg transition-all duration-200 font-semibold hover:bg-[#2de091] hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
               >
                 <span className="flex items-center gap-2 justify-center">
                   View Events
-                  <span className="group-hover:translate-x-1 transition-transform">
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
                     →
                   </span>
                 </span>
@@ -182,10 +182,10 @@ export const Home = () => {
 
               <Link
                 to="/contact"
-                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:bg-white/10 hover:border-[#34F5A3]/30 transition-all font-semibold"
+                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
               >
                 <span className="flex items-center gap-2 justify-center">
-                  <Braces className="w-5 h-5 text-[#34F5A3]" />
+                  <Braces className="w-5 h-5 text-[#34F5A3] transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />
                   Join the Club
                 </span>
               </Link>
@@ -331,7 +331,7 @@ export const Home = () => {
 
             <Link
               to="/events"
-              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all"
+              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Events
               <span className="group-hover:translate-x-1 transition-transform">
@@ -414,7 +414,7 @@ export const Home = () => {
 
             <Link
               to="/projects"
-              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all"
+              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Projects
               <span className="group-hover:translate-x-1 transition-transform">

@@ -7,6 +7,7 @@ import allisonImg from "../assets/boardMembers/Allison.jpg";
 import calebImg from "../assets/boardMembers/caleb.jpg";
 import tonyImg from "../assets/boardMembers/tony.png";
 import antonioImg from "../assets/boardMembers/Antonio.jpeg";
+import umarImg from "../assets/boardMembers/umar.png";
 
 export interface BoardMember {
   name: string;
@@ -85,5 +86,13 @@ export const currentBoard: BoardMember[] = [
     github: "https://github.com/Antonioj562",
     linkedin: "https://www.linkedin.com/in/antonio-loyola97/",
     desc: "Hello there! I'm Antonio, I'm a 4th year CS major at CPP and the webmaster for CSS. I enjoy working on web based projects but I recently found that I enjoy working on backend software more. In my free time I play video games like league of legends or Warhammer. I look forward to meeting more people and understanding their journey in CS!",
+  },
+  {
+    name: "Umar",
+    title: "Webmaster Intern",
+    img: umarImg,
+    github: "https://github.com/Umar-Azizadah",
+    linkedin: "https://www.linkedin.com/in/umar-azizadah-24578234b/",
+    desc: "What's up! I'm Umar, a 2nd yr CS major at CPP and the Webmaster Intern for CSS. I'm really interested in software engineering and backend development, and I enjoy building projects that combine both technical systems and creative design. In my free time I like going to cafes, hanging out with friends, and working on projects. I also am really into fashion and might be the biggest Lil Uzi Vert fan :3",
   },
 ];

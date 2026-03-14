@@ -95,12 +95,12 @@ export const Projects = () => {
           <img
             src={projectPageHeaderBackground}
             alt="Project Page Header Background"
-            className="w-188 h-120 object-cover opacity-70"
+            className="w-188 h-125 object-cover opacity-70"
           />
           <img
             src={projectPageHeaderBackground2}
             alt="Project Page Header Background2"
-            className="w-190 h-120 object-cover opacity-70"
+            className="w-190 h-125 object-cover opacity-70"
           />
         </div>
         {/* Scan line */}
@@ -134,7 +134,7 @@ export const Projects = () => {
           </h1>
 
           <p className="pha3 text-xl text-gray-300 max-w-3xl mx-auto">
-            Explore the applications, platforms, and technical projects built by
+            Explore the applications, platforms and technical projects built by
             our community. Click any card to view the full tech stack, team, and
             project links. 🛠️
           </p>

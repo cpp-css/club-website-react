@@ -21,7 +21,7 @@ const PROJECTS_HERO_STYLES = `
     animation: scan-line 5s linear infinite;
   }
 `;
-import projectsBanner from "../assets/11377175_10203435304518305_4965010383617393659_n.jpg";
+import projectsBanner from "../assets/redesignPhotos/projectStudents.webp";
 import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.png";
 import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.png";
 import {
@@ -258,23 +258,38 @@ export const Projects = () => {
       {/* Banner */}
       <section className="px-6 pb-24 bg-black">
         <div className="max-w-7xl mx-auto">
-          <div className="relative rounded-[28px] overflow-hidden border border-white/10">
-            <img
-              src={projectsBanner}
-              alt="Project Banner"
-              className="w-full h-[280px] md:h-[360px] object-cover"
-            />
-            <div className="absolute inset-0 bg-black/45" />
-            <div className="absolute inset-0 flex items-center justify-center text-center px-6">
+          <div className="flex flex-col lg:flex-row-reverse gap-4 items-stretch">
+            {/* Portrait image */}
+            <div className="lg:w-72 xl:w-80 shrink-0 rounded-2xl overflow-hidden">
+              <img
+                src={projectsBanner}
+                alt="CSS project members"
+                className="w-full h-64 lg:h-full object-cover object-top"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex-1 rounded-2xl border border-white/10 bg-[#0a0a0a] px-8 py-10 lg:px-12 lg:py-14 flex flex-col justify-between">
+              <p className="text-[#34F5A3] text-xs font-mono uppercase tracking-[0.2em]">
+                CS Society — Cal Poly Pomona
+              </p>
+
               <div>
-                <h2 className="text-3xl md:text-5xl mb-4">
-                  Built by students, for students
+                <h2 className="text-5xl md:text-6xl xl:text-7xl font-semibold leading-[1.0] tracking-tight text-white mt-6">
+                  Built by
+                  <br />
+                  students,
+                  <br />
+                  <span className="text-[#34F5A3]">for students.</span>
                 </h2>
-                <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-                  From hackathon platforms to research projects, our work
-                  reflects collaboration, creativity, and technical growth.
+                <p className="mt-6 text-gray-400 text-base leading-relaxed max-w-sm">
+                  Real projects, real impact — built by CPP's students.
                 </p>
               </div>
+
+              <p className="text-white/20 text-xs tracking-widest uppercase mt-8">
+                cppcss
+              </p>
             </div>
           </div>
         </div>

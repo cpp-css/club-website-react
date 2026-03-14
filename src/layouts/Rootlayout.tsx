@@ -8,15 +8,20 @@ import {
   Mail,
   Instagram,
   MessageCircleMore,
+  House,
+  Calendar,
+  FolderKanban,
+  Users,
+  UserPlus,
 } from "lucide-react";
 import {
   CONTACT_EMAIL,
   FOOTER_NAV_LINKS,
-  NAV_LINKS,
   ROUTE_PATHS,
   SOCIAL_LINKS,
   type SocialPlatform,
 } from "../lib/navigation";
+import { AnimeNavBar } from "../components/ui/animated-navbar";
 
 type SocialIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
 
@@ -28,6 +33,14 @@ const SOCIAL_ICON_MAP = {
   discord: MessageCircleMore,
 } as const satisfies Record<SocialPlatform, SocialIconComponent>;
 
+const ANIME_NAV_ITEMS = [
+  { name: "Home", url: ROUTE_PATHS.home, icon: House },
+  { name: "Events", url: ROUTE_PATHS.events, icon: Calendar },
+  { name: "Projects", url: ROUTE_PATHS.projects, icon: FolderKanban },
+  { name: "E-Board", url: ROUTE_PATHS.eBoard, icon: Users },
+  { name: "Contact", url: ROUTE_PATHS.contact, icon: UserPlus },
+];
+
 export default function Rootlayout() {
   const location = useLocation();
 
@@ -35,19 +48,12 @@ export default function Rootlayout() {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
   }, [location.pathname]);
 
-  const isActive = (path: string) => {
-    if (path === ROUTE_PATHS.home) {
-      return location.pathname === ROUTE_PATHS.home;
-    }
-    return location.pathname.startsWith(path);
-  };
-
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white flex flex-col">
       {/* NAVBAR */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo */}
             <Link to={ROUTE_PATHS.home} className="flex items-center gap-2">
               <div className="relative">
@@ -57,18 +63,11 @@ export default function Rootlayout() {
               <span className="font-bold text-xl">CSS</span>
             </Link>
 
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center gap-8">
-              {NAV_LINKS.map((link) => (
-                <Link
-                  key={link.path}
-                  to={link.path}
-                  className={`transition-colors ${isActive(link.path) ? "text-[#34F5A3]" : "text-gray-300 hover:text-[#34F5A3]"}`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+            <AnimeNavBar
+              items={ANIME_NAV_ITEMS}
+              defaultActive="Home"
+              className="block"
+            />
           </div>
         </div>
       </nav>

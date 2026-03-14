@@ -91,8 +91,7 @@ function FeaturedCard({
   return (
     <div
       onClick={() => onOpen(event)}
-      className="relative group cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-[#111] featured-glow transition-all duration-500 hover:border-[#34F5A3]/40"
-      style={{ minHeight: 420 }}
+      className="relative group cursor-pointer rounded-3xl overflow-hidden border border-white/10 bg-[#111] featured-glow transition-all duration-500 hover:border-[#34F5A3]/40 min-h-85 md:min-h-105"
     >
       {/* Background flyer / gradient */}
       {event.flyer ? (
@@ -110,10 +109,7 @@ function FeaturedCard({
       )}
 
       {/* Card body: text left, flyer right */}
-      <div
-        className="relative z-10 flex items-stretch h-full"
-        style={{ minHeight: 420 }}
-      >
+      <div className="relative z-10 flex items-stretch h-full">
         {/* Left: text content */}
         <div className="flex flex-col flex-1 p-8 md:p-12">
           <div className="flex-1" />
@@ -180,7 +176,7 @@ function PastRow({
   return (
     <div
       onClick={() => onOpen(event)}
-      className="group cursor-pointer flex gap-5 rounded-2xl border border-white/6 bg-[#0e0e0e] hover:bg-[#111] hover:border-white/12 transition-all duration-300 overflow-hidden card-glow"
+      className="group cursor-pointer flex gap-3 sm:gap-5 rounded-2xl border border-white/6 bg-[#0e0e0e] hover:bg-[#111] hover:border-white/12 transition-all duration-300 overflow-hidden card-glow"
     >
       {/* Index + date sidebar */}
       <div className="flex flex-col items-center justify-center bg-[#0a0a0a] border-r border-white/5 px-4 py-5 min-w-18 shrink-0">
@@ -197,11 +193,11 @@ function PastRow({
 
       {/* Flyer thumbnail */}
       {event.flyer && (
-        <div className="hidden sm:block w-20 h-auto shrink-0 overflow-hidden self-stretch">
+        <div className="block w-14 sm:w-20 h-auto shrink-0 overflow-hidden self-stretch">
           <img
             src={event.flyer}
             alt=""
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-75 transition-opacity duration-300"
+            className="w-full h-full object-cover opacity-60 sm:opacity-50 group-hover:opacity-75 transition-opacity duration-300"
           />
         </div>
       )}
@@ -217,7 +213,7 @@ function PastRow({
       </div>
 
       {/* Arrow */}
-      <div className="flex items-center pr-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
+      <div className="hidden sm:flex items-center pr-5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
         <ArrowRight className="w-4 h-4 text-[#34F5A3]" />
       </div>
     </div>
@@ -256,16 +252,16 @@ export const Events = () => {
 
       {/* Hero */}
       <div className="relative pt-28 pb-0 px-6 overflow-hidden bg-[#0a0a0a]">
-        <div className="absolute inset-0 z-0 flex">
+        <div className="absolute inset-0 z-0 flex flex-col lg:flex-row pointer-events-none">
           <img
             src={eventsPageHeaderBackground}
             alt="Events Page Header Background"
-            className="w-188 h-120 object-cover opacity-70"
+            className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
           <img
             src={eventsPageHeaderBackground2}
             alt="Events Page Header Background2"
-            className="w-190 h-120 object-cover opacity-70"
+            className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
         </div>
         {/* Scan line */}
@@ -292,7 +288,8 @@ export const Events = () => {
 
           <p className="eha3 text-xl text-gray-300 max-w-2xl mx-auto mb-10">
             Workshops, hackathons, guest speakers, and more 🎟️ explore
-            everything CSS has hosted and what's next. 📅
+            everything CSS has hosted and what's next. 📅 Zero to any experience
+            is welcome.
           </p>
         </div>
 

@@ -93,6 +93,6 @@ export const currentBoard: BoardMember[] = [
     img: umarImg,
     github: "https://github.com/Umar-Azizadah",
     linkedin: "https://www.linkedin.com/in/umar-azizadah-24578234b/",
-    desc: "What's up! I'm Umar, a 2nd yr CS major at CPP and the Webmaster Intern for CSS. I'm really interested in software engineering and backend development, and I enjoy building projects that combine both technical systems and creative design. In my free time I like going to cafes, hanging out with friends, and working on projects. I also am really into fashion and might be the biggest Lil Uzi Vert fan :3",
+    desc: "What's up! I'm Umar, a 2nd yr CS major at CPP and the Webmaster Intern for CSS. I'm really interested in software engineering and backend development, and I enjoy building projects that combine both technical systems and creative design. In my free time I like going to cafes, hanging out with friends, and working on projects/ graphic design. I also am really into fashion and might be the biggest Lil Uzi Vert fan :3",
   },
 ];

@@ -41,7 +41,7 @@ export const EBoard = () => {
     <>
       <style>{EBOARD_STYLES}</style>
       {/* Hero Section */}
-      <section className="relative min-h-[78vh] flex items-center overflow-hidden bg-[#080808]">
+      <section className="relative min-h-[78vh] overflow-hidden bg-[#080808]">
         {/* Grid texture */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"
@@ -58,7 +58,7 @@ export const EBoard = () => {
         <div className="absolute top-1/2 left-[40%] w-[160px] h-[160px] rounded-full bg-[#34F5A3]/6 blur-[60px] pointer-events-none z-0" />
 
         {/* Hero image — left half, masked into layout */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[58%] z-10 pointer-events-none">
+        <div className="hidden lg:block absolute inset-y-0 left-0 w-full lg:w-[58%] z-10 pointer-events-none">
           <img
             src={eboardImg}
             alt="CSS E-Board"
@@ -99,9 +99,34 @@ export const EBoard = () => {
           />
         </div>
 
+        {/* Mobile hero image */}
+        <div className="relative z-10 lg:hidden px-4 sm:px-6 pt-24">
+          <div className="relative overflow-hidden rounded-3xl border border-white/10">
+            <img
+              src={eboardImg}
+              alt="CSS E-Board"
+              className="w-full h-[42vh] sm:h-[48vh] object-cover object-center"
+              style={{ filter: "brightness(0.8) contrast(1.06) saturate(0.88)" }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background: "linear-gradient(to top, #080808 0%, transparent 32%)",
+              }}
+            />
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.05) 75%, transparent 95%)",
+              }}
+            />
+          </div>
+        </div>
+
         {/* Content — right side */}
-        <div className="relative z-20 max-w-7xl mx-auto px-6 w-full py-36 lg:py-0">
-          <div className="flex justify-end">
+        <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 w-full py-10 sm:py-14 lg:py-0">
+          <div className="flex justify-center lg:justify-end">
             <div className="w-full lg:w-[52%] xl:w-[47%]">
               {/* Glass panel */}
               <div
@@ -136,7 +161,7 @@ export const EBoard = () => {
                 </p>
 
                 {/* Stats row */}
-                <div className="ha4 flex items-center gap-6">
+                <div className="ha4 flex flex-wrap items-center justify-center sm:justify-start gap-4 sm:gap-6">
                   <div className="text-center">
                     <p className="text-2xl font-bold text-white">
                       {currentOfficers.length}
@@ -145,14 +170,14 @@ export const EBoard = () => {
                       officers
                     </p>
                   </div>
-                  <div className="w-px h-10 bg-white/10" />
+                  <div className="hidden sm:block w-px h-10 bg-white/10" />
                   <div className="text-center">
                     <p className="text-2xl font-bold text-white">25-26</p>
                     <p className="text-xs text-gray-500 font-mono mt-0.5">
                       school year
                     </p>
                   </div>
-                  <div className="w-px h-10 bg-white/10" />
+                  <div className="hidden sm:block w-px h-10 bg-white/10" />
                   <div className="text-center">
                     <p className="text-2xl font-bold text-[#34F5A3]">CPP</p>
                     <p className="text-xs text-gray-500 font-mono mt-0.5">

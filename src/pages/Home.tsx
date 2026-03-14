@@ -217,20 +217,12 @@ export const Home = () => {
             <img
               src={HomeImage}
               alt="Home page event"
-              className="w-full max-w-[560px] h-[360px] bject-cover rounded-xl
-              order border-white/10
-              shadow-[0_20px_60px_rgba(0,0,0,0.6)]
-              brightness-95 contrast-110
-              transition-transform duration-500 hover:scale-[1.02]"
+              className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
             <img
               src={HomeImage2}
               alt="Home page event2"
-              className="w-full max-w-[560px] h-[360px] bject-cover rounded-xl
-              order border-white/10
-              shadow-[0_20px_60px_rgba(0,0,0,0.6)]
-              brightness-95 contrast-110
-              transition-transform duration-500 hover:scale-[1.02]"
+              className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
           </div>
         </div>

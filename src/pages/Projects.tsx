@@ -91,16 +91,16 @@ export const Projects = () => {
       <style>{PROJECTS_HERO_STYLES}</style>
       {/* Hero Section */}
       <section className="relative pt-32 pb-34 px-6 overflow-hidden bg-[#121212]">
-        <div className="absolute inset-0 z-0 flex">
+        <div className="absolute inset-0 z-0 flex flex-col lg:flex-row pointer-events-none">
           <img
             src={projectPageHeaderBackground}
             alt="Project Page Header Background"
-            className="w-188 h-125 object-cover opacity-70"
+            className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
           <img
             src={projectPageHeaderBackground2}
             alt="Project Page Header Background2"
-            className="w-190 h-125 object-cover opacity-70"
+            className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
         </div>
         {/* Scan line */}
@@ -141,19 +141,21 @@ export const Projects = () => {
         </div>
       </section>
       {/* Stats strip */}
-      <div className="-mt-5 px-31">
+      <div className="-mt-5 px-4 sm:px-8 md:px-14 lg:px-31">
         <div className="max-w-3xl mx-auto relative">
           {/* Ambient glow behind card */}
           <div className="absolute -inset-px rounded-[28px] bg-linear-to-r from-[#34F5A3]/20 via-[#34F5A3]/5 to-[#34F5A3]/20 blur-md pointer-events-none" />
           <div className="relative rounded-[28px] border border-white/10 bg-[#0b0b0b] backdrop-blur-xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
             {/* Top accent line */}
             <div className="absolute top-0 left-10 right-10 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
-            <div className="grid grid-cols-3">
+            <div className="grid grid-cols-1 sm:grid-cols-3">
               {stats.map((stat, index) => (
                 <div
                   key={stat.label}
-                  className={`group/stat relative py-9 px-4 text-center cursor-default transition-all duration-300 hover:bg-[#34F5A3]/5 ${
-                    index !== stats.length - 1 ? "border-r border-white/10" : ""
+                  className={`group/stat relative py-7 sm:py-9 px-4 text-center cursor-default transition-all duration-300 hover:bg-[#34F5A3]/5 ${
+                    index !== stats.length - 1
+                      ? "border-b border-white/10 sm:border-b-0 sm:border-r sm:border-white/10"
+                      : ""
                   }`}
                 >
                   {/* Hover bottom accent */}

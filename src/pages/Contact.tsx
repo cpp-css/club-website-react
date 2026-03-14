@@ -81,13 +81,13 @@ export const Contact = () => {
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden bg-[#080808]">
       <style>{CONTACT_HERO_STYLES}</style>
       {/* Page Background */}
       <img
         src={contactBackground}
         alt="Contact background"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-x-0 top-0 w-full h-screen md:h-full object-cover object-[center_top] md:object-center"
       />
 
       {/* Glow */}

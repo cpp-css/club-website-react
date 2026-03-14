@@ -40,20 +40,22 @@ export function SocialLinkRow({
   isExternal = false,
 }: SocialLinkRowProps) {
   return (
-    <div className="flex items-start gap-4">
-      <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 flex items-center justify-center shrink-0">
+    <a
+      href={href}
+      {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
+      className="group flex items-start gap-4 transition-transform duration-200 hover:translate-x-1"
+    >
+      <div className="w-11 h-11 rounded-xl bg-[#34F5A3]/10 border border-transparent flex items-center justify-center shrink-0 transition-all duration-200 group-hover:bg-[#34F5A3]/20 group-hover:border-[#34F5A3]/30 group-hover:scale-110">
         {icon}
       </div>
       <div>
-        <p className="text-sm text-gray-500 mb-1">{label}</p>
-        <a
-          href={href}
-          {...(isExternal ? { target: "_blank", rel: "noreferrer" } : {})}
-          className="text-white hover:text-[#34F5A3] transition-colors"
-        >
+        <p className="text-sm text-gray-500 mb-1 transition-colors duration-200 group-hover:text-gray-400">
+          {label}
+        </p>
+        <span className="text-white transition-colors duration-200 group-hover:text-[#34F5A3]">
           {linkText}
-        </a>
+        </span>
       </div>
-    </div>
+    </a>
   );
 }

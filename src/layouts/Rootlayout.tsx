@@ -139,7 +139,7 @@ export default function Rootlayout() {
                       target="_blank"
                       rel="noreferrer"
                       aria-label={social.platform}
-                      className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
+                      className="group w-10 h-10 bg-white/5 border border-white/5 rounded-lg flex items-center justify-center transition-all duration-200 hover:bg-[#34F5A3]/10 hover:border-[#34F5A3]/30 hover:text-[#34F5A3] hover:-translate-y-0.5 hover:scale-110"
                     >
                       <Icon className="w-5 h-5" />
                     </a>

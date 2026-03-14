@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import {
   Braces,
@@ -25,6 +26,10 @@ const SOCIAL_ICON_MAP = {
 
 export default function Rootlayout() {
   const location = useLocation();
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, [location.pathname]);
 
   const isActive = (path: string) => {
     if (path === ROUTE_PATHS.home) {

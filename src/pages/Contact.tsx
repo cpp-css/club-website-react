@@ -6,7 +6,14 @@ const CONTACT_HERO_STYLES = `
   .cha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
   .cha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
 `;
-import { Mail, Send, Instagram, Github, Linkedin } from "lucide-react";
+import {
+  Mail,
+  Send,
+  Instagram,
+  Github,
+  Linkedin,
+  MessageCircleMore,
+} from "lucide-react";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import contactBackground from "../assets/redesignPhotos/Contact Background.jpg";
 import { HeroBadge } from "../components/ui/HeroBadge";
@@ -133,6 +140,15 @@ export const Contact = () => {
                     label="Email"
                     href="mailto:css.cpp.edu@gmail.com"
                     linkText="css.cpp.edu@gmail.com"
+                  />
+                  <SocialLinkRow
+                    icon={
+                      <MessageCircleMore className="w-5 h-5 text-[#34F5A3]" />
+                    }
+                    label="Discord"
+                    href="https://discord.gg/gUW74PQhxF"
+                    linkText="Join our Discord"
+                    isExternal
                   />
                   <SocialLinkRow
                     icon={<Instagram className="w-5 h-5 text-[#34F5A3]" />}

@@ -1,4 +1,4 @@
-import { useLayoutEffect } from "react";
+import { useLayoutEffect, type ComponentType, type SVGProps } from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
 import {
   Braces,
@@ -7,6 +7,7 @@ import {
   Youtube,
   Mail,
   Instagram,
+  MessageCircleMore,
 } from "lucide-react";
 import {
   CONTACT_EMAIL,
@@ -17,12 +18,15 @@ import {
   type SocialPlatform,
 } from "../lib/navigation";
 
+type SocialIconComponent = ComponentType<SVGProps<SVGSVGElement>>;
+
 const SOCIAL_ICON_MAP = {
   instagram: Instagram,
   linkedin: Linkedin,
   youtube: Youtube,
   github: Github,
-} as const satisfies Record<SocialPlatform, typeof Instagram>;
+  discord: MessageCircleMore,
+} as const satisfies Record<SocialPlatform, SocialIconComponent>;
 
 export default function Rootlayout() {
   const location = useLocation();
@@ -134,6 +138,8 @@ export default function Rootlayout() {
                       key={social.platform}
                       href={social.href}
                       target="_blank"
+                      rel="noreferrer"
+                      aria-label={social.platform}
                       className="group w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center hover:bg-[#34F5A3]/10 hover:text-[#34F5A3]"
                     >
                       <Icon className="w-5 h-5" />

@@ -24,7 +24,12 @@ export const NAV_LINKS: NavLinkItem[] = [
 
 export const FOOTER_NAV_LINKS = NAV_LINKS.filter((link) => link.showInFooter);
 
-export type SocialPlatform = "instagram" | "linkedin" | "youtube" | "github";
+export type SocialPlatform =
+  | "instagram"
+  | "linkedin"
+  | "youtube"
+  | "github"
+  | "discord";
 
 export interface SocialLinkItem {
   platform: SocialPlatform;
@@ -35,6 +40,10 @@ export const SOCIAL_LINKS: SocialLinkItem[] = [
   {
     platform: "instagram",
     href: "https://www.instagram.com/cppcss/",
+  },
+  {
+    platform: "discord",
+    href: "https://discord.gg/gUW74PQhxF",
   },
   {
     platform: "linkedin",

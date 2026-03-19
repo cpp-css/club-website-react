@@ -1,87 +1,506 @@
-import { useEffect, useRef } from "react";
-
-import '../styles/home.css'
-
+import type { KeyboardEvent as ReactKeyboardEvent } from "react";
+import { Link } from "react-router-dom";
+import {
+  Terminal,
+  Braces,
+  Users,
+  Zap,
+  Lightbulb,
+  Calendar,
+  ExternalLink,
+} from "lucide-react";
+import { EventDetailsModal } from "../components/ui/EventDetailsModal";
+import { ProjectDetailsModal } from "../components/ui/ProjectDetailsModal";
+import { eventsData, type EventItem } from "../data/eventsData";
+import { projectsData, type Project } from "../data/projectsData";
+import {
+  compareEventDatesAsc,
+  compareEventDatesDesc,
+  formatEventDate,
+  getStartOfToday,
+  parseEventDate,
+} from "../lib/eventDate";
 import aerialSsb from "../assets/aerial-ssb 1.png";
-import logo2025 from "../assets/logo_for_web_2_2025.png";
-import cssGif from "../assets/cssgif.gif";
-import globeSvg from "../assets/globe.svg";
-import upchartSvg from "../assets/upchart.svg";
-import brainSvg from "../assets/brain.svg";
+import cssLogo from "../assets/logo_for_web_2_2025.png";
+import HomeImage from "../assets/redesignPhotos/HomeImage.png";
+import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
+import { SectionBadge } from "../components/ui/SectionBadge";
+import { useModalController } from "../lib/useModalController";
+
+const HOME_HERO_STYLES = `
+  @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+  .hha1{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .1s both}
+  .hha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
+  .hha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
+  .hha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
+`;
+
+const PREVIEW_PROJECTS = [
+  {
+    id: 1,
+    tags: ["Mobile App", "Flutter"],
+  },
+  {
+    id: 2,
+    tags: ["Web", "Hackathon"],
+  },
+];
+
+const previewProjects = PREVIEW_PROJECTS.flatMap(({ id, tags }) => {
+  const project = projectsData.find((entry) => entry.id === id);
+
+  return project ? [{ ...project, tags }] : [];
+});
+
+const openOnEnterOrSpace = <T,>(
+  event: ReactKeyboardEvent<HTMLElement>,
+  item: T,
+  open: (item: T) => void,
+) => {
+  if (event.key !== "Enter" && event.key !== " ") {
+    return;
+  }
+
+  event.preventDefault();
+  open(item);
+};
 
 export const Home = () => {
-    const imageRef = useRef<HTMLImageElement | null>(null);
+  const today = getStartOfToday();
+  const {
+    selected: selectedEvent,
+    open: openEvent,
+    close: closeEvent,
+  } = useModalController<EventItem>();
+  const {
+    selected: selectedProject,
+    open: openProject,
+    close: closeProject,
+  } = useModalController<Project>();
 
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add("visible");
-            } else {
-                entry.target.classList.remove("visible"); 
-            }
-            });
-        },
-        { threshold: 0.2 } // triggers when 20% of the image is visible
-        );
+  const upcomingPreviews = eventsData
+    .filter((e) => parseEventDate(e.dateISO) >= today)
+    .sort((a, b) => compareEventDatesAsc(a.dateISO, b.dateISO))
+    .slice(0, 3);
 
-        if (imageRef.current) {
-        observer.observe(imageRef.current);
-        }
+  const eventPreviews =
+    upcomingPreviews.length > 0
+      ? upcomingPreviews
+      : [...eventsData]
+          .sort((a, b) => compareEventDatesDesc(a.dateISO, b.dateISO))
+          .slice(0, 3);
 
-        return () => {
-        if (imageRef.current) {
-            observer.unobserve(imageRef.current);
-        }
-        };
-    }, []);
-    return (
-        <>
-            {/* Home page */}
-            <header id='top'>
-                <img src={aerialSsb} alt='CPP Engineering Building' className='header-image' />
-                <img src={logo2025} alt='logo' className='desktop-logo' />
-            </header>
-            {/* About section first page */}
-            <section id='about'>
-                <h1 className='about-title'><span className='about-title-text'>Did you know</span><span className='about-question-mark'>?</span></h1>
-                <div className='about-blue-line'></div>
-                <img ref={imageRef} src={cssGif} alt='computer with typing text animation gif' className='about-computer' />
-                <div className='about-desc-wrapper'>
-                    <p className='about-desc'>Computer Science Society is the oldest computer science organization at Cal Poly Pomona. We are one of the largest clubs that host events regularly and advise our members on the next path to success. Our motto is “Connect passion to empathy“.</p>
+  return (
+    <div>
+      <style>{HOME_HERO_STYLES}</style>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden">
+        {/* Background Campus Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src={aerialSsb}
+            alt="Cal Poly Pomona campus"
+            className="w-full h-full object-cover opacity-65"
+          />
+        </div>
+        {/* Background Grid Pattern */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                "linear-gradient(#34F5A3 1px, transparent 1px), linear-gradient(90deg, #34F5A3 1px, transparent 1px)",
+              backgroundSize: "50px 50px",
+              opacity: 0.03,
+            }}
+          ></div>
+        </div>
+
+        {/* Green Gradient Glow */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-[#34F5A3]/10 rounded-full blur-[120px]"></div>
+        <div className="absolute top-20 right-0 w-[400px] h-[400px] bg-[#34F5A3]/5 rounded-full blur-[100px]"></div>
+
+        {/* Code Decorations */}
+        <div className="absolute top-40 left-10 hidden lg:block opacity-30">
+          <div className="font-mono text-xs text-[#34F5A3]">
+            <div>const student = {"{"}</div>
+            <div className="ml-4">passion: "coding",</div>
+            <div className="ml-4">community: "CSS"</div>
+            <div>{"}"};</div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-20 right-10 hidden lg:block opacity-30">
+          <div className="font-mono text-xs text-[#34F5A3]">
+            <div>// Build amazing things</div>
+            <div>while(learning) {"{"}</div>
+            <div className="ml-4">grow();</div>
+            <div>{"}"}</div>
+          </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="max-w-4xl mx-auto text-center">
+            <div className="hha1 inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-full mb-8">
+              <Terminal className="w-6 h-6 text-[#34F5A3]" />
+              <span className="text-sm text-[#34F5A3] font-mono">
+                ~/cpp/css
+              </span>
+            </div>
+
+            <div className="hha2 inline-flex items-center gap-3">
+              <img
+                src={cssLogo}
+                alt="CSS Logo"
+                className="w-18 h-18 object-contain translate-x-[15px] translate-y-[17px]"
+              />
+            </div>
+
+            <h1 className="hha2 text-5xl md:text-7xl mb-6 tracking-tight font-semibold">
+              Computer Science
+              <br />
+              <span className="text-[#34F5A3]">Society</span>
+            </h1>
+
+            <p className="hha3 text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+              CPP's student developer community. Learn, code, and create amazing
+              projects together. No experience? No problem! 🚀
+            </p>
+
+            <div className="hha4 flex flex-col sm:flex-row gap-4 justify-center mb-14">
+              <Link
+                to="/events"
+                className="group px-10 py-6 bg-[#34F5A3] text-black rounded-lg transition-all duration-200 font-semibold hover:bg-[#2de091] hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+              >
+                <span className="flex items-center gap-2 justify-center">
+                  View Events
+                  <span className="transition-transform duration-200 group-hover:translate-x-1">
+                    →
+                  </span>
+                </span>
+              </Link>
+
+              <Link
+                to="/contact"
+                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
+              >
+                <span className="flex items-center gap-2 justify-center">
+                  <Braces className="w-5 h-5 text-[#34F5A3] transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />
+                  Join the Club
+                </span>
+              </Link>
+            </div>
+
+            <div className="relative rounded-2xl overflow-hidden border border-gray-800 bg-[#121212] shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/20 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="py-12 px-6 bg-[#121212]">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <SectionBadge label="{ who_we_are }" className="mb-4" />
+            <h2 className="text-4xl md:text-5xl mb-6">
+              CPP's Developer Community
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              CSS is the oldest computer science organization at Cal Poly
+              Pomona. We are one of the largest clubs that host events regularly
+              and advise our members on the next path to success. 👨‍💻 Our motto
+              is "Connect passion to empathy". 💚
+            </p>
+          </div>
+          <div className="flex gap-8 justify-center flex-wrap">
+            <img
+              src={HomeImage}
+              alt="Home page event"
+              className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
+            />
+            <img
+              src={HomeImage2}
+              alt="Home page event2"
+              className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Mission / Values */}
+      <section className="py-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
+              <span className="text-sm text-[#34F5A3] font-mono">
+                {"<our_values />"}
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl mb-6">What We're All About</h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Card 1 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
+                <Users className="w-7 h-7 text-[#34F5A3]" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+                Connectivity
+                <span className="text-lg">🤝</span>
+              </h3>
+              <div className="w-8 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
+              <p className="text-gray-400 leading-relaxed">
+                Connectivity, both socially and technically, is something our
+                club focuses on as we prioritize opportunities for members to
+                connect and build networks with professionals and peers.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
+                <Zap className="w-7 h-7 text-[#34F5A3]" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+                Development
+                <span className="text-lg">⚡</span>
+              </h3>
+              <div className="w-12 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
+              <p className="text-gray-400 leading-relaxed">
+                We aim to spread knowledge through workshops, activities, and
+                experiences that help members improve both technical and
+                non-technical skills.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div
+              className="group relative rounded-2xl p-8 border border-[#34F5A3]/15 hover:border-[#34F5A3]/40 hover:-translate-y-1 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 overflow-hidden"
+              style={{
+                background:
+                  "linear-gradient(135deg, rgba(52,245,163,0.10) 0%, rgba(52,245,163,0.03) 50%, rgba(10,10,10,1) 100%)",
+              }}
+            >
+              <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#34F5A3]/10 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              <div className="w-14 h-14 bg-[#34F5A3]/55 border border-[#34F5A3]/50 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#34F5A3]/50 group-hover:scale-110 transition-all duration-300">
+                <Lightbulb className="w-7 h-7 text-[#34F5A3]" />
+              </div>
+              <h3 className="text-2xl font-semibold mb-2 flex items-center gap-2">
+                Innovation
+                <span className="text-lg">💡</span>
+              </h3>
+              <div className="w-8 h-0.5 bg-[#34F5A3]/40 rounded-full mb-4 group-hover:w-16 transition-all duration-300" />
+              <p className="text-gray-400 leading-relaxed">
+                We encourage members to solve real problems, think creatively,
+                and develop long-term skills that prepare them for a changing
+                tech industry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Preview Events */}
+      <section className="py-12 px-6 bg-[#121212]">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
+                <span className="text-sm text-[#34F5A3] font-mono">
+                  upcoming_events[]
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl">Whats' Happening 📅</h2>
+            </div>
+
+            <Link
+              to="/events"
+              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+            >
+              View All Events
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {eventPreviews.map((event) => (
+              <article
+                key={event.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => openEvent(event)}
+                onKeyDown={(keyboardEvent) =>
+                  openOnEnterOrSpace(keyboardEvent, event, openEvent)
+                }
+                className="group relative bg-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-lg hover:shadow-[#34F5A3]/10 text-left cursor-pointer"
+              >
+                <div className="absolute top-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
+
+                {event.flyer && (
+                  <div className="h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-3">
+                    <img
+                      src={event.flyer}
+                      alt={event.title}
+                      className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="flex flex-wrap items-center gap-2 mb-3">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#34F5A3]/15 border border-[#34F5A3]/25 text-[#34F5A3] rounded-full font-mono text-xs">
+                      <Calendar className="w-3 h-3" />
+                      {formatEventDate(event.dateISO, {
+                        month: "short",
+                        day: "numeric",
+                        year: "numeric",
+                      })}
+                    </span>
+                    <span className="px-2.5 py-1 bg-white/5 border border-white/10 text-gray-400 rounded-full font-mono text-xs">
+                      {event.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-xl mb-2 line-clamp-2 min-h-14 group-hover:text-[#34F5A3] transition-colors">
+                    {event.title}
+                  </h3>
+
+                  <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
+                    {event.description}
+                  </p>
+
+                  <div className="mt-4 inline-flex items-center text-xs font-mono uppercase tracking-[0.16em] text-[#34F5A3]/80 group-hover:text-[#34F5A3] transition-colors">
+                    View Event
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform">
+                      →
+                    </span>
+                  </div>
                 </div>
-            </section>
-            {/* Mission section */}
-            <section id='mission'>
-                <div className='mission-title-container'>
-                    <h1 className='mission-title'>OUR MISSION</h1>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Preview Projects */}
+      <section className="py-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
+                <span className="text-sm text-[#34F5A3] font-mono">
+                  student.projects
+                </span>
+              </div>
+              <h2 className="text-4xl md:text-5xl">Built by Students 🎒</h2>
+            </div>
+
+            <Link
+              to="/projects"
+              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+            >
+              View All Projects
+              <span className="group-hover:translate-x-1 transition-transform">
+                →
+              </span>
+            </Link>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {previewProjects.map((project) => (
+              <article
+                key={project.id}
+                role="button"
+                tabIndex={0}
+                onClick={() => openProject(project)}
+                onKeyDown={(keyboardEvent) =>
+                  openOnEnterOrSpace(keyboardEvent, project, openProject)
+                }
+                className="group bg-[#121212] border border-gray-800 rounded-2xl overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-lg hover:shadow-[#34F5A3]/10 transition-all duration-300 transform hover:-translate-y-2 cursor-pointer"
+              >
+                <div className="h-56 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
+                  />
                 </div>
-                <div className='card-container'>
-                    <div className='card-column' id='mission-card-column-1'>
-                        <div className='mission-card'>
-                            <h4 className='mission-card-title'>Connectivity</h4>
-                            <p className='mission-card-description'>Connectivity, both socially and technically, is something in which our club focuses on as we prioritize providing our members with the opportunity to connect and build networks with professionals and peers. These connections allow them to reach new heights, and technology aids our club with connecting to the world, allowing members to enhance their knowledge and experience. We aim to unite our students and create an inclusive environment where they will strive the most.</p>
-                            <img src={globeSvg} alt='globe' className='mission-card-image first-mission-card-image' />
-                        </div>
-                    </div>
-                    <div className='card-column' id='mission-card-column-2'>
-                        <div className='mission-card'>
-                            <h4 className='mission-card-title'>Development</h4>
-                            <p className='mission-card-description'>Continuous technological advancement is a crucial driving force for society. During this tech storm, the improvement of resources and tools is always a goal in the industry. We aim to spread knowledge on this development through many of our activities. Whether they are technical or social development activities, we believe that the tools we provide will enhance one’s knowledge in both their technical and non-technical skills and ultimately guiding them to become a better person, one day at a time.</p>
-                            <img src={upchartSvg} alt='upward trend' className='mission-card-image' />
-                        </div>
-                    </div>
-                    <div className='card-column' id='mission-card-column-3'>
-                        <div className='mission-card'>
-                            <h4 className='mission-card-title'>Innovation</h4>
-                            <p className='mission-card-description'>As the world is actively evolving, we need to prepare for these changes and adapt to them as fast as we can. The key for innovation lies in the hands of future generations pursuing a role in the tech industry and how keen they are in detecting, analyzing, and solving global problems. To prepare for a vastly improving and innovating industry, our club promotes life-long active learning to build robust and timeless skill sets. Therefore, we strive to emphasize how significant and inventive new tech solutions are to society.</p>
-                            <img src={brainSvg} alt='Innovative Thinking' className='mission-card-image' />
-                        </div>
-                    </div>
+                <div className="p-8">
+                  <div className="flex items-center gap-2 mb-4">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-[#34F5A3]/10 text-[#34F5A3] text-xs rounded-full font-mono"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl mb-3">{project.title}</h3>
+                  <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <button
+                      type="button"
+                      onClick={(clickEvent) => {
+                        clickEvent.stopPropagation();
+                        openProject(project);
+                      }}
+                      className="text-[#34F5A3] hover:underline text-sm flex items-center gap-2"
+                    >
+                      <Braces className="w-4 h-4" />
+                      View Details
+                    </button>
+                    <a
+                      href={project.links[0]?.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={(clickEvent) => clickEvent.stopPropagation()}
+                      className="text-gray-400 hover:text-[#34F5A3] hover:underline text-sm flex items-center gap-2 transition-colors"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Live Site
+                    </a>
+                  </div>
                 </div>
-            </section>
-            
-        </>
-    )
-}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <EventDetailsModal
+        event={selectedEvent}
+        onClose={closeEvent}
+        backdropStyle={{
+          background: "rgba(0,0,0,.85)",
+          backdropFilter: "blur(12px)",
+        }}
+      />
+
+      <ProjectDetailsModal
+        project={selectedProject}
+        onClose={closeProject}
+        backdropClassName="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+      />
+    </div>
+  );
+};

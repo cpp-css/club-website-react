@@ -182,7 +182,7 @@ export const Home = () => {
 
               <Link
                 to="/contact"
-                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
+                className="group px-10 py-6 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
               >
                 <span className="flex items-center gap-2 justify-center">
                   <Braces className="w-5 h-5 text-[#34F5A3] transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />

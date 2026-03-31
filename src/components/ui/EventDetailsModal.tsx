@@ -70,6 +70,12 @@ export function EventDetailsModal({
             {event.title}
           </h2>
 
+          {event.speaker && (
+            <p className="-mt-2 mb-4 text-sm text-gray-400 font-mono">
+              {event.speaker}
+            </p>
+          )}
+
           <div className="h-px bg-white/8 mb-6" />
 
           <p className="text-gray-300 leading-[1.85] text-base">

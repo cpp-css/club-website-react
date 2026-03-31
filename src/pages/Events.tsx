@@ -130,6 +130,12 @@ function FeaturedCard({
             {event.title}
           </h2>
 
+          {event.speaker && (
+            <p className="-mt-2 mb-4 text-sm text-gray-400 font-mono max-w-xl">
+              {event.speaker}
+            </p>
+          )}
+
           <p className="text-gray-400 text-base leading-relaxed max-w-lg mb-8 line-clamp-2">
             {event.description}
           </p>
@@ -207,6 +213,11 @@ function PastRow({
         <h4 className="text-white text-base font-semibold leading-snug line-clamp-1 group-hover:text-[#34F5A3] transition-colors duration-200">
           {event.title}
         </h4>
+        {event.speaker && (
+          <p className="text-gray-500 text-xs font-mono mt-1 line-clamp-1">
+            {event.speaker}
+          </p>
+        )}
         <p className="text-gray-600 text-sm mt-1 line-clamp-1">
           {event.description}
         </p>

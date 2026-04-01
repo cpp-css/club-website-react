@@ -373,7 +373,7 @@ export const EBoard = () => {
                     setActive(i);
                     setAnimKey((k) => k + 1);
                   }}
-                  className="group flex flex-col items-center gap-3"
+                  className="group flex flex-col items-center gap-3 cursor-pointer"
                   aria-label={`View ${officer.name}`}
                 >
                   <div

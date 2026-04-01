@@ -355,11 +355,20 @@ export const Home = () => {
                 <div className="absolute top-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
 
                 {event.flyer && (
-                  <div className="h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-4">
+                  <div className="relative h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-4 overflow-hidden">
+                    <div className="absolute inset-0 pointer-events-none">
+                      <img
+                        src={event.flyer}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-full h-full object-cover opacity-[0.18] scale-125"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/15 via-[#050505]/60 to-[#050505]/85" />
+                    </div>
                     <img
                       src={event.flyer}
                       alt={event.title}
-                      className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                      className="relative z-10 max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
                 )}

@@ -1,4 +1,5 @@
 ﻿import { useState, useEffect, useRef } from "react";
+import { ChevronDown } from "lucide-react";
 
 const PROJECTS_HERO_STYLES = `
   @keyframes hero-up { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
@@ -45,6 +46,38 @@ export const Projects = () => {
     close: closeProject,
   } = useModalController<Project>();
   const projects = projectsData;
+
+  // Build the dropdown options from the data (unique, non-empty year ranges)
+  const years = Array.from(
+    new Set(
+      projects
+        .map((p) => p.year)
+        .filter(
+          (year): year is string => typeof year === "string" && year.length > 0,
+        ),
+    ),
+  ).sort((a, b) => {
+    // Sort by most recent start year first; prefer "present" ranges for the same start year
+    const aStart = Number(a.split("-")[0]);
+    const bStart = Number(b.split("-")[0]);
+
+    if (aStart !== bStart) return bStart - aStart;
+
+    const aPresent = a.includes("present");
+    const bPresent = b.includes("present");
+    if (aPresent !== bPresent) return aPresent ? -1 : 1;
+
+    return a.localeCompare(b);
+  });
+
+  // "all" means no filtering (show every project)
+  const [selectedYear, setSelectedYear] = useState<string>("all");
+
+  // Apply the selected year filter to the projects displayed in the grid
+  const yearFilteredProjects =
+    selectedYear === "all"
+      ? projects
+      : projects.filter((project) => project.year === selectedYear);
 
   // Derived states, when the page loads, all three stats count up to their real calculates values
   const totalContributors = projects.reduce((sum, project) => {
@@ -182,8 +215,41 @@ export const Projects = () => {
       {/* Projects Grid */}
       <section className="py-24 px-6 bg-black">
         <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10">
+            <div className="flex items-center gap-4 flex-1">
+              <div className="flex items-center gap-2.5">
+                <span className="text-xs font-mono text-gray-300 uppercase tracking-[.2em]">
+                  Projects
+                </span>
+              </div>
+              <div className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent" />
+              {/* Count reflects the filtered list (updates when the dropdown changes) */}
+              <span className="text-xs font-mono text-gray-600">
+                {yearFilteredProjects.length} projects
+              </span>
+            </div>
+
+            {/* Year filter dropdown ("All Years" disables filtering) */}
+            <div className="relative shrink-0">
+              <select
+                value={selectedYear}
+                onChange={(e) => setSelectedYear(e.target.value)}
+                className="appearance-none bg-[#34F5A3]/6 border border-[#34F5A3]/45 hover:border-[#34F5A3]/70 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/80 focus:ring-2 focus:ring-[#34F5A3]/25"
+              >
+                <option value="all">All Years</option>
+                {years.map((year) => (
+                  <option key={year} value={year}>
+                    {year}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown className="w-3.5 h-3.5 text-[#34F5A3]/80 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+            </div>
+          </div>
+
+          {/* Render the grid from the filtered list (changes when the year dropdown changes) */}
           <div className="grid lg:grid-cols-2 gap-10">
-            {projects.map((project) => (
+            {yearFilteredProjects.map((project) => (
               <div
                 key={project.id}
                 className="group bg-[#121212] border border-gray-800 rounded-[28px] overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 cursor-pointer"

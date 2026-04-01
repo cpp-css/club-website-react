@@ -23,6 +23,8 @@ import firstMeeting2025 from "../assets/eventFlyers/FirstGenMeeting2025.webp";
 export interface EventItem {
   id: string;
   title: string;
+  speaker?: string;
+  url?: string;
   description: string;
   flyer?: string;
   dateISO: string;
@@ -36,8 +38,9 @@ export const eventsData: EventItem[] = [
   {
     id: "broncohacks2026",
     title: "BroncoHacks Hackathon",
+    url: "https://www.broncohacks.org/",
     description:
-      "This is a 24 hour, in-person hackathon affiliated with Major League Hacking (MLH), the official student hackathon league. Participation is completely free! The event is open to students of all majors, featuring competition tracks of various disciplines. We especially encourage engineering students to participate, as there will be a dedicated hardware prize. Whether you’re a seasoned developer or a complete beginner with no coding experience, join us for workshops, free food, and hacking! More details and the registration form can be found on https://broncohacks.org/  ",
+      "This is a 24 hour, in-person hackathon affiliated with Major League Hacking (MLH), the official student hackathon league. Participation is completely free! The event is open to students of all majors, featuring competition tracks of various disciplines. We especially encourage engineering students to participate, as there will be a dedicated hardware prize. Whether you’re a seasoned developer or a complete beginner with no coding experience, join us for workshops, free food, and hacking! More details and the registration form can be found on https://www.broncohacks.org/ or click the LINK pill.",
     flyer: broncoHacks2026,
     dateISO: "2026-04-25",
     displayDate: "2026-04-25",
@@ -46,7 +49,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "speaker42026",
-    title: "Guest Speaker: Minh Khoi Tran",
+    title: "Introduction to Linux Desktop",
+    speaker: "Minh Khoi Tran (Google)",
     description:
       "In Collaboration with SEA for An Introduction to Linux Desktop for CS Students with Minh Khoi Tran, an incoming Google SWE! Learn all about Linux, the free Open-Source Operating System made for Software Engineers! Learning Linux is crucial for building a high-demand, versatile career (covering cloud, DevOps, and security) and provides superior system control, stability, and security.",
     flyer: speaker42026,
@@ -57,7 +61,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "speaker3tony2026",
-    title: "Guest Speaker: Tony from CSS",
+    title: "Bug Bounty Hunting",
+    speaker: "Tony Tong (CSS)",
     description:
       "We met with our Events & Outreach Chair, Tony Tong, to build on our previous session on web caches and dive into bug bounty hunting. We discussed what bug bounty programs are and how real-world vulnerabilities are discovered and responsibly reported",
     flyer: speaker3Tony2026,
@@ -68,7 +73,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "speaker2tony2026",
-    title: "Guest Speaker: Tony from CSS",
+    title: "Web Caches & Misconfigurations",
+    speaker: "Tony Tong (CSS)",
     description:
       "Interested in learning about web technologies, attendees joined us for a session led by Events & Outreach Chair Tony Tong, who introduced web caches and how they work. The session then explored common web cache misconfigurations and demonstrated how these vulnerabilities can be identified and exploited.",
     flyer: speaker2Tony2026,
@@ -79,7 +85,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "speaker1lucero2026",
-    title: "Guest Speaker: Lucero from Google",
+    title: "Accessible Systems Programming",
+    speaker: "Crisrael Lucero (Google)",
     description:
       "We hosted Crisrael Lucero, Software Engineer at Google and former JPL intern, for a talk on the importance of accessible systems programming. He shared insights from his industry experience, discussed real-world systems applications, and highlighted why accessibility matters at every level of software development",
     flyer: speaker1Lucero2026,
@@ -178,7 +185,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "kylespeaker2025",
-    title: "Guest Speaker: Kyle from Meta",
+    title: "AI Infrastructure at Meta",
+    speaker: "Kyle Ah-Tye (Meta)",
     description:
       "CSS hosted Kyle Ah-Tye, software engineer at Meta, who shared his journey in tech and insights on building the AI infrastructure that powers Meta’s models. Attendees had the chance to ask questions and hear his experience firsthand!",
     flyer: kyleSpeaker2025,
@@ -189,7 +197,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "dexterspeaker2025",
-    title: "Guest Speaker: Dexter from Meta",
+    title: "Ads Infrastructure at Meta",
+    speaker: "Dexter Nguyen (Meta)",
     description:
       "CSS hosted Dexter Nguyen, software engineer at Meta, who discussed his path into tech and the skills needed to work at companies like Meta. He shared insights on his work in monetization and ads infrastructure, providing practical advice for attendees.",
     flyer: dexterSpeaker2025,
@@ -200,7 +209,8 @@ export const eventsData: EventItem[] = [
   },
   {
     id: "aaronspeaker2025",
-    title: "Guest Speaker: Aaron from JPL",
+    title: "Internships at JPL (Q&A)",
+    speaker: "Aaron Levitt (JPL)",
     description:
       "CSS hosted Aaron Levitt, software systems engineer at JPL, who shared his experience at JPL, insights on the recruitment process, and answered questions about internships.",
     flyer: aaronSpeaker2025,

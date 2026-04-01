@@ -39,6 +39,7 @@ export interface Project {
   id: number;
   title: string;
   category: string;
+  year?: string;
   emoji: string;
   description: string;
   fullDescription: string;
@@ -54,6 +55,7 @@ export const projectsData: Project[] = [
     id: 1,
     title: "Bronco Bond",
     category: "Mobile App",
+    year: "2023-present",
     emoji: "📱",
     description:
       "BroncoBond is a student networking app designed to help Cal Poly Pomona students uncover people, places, programs, and events associated with CPP.",
@@ -156,6 +158,7 @@ export const projectsData: Project[] = [
     id: 2,
     title: "Bronco Hacks Website",
     category: "Web Platform",
+    year: "2024-present",
     emoji: "💻",
     description:
       "Website for BroncoHacks Hackathon @ CPP, used to display info about upcoming and previous hackathons.",
@@ -242,6 +245,7 @@ export const projectsData: Project[] = [
     id: 3,
     title: "Bronco Hacks Application Portal",
     category: "Full Stack App",
+    year: "2024-2025",
     emoji: "🚀",
     description:
       "Application portal for BroncoHacks where users can register, create or join teams, and connect with teammates.",
@@ -326,6 +330,7 @@ export const projectsData: Project[] = [
     id: 4,
     title: "Exploring Machine Learning Models",
     category: "Research Project",
+    year: "2024-2025",
     emoji: "🤖",
     description:
       "A project exploring machine learning algorithms to predict salary and compare model effectiveness.",

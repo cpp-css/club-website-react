@@ -182,7 +182,7 @@ export const Home = () => {
 
               <Link
                 to="/contact"
-                className="group px-10 py-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
+                className="group px-10 py-6 bg-black/30 backdrop-blur-sm border border-white/20 rounded-lg transition-all duration-200 font-semibold hover:bg-white/10 hover:border-[#34F5A3]/30 hover:shadow-lg hover:shadow-[#34F5A3]/10 hover:-translate-y-0.5 hover:scale-[1.02]"
               >
                 <span className="flex items-center gap-2 justify-center">
                   <Braces className="w-5 h-5 text-[#34F5A3] transition-transform duration-200 group-hover:scale-110 group-hover:rotate-6" />
@@ -319,7 +319,7 @@ export const Home = () => {
       {/* Preview Events */}
       <section className="py-12 px-6 bg-[#121212]">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col items-center text-center gap-6 mb-8">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
                 <span className="text-sm text-[#34F5A3] font-mono">
@@ -331,7 +331,7 @@ export const Home = () => {
 
             <Link
               to="/events"
-              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Events
               <span className="group-hover:translate-x-1 transition-transform">
@@ -340,7 +340,7 @@ export const Home = () => {
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-3 justify-items-center">
             {eventPreviews.map((event) => (
               <article
                 key={event.id}
@@ -350,20 +350,29 @@ export const Home = () => {
                 onKeyDown={(keyboardEvent) =>
                   openOnEnterOrSpace(keyboardEvent, event, openEvent)
                 }
-                className="group relative bg-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-lg hover:shadow-[#34F5A3]/10 text-left cursor-pointer"
+                className="group relative w-full max-w-lg bg-gradient-to-b from-[#121212] to-[#0b0b0b] border border-white/10 rounded-3xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-[#34F5A3]/45 hover:shadow-2xl hover:shadow-[#34F5A3]/10 text-left cursor-pointer"
               >
                 <div className="absolute top-0 left-8 right-8 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
 
                 {event.flyer && (
-                  <div className="h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-3">
+                  <div className="relative h-56 bg-[#050505] border-b border-white/10 flex items-center justify-center p-4 overflow-hidden">
+                    <div className="absolute inset-0 pointer-events-none">
+                      <img
+                        src={event.flyer}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-full h-full object-cover opacity-[0.18] scale-125"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/15 via-[#050505]/60 to-[#050505]/85" />
+                    </div>
                     <img
                       src={event.flyer}
                       alt={event.title}
-                      className="max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+                      className="relative z-10 max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
                 )}
-                <div className="p-6">
+                <div className="p-7 md:p-8">
                   <div className="flex flex-wrap items-center gap-2 mb-3">
                     <span className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-[#34F5A3]/15 border border-[#34F5A3]/25 text-[#34F5A3] rounded-full font-mono text-xs">
                       <Calendar className="w-3 h-3" />
@@ -378,15 +387,21 @@ export const Home = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-xl mb-2 line-clamp-2 min-h-14 group-hover:text-[#34F5A3] transition-colors">
+                  <h3 className="text-2xl mb-3 line-clamp-2 min-h-16 group-hover:text-[#34F5A3] transition-colors">
                     {event.title}
                   </h3>
 
-                  <p className="text-gray-400 text-sm line-clamp-3 leading-relaxed">
+                  {event.speaker && (
+                    <p className="-mt-2 mb-3 text-xs md:text-sm text-gray-400 font-mono line-clamp-1">
+                      {event.speaker}
+                    </p>
+                  )}
+
+                  <p className="text-gray-400 text-sm md:text-base line-clamp-3 leading-relaxed">
                     {event.description}
                   </p>
 
-                  <div className="mt-4 inline-flex items-center text-xs font-mono uppercase tracking-[0.16em] text-[#34F5A3]/80 group-hover:text-[#34F5A3] transition-colors">
+                  <div className="mt-5 inline-flex items-center text-xs font-mono uppercase tracking-[0.16em] text-[#34F5A3]/80 group-hover:text-[#34F5A3] transition-colors">
                     View Event
                     <span className="ml-2 group-hover:translate-x-1 transition-transform">
                       →
@@ -402,7 +417,7 @@ export const Home = () => {
       {/* Preview Projects */}
       <section className="py-12 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex flex-col items-center text-center gap-6 mb-12">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
                 <span className="text-sm text-[#34F5A3] font-mono">
@@ -414,7 +429,7 @@ export const Home = () => {
 
             <Link
               to="/projects"
-              className="group hidden md:flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Projects
               <span className="group-hover:translate-x-1 transition-transform">

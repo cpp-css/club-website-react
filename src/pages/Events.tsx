@@ -130,6 +130,12 @@ function FeaturedCard({
             {event.title}
           </h2>
 
+          {event.speaker && (
+            <p className="-mt-2 mb-4 text-sm text-gray-400 font-mono max-w-xl">
+              {event.speaker}
+            </p>
+          )}
+
           <p className="text-gray-400 text-base leading-relaxed max-w-lg mb-8 line-clamp-2">
             {event.description}
           </p>
@@ -207,6 +213,11 @@ function PastRow({
         <h4 className="text-white text-base font-semibold leading-snug line-clamp-1 group-hover:text-[#34F5A3] transition-colors duration-200">
           {event.title}
         </h4>
+        {event.speaker && (
+          <p className="text-gray-500 text-xs font-mono mt-1 line-clamp-1">
+            {event.speaker}
+          </p>
+        )}
         <p className="text-gray-600 text-sm mt-1 line-clamp-1">
           {event.description}
         </p>
@@ -224,6 +235,7 @@ function PastRow({
 export const Events = () => {
   const today = getStartOfToday();
 
+  // Split events into upcoming vs past (relative to today) and keep each list sorted
   const upcomingEvents = eventsData
     .filter((e) => parseEventDate(e.dateISO) >= today)
     .sort((a, b) => compareEventDatesAsc(a.dateISO, b.dateISO));
@@ -231,10 +243,12 @@ export const Events = () => {
     .filter((e) => parseEventDate(e.dateISO) < today)
     .sort((a, b) => compareEventDatesDesc(a.dateISO, b.dateISO));
 
+  // Build the semester dropdown options from the past events (unique, newest first)
   const semesters = Array.from(new Set(pastEvents.map((e) => e.semester)))
     .sort()
     .reverse();
 
+  // Default to the newest semester so the list isn't empty on first load
   const [selectedSemester, setSelectedSemester] = useState(semesters[0] ?? "");
   const {
     selected: selectedEvent,
@@ -242,6 +256,7 @@ export const Events = () => {
     close: closeEvent,
   } = useModalController<EventItem>();
 
+  // Apply the selected semester filter to the past events list
   const semesterEvents = pastEvents.filter(
     (e) => e.semester === selectedSemester,
   );
@@ -376,7 +391,7 @@ export const Events = () => {
               <select
                 value={selectedSemester}
                 onChange={(e) => setSelectedSemester(e.target.value)}
-                className="appearance-none bg-[#111] border border-white/10 hover:border-[#34F5A3]/30 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/50"
+                className="appearance-none bg-[#34F5A3]/6 border border-[#34F5A3]/45 hover:border-[#34F5A3]/70 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/80 focus:ring-2 focus:ring-[#34F5A3]/25"
               >
                 {semesters.map((s) => (
                   <option key={s} value={s}>
@@ -384,7 +399,7 @@ export const Events = () => {
                   </option>
                 ))}
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-[#34F5A3]/80 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 

@@ -15,6 +15,7 @@ export interface BoardMember {
   name: string;
   title: string;
   img: string;
+  boardYear?: string;
   github?: string;
   linkedin?: string;
   desc: string;

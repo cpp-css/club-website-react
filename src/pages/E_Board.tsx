@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
 import eboardImg from "../assets/redesignPhotos/eboardImage.jpg";
@@ -34,8 +35,49 @@ export const EBoard = () => {
   const [showCurrent, setShowCurrent] = useState(true);
   const [animKey, setAnimKey] = useState(0);
 
-  const officers = showCurrent ? currentOfficers : formerBoard;
-  const activeOfficer = officers[active];
+  const CURRENT_BOARD_YEAR = "2025-2026";
+
+  // Build the dropdown options from former board data (unique, non-empty year ranges)
+  const formerYears = Array.from(
+    new Set(
+      formerBoard
+        .map((m) => m.boardYear)
+        .filter(
+          (year): year is string => typeof year === "string" && year.length > 0,
+        ),
+    ),
+  ).sort((a, b) => {
+    // Sort by most recent start year first (e.g., 2024-2025 before 2023-2024)
+    const aStart = Number(a.split("-")[0]);
+    const bStart = Number(b.split("-")[0]);
+    return bStart - aStart;
+  });
+
+  // Selected year for the Former Board view; "all" shows every former officer
+  const [selectedFormerYear, setSelectedFormerYear] = useState<string>(
+    formerYears[0] ?? "all",
+  );
+
+  // Apply the year filter to the former board list
+  const formerOfficers =
+    selectedFormerYear === "all"
+      ? formerBoard
+      : formerBoard.filter((m) => m.boardYear === selectedFormerYear);
+
+  const officers = showCurrent
+    ? currentOfficers
+    : formerOfficers.length > 0
+      ? formerOfficers
+      : formerBoard;
+  // Clamp the active index so filtering can't leave us pointing past the end
+  const safeActiveIndex = Math.min(active, Math.max(0, officers.length - 1));
+  const activeOfficer = officers[safeActiveIndex];
+
+  const displayedBoardYear = showCurrent
+    ? CURRENT_BOARD_YEAR
+    : selectedFormerYear === "all"
+      ? "All"
+      : selectedFormerYear;
 
   return (
     <>
@@ -106,12 +148,15 @@ export const EBoard = () => {
               src={eboardImg}
               alt="CSS E-Board"
               className="w-full h-[42vh] sm:h-[48vh] object-cover object-center"
-              style={{ filter: "brightness(0.8) contrast(1.06) saturate(0.88)" }}
+              style={{
+                filter: "brightness(0.8) contrast(1.06) saturate(0.88)",
+              }}
             />
             <div
               className="absolute inset-0"
               style={{
-                background: "linear-gradient(to top, #080808 0%, transparent 32%)",
+                background:
+                  "linear-gradient(to top, #080808 0%, transparent 32%)",
               }}
             />
             <div
@@ -172,7 +217,9 @@ export const EBoard = () => {
                   </div>
                   <div className="hidden sm:block w-px h-10 bg-white/10" />
                   <div className="text-center">
-                    <p className="text-2xl font-bold text-white">25-26</p>
+                    <p className="text-2xl font-bold text-white">
+                      {displayedBoardYear}
+                    </p>
                     <p className="text-xs text-gray-500 font-mono mt-0.5">
                       school year
                     </p>
@@ -260,7 +307,7 @@ export const EBoard = () => {
             {/* Content */}
             <div className="relative">
               {/* Toggle */}
-              <div className="flex mb-6">
+              <div className="flex flex-wrap items-center gap-3 mb-6">
                 <div className="relative flex items-center p-1 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-sm shadow-lg shadow-black/20 cursor-pointer select-none">
                   {/* Sliding background */}
                   <span
@@ -299,6 +346,30 @@ export const EBoard = () => {
                     Former Board
                   </button>
                 </div>
+
+                {/* Show the year dropdown only when viewing the Former Board and we have year options */}
+                {!showCurrent && formerYears.length > 0 && (
+                  <div className="relative shrink-0">
+                    <select
+                      value={selectedFormerYear}
+                      onChange={(e) => {
+                        // Update the filter, then reset the active card so the UI always points to a valid member.
+                        setSelectedFormerYear(e.target.value);
+                        setActive(0);
+                        setAnimKey((k) => k + 1);
+                      }}
+                      className="appearance-none bg-[#111] border border-white/10 hover:border-[#34F5A3]/30 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/50"
+                    >
+                      <option value="all">All Years</option>
+                      {formerYears.map((year) => (
+                        <option key={year} value={year}>
+                          {year}
+                        </option>
+                      ))}
+                    </select>
+                    <ChevronDown className="w-3.5 h-3.5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  </div>
+                )}
               </div>
 
               <div className="flex flex-wrap items-center gap-3 mb-5">

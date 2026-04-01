@@ -234,7 +234,7 @@ export const Projects = () => {
               <select
                 value={selectedYear}
                 onChange={(e) => setSelectedYear(e.target.value)}
-                className="appearance-none bg-[#111] border border-white/10 hover:border-[#34F5A3]/30 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/50"
+                className="appearance-none bg-[#34F5A3]/6 border border-[#34F5A3]/45 hover:border-[#34F5A3]/70 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/80 focus:ring-2 focus:ring-[#34F5A3]/25"
               >
                 <option value="all">All Years</option>
                 {years.map((year) => (
@@ -243,7 +243,7 @@ export const Projects = () => {
                   </option>
                 ))}
               </select>
-              <ChevronDown className="w-3.5 h-3.5 text-gray-500 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <ChevronDown className="w-3.5 h-3.5 text-[#34F5A3]/80 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
             </div>
           </div>
 

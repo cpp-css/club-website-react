@@ -331,7 +331,7 @@ export const Home = () => {
 
             <Link
               to="/events"
-              className="group hidden md:inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Events
               <span className="group-hover:translate-x-1 transition-transform">
@@ -420,7 +420,7 @@ export const Home = () => {
 
             <Link
               to="/projects"
-              className="group hidden md:inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
+              className="group inline-flex items-center gap-2 px-6 py-3 border border-gray-700 rounded-lg hover:border-[#34F5A3] hover:bg-[#34F5A3]/5 transition-all hover:shadow-lg hover:shadow-[#34F5A3]/20 hover:-translate-y-0.5 hover:scale-[1.02]"
             >
               View All Projects
               <span className="group-hover:translate-x-1 transition-transform">

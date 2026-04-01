@@ -64,6 +64,17 @@ export function EventDetailsModal({
                 year: "numeric",
               })}
             </span>
+
+            {event.url && (
+              <a
+                href={event.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono border border-[#34F5A3]/25 bg-[#34F5A3]/10 text-[#34F5A3] hover:bg-[#34F5A3]/15 hover:border-[#34F5A3]/40 transition-colors"
+              >
+                LINK →
+              </a>
+            )}
           </div>
 
           <h2 className="text-3xl md:text-4xl text-white mb-4 leading-tight">

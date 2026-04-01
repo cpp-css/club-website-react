@@ -24,6 +24,7 @@ export interface EventItem {
   id: string;
   title: string;
   speaker?: string;
+  url?: string;
   description: string;
   flyer?: string;
   dateISO: string;
@@ -37,8 +38,9 @@ export const eventsData: EventItem[] = [
   {
     id: "broncohacks2026",
     title: "BroncoHacks Hackathon",
+    url: "https://www.broncohacks.org/",
     description:
-      "This is a 24 hour, in-person hackathon affiliated with Major League Hacking (MLH), the official student hackathon league. Participation is completely free! The event is open to students of all majors, featuring competition tracks of various disciplines. We especially encourage engineering students to participate, as there will be a dedicated hardware prize. Whether you’re a seasoned developer or a complete beginner with no coding experience, join us for workshops, free food, and hacking! More details and the registration form can be found on https://www.broncohacks.org/",
+      "This is a 24 hour, in-person hackathon affiliated with Major League Hacking (MLH), the official student hackathon league. Participation is completely free! The event is open to students of all majors, featuring competition tracks of various disciplines. We especially encourage engineering students to participate, as there will be a dedicated hardware prize. Whether you’re a seasoned developer or a complete beginner with no coding experience, join us for workshops, free food, and hacking! More details and the registration form can be found on https://www.broncohacks.org/ or click the LINK pill.",
     flyer: broncoHacks2026,
     dateISO: "2026-04-25",
     displayDate: "2026-04-25",

@@ -1,6 +1,20 @@
 @import "./tailwind.css";
 @import "./theme.css";
 
+html {
+  color-scheme: dark;
+}
+
+select {
+  color-scheme: dark;
+}
+
+select option,
+select optgroup {
+  background-color: #0a0a0a;
+  color: #ffffff;
+}
+
 @keyframes shine {
   0% {
     transform: translateX(-100%);

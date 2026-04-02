@@ -391,10 +391,15 @@ export const Events = () => {
               <select
                 value={selectedSemester}
                 onChange={(e) => setSelectedSemester(e.target.value)}
+                style={{ colorScheme: "dark" }}
                 className="appearance-none bg-[#34F5A3]/6 border border-[#34F5A3]/45 hover:border-[#34F5A3]/70 text-white text-xs font-mono rounded-xl px-4 py-2.5 pr-9 cursor-pointer transition-colors focus:outline-none focus:border-[#34F5A3]/80 focus:ring-2 focus:ring-[#34F5A3]/25"
               >
                 {semesters.map((s) => (
-                  <option key={s} value={s}>
+                  <option
+                    key={s}
+                    value={s}
+                    style={{ backgroundColor: "#0d0d0d", color: "#ffffff" }}
+                  >
                     {s}
                   </option>
                 ))}

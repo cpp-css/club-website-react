@@ -10,6 +10,9 @@ import antonioImg from "../assets/boardMembers/Antonio.jpeg";
 import umarImg from "../assets/boardMembers/umar.png";
 import michaelHImg from "../assets/boardMembers/michaelH.jpg";
 import garrisonImg from "../assets/boardMembers/garisson.jpg";
+import placeholder from "../assets/boardMembers/placeholder.png";
+import calebSImg from "../assets/boardMembers/calebS.jpg";
+import jasperImg from "../assets/boardMembers/jasper.jpg";
 
 export interface BoardMember {
   name: string;
@@ -113,5 +116,37 @@ export const currentBoard: BoardMember[] = [
     github: "",
     linkedin: "https://www.linkedin.com/in/garrison-g-9b0616330",
     desc: "Hello everyone, I am your treasurer intern for this term! My name is Garrison, and I'm a third year focused on software development. In my spare time I like biking, baking, hiking, and playing games. Feel free to say hi if you see me on campus!",
+  },
+  {
+    name: "Jasper",
+    title: "Temp",
+    img: jasperImg,
+    github: "",
+    linkedin: "",
+    desc: "Hi there, my name is Jasper, a fourth year student. I am a former REU student at UT Austin and University of Rochester. My current research focus is ML/AI and HCI.",
+  },
+  {
+    name: "Logan",
+    title: "Temp",
+    img: placeholder,
+    github: "https://github.com/Grenrobotics",
+    linkedin: "",
+    desc: "I will be a second year member of KHC and FAST. Interested in pursuing AI with a minor in cybersecurity.",
+  },
+  {
+    name: "Keerthi",
+    title: "Temp",
+    img: placeholder,
+    github: "https://github.com/keerthisreeram1",
+    linkedin: "",
+    desc: "Hi Im Keerthi Sreeram, a 4th year CS major. I'm currently a SWE intern at CSU Office of Chancellor and love to build funny and useful side projects in my free time. I love to explore books and nature spots for fun!",
+  },
+  {
+    name: "Caleb S",
+    title: "Temp",
+    img: calebSImg,
+    github: "https://github.com/CalebSzeto",
+    linkedin: "",
+    desc: " I will be a fourth-year student, and I am interested in web development and backend.",
   },
 ];

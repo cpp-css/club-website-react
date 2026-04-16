@@ -54,9 +54,7 @@ export const EBoard = () => {
   });
 
   // Selected year for the Former Board view; "all" shows every former officer
-  const [selectedFormerYear, setSelectedFormerYear] = useState<string>(
-    formerYears[0] ?? "all",
-  );
+  const [selectedFormerYear, setSelectedFormerYear] = useState<string>("all");
 
   // Apply the year filter to the former board list
   const formerOfficers =

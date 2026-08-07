@@ -93,7 +93,7 @@ export default function Rootlayout() {
               </p>
 
               <p className="text-gray-500 text-xs font-mono">
-                // Made with 💚 by students
+                // Made with 💚 by Umar Azizadah
               </p>
             </div>
 

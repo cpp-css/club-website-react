@@ -35,7 +35,7 @@ export const EBoard = () => {
   const [showCurrent, setShowCurrent] = useState(true);
   const [animKey, setAnimKey] = useState(0);
 
-  const CURRENT_BOARD_YEAR = "2025-2026";
+  const CURRENT_BOARD_YEAR = "2026-2027";
 
   // Build the dropdown options from former board data (unique, non-empty year ranges)
   const formerYears = Array.from(

@@ -6,7 +6,6 @@ import michaelHImg from "../assets/boardMembers/michaelH.jpg";
 import garrisonImg from "../assets/boardMembers/garisson.jpg";
 import calebSImg from "../assets/boardMembers/calebS.jpg";
 import jasperImg from "../assets/boardMembers/jasper.jpg";
-import keerthiImg from "../assets/boardMembers/kee.jpg";
 import elenaImg from "../assets/boardMembers/elena.jpeg";
 import loganImg from "../assets/boardMembers/logan.jpg";
 import liamImg from "../assets/boardMembers/liam.png";
@@ -32,19 +31,11 @@ export const currentBoard: BoardMember[] = [
   },
   {
     name: "Michael H",
-    title: "Internal Vice President",
+    title: "Vice President",
     img: michaelHImg,
     github: "https://github.com/michaelhawara",
     linkedin: "https://www.linkedin.com/in/michaelhawara",
     desc: "Hi everyone, name is Michael and I’m a 4th year Computer Science major!! I specialize in AI/ML, and really enjoy attending conferences and hackathons. I’m also a crazy math nerd, so I’m minoring in Math and Cybersecurity. Outside school, I’m part of several nonprofits and church committees and love hiking. I love meeting people so if you see me walking around, don’t ever hesitate to say hi!! (I’m usually playing with a cool stick in my hand haha!!)",
-  },
-  {
-    name: "Keerthi",
-    title: "External VP + Google Tech Lead",
-    img: keerthiImg,
-    github: "https://github.com/keerthisreeram1",
-    linkedin: "",
-    desc: "Hi Im Keerthi Sreeram, a 4th year CS major. I'm currently a SWE intern at CSU Office of Chancellor and love to build funny and useful side projects in my free time. I love to explore books and nature spots for fun!",
   },
   {
     name: "Brandon",

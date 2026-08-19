@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import githubIcon from "../assets/github.svg";
 import linkedinIcon from "../assets/linkedin.svg";
-import eboardImg from "../assets/redesignPhotos/eboardImage.jpg";
+import eboardImg from "../assets/redesignPhotos/eboardImage.webp";
 
 import { currentBoard as currentOfficers } from "../data/currentBoard";
 import { formerBoard } from "../data/formerBoard";
@@ -102,6 +102,8 @@ export const EBoard = () => {
           <img
             src={eboardImg}
             alt="CSS E-Board"
+            decoding="async"
+            fetchPriority="high"
             className="w-full h-full object-cover object-center"
             style={{ filter: "brightness(0.8) contrast(1.06) saturate(0.88)" }}
           />
@@ -145,6 +147,8 @@ export const EBoard = () => {
             <img
               src={eboardImg}
               alt="CSS E-Board"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-[42vh] sm:h-[48vh] object-cover object-center"
               style={{
                 filter: "brightness(0.8) contrast(1.06) saturate(0.88)",
@@ -280,6 +284,8 @@ export const EBoard = () => {
               <img
                 src={activeOfficer.img}
                 alt={activeOfficer.name}
+                loading="lazy"
+                decoding="async"
                 className="relative w-full h-[420px] md:h-[500px] object-cover rounded-[28px] border border-white/10 shadow-lg"
                 style={{ filter: "brightness(0.88) contrast(1.08)" }}
               />
@@ -456,6 +462,8 @@ export const EBoard = () => {
                       <img
                         src={officer.img}
                         alt={officer.name}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500"
                       />
                     </div>

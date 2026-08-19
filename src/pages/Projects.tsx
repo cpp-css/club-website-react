@@ -22,9 +22,9 @@ const PROJECTS_HERO_STYLES = `
     animation: scan-line 5s linear infinite;
   }
 `;
-import projectsBanner from "../assets/redesignPhotos/projectStudents.webp";
-import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.png";
-import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.png";
+import projectsBanner from "../assets/redesignPhotos/projectStudents2.webp";
+import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.webp";
+import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.webp";
 import {
   projectsData,
   type Project,
@@ -332,6 +332,8 @@ export const Projects = () => {
               <img
                 src={projectsBanner}
                 alt="CSS project members"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-64 lg:h-full object-cover object-top"
               />
             </div>

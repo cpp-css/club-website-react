@@ -1,14 +1,14 @@
-import michaelImg from "../assets/boardMembers/michael.jpg";
-import brandonImg from "../assets/boardMembers/Brandon.png";
-import julianImg from "../assets/boardMembers/Julian.jpg";
-import umarImg from "../assets/boardMembers/umar.png";
-import michaelHImg from "../assets/boardMembers/michaelH.jpg";
-import garrisonImg from "../assets/boardMembers/garisson.jpg";
-import calebSImg from "../assets/boardMembers/calebS.jpg";
-import jasperImg from "../assets/boardMembers/jasper.jpg";
-import elenaImg from "../assets/boardMembers/elena.jpeg";
-import loganImg from "../assets/boardMembers/logan.jpg";
-import liamImg from "../assets/boardMembers/liam.png";
+import michaelImg from "../assets/boardMembers/michael.webp";
+import brandonImg from "../assets/boardMembers/Brandon.webp";
+import julianImg from "../assets/boardMembers/Julian.webp";
+import umarImg from "../assets/boardMembers/umar.webp";
+import michaelHImg from "../assets/boardMembers/michaelH.webp";
+import garrisonImg from "../assets/boardMembers/garisson.webp";
+import calebSImg from "../assets/boardMembers/calebS.webp";
+import jasperImg from "../assets/boardMembers/jasper.webp";
+import elenaImg from "../assets/boardMembers/elena.webp";
+import loganImg from "../assets/boardMembers/logan.webp";
+import liamImg from "../assets/boardMembers/liam.webp";
 
 export interface BoardMember {
   name: string;
@@ -68,20 +68,20 @@ export const currentBoard: BoardMember[] = [
     desc: "Hello everyone, I am your treasurer for this term! My name is Garrison, and I'm a third year focused on software development. In my spare time I like biking, baking, hiking, and playing games. Feel free to say hi if you see me on campus!",
   },
   {
-    name: "Jasper",
-    title: "Data Science Team Lead",
-    img: jasperImg,
-    github: "",
-    linkedin: "https://www.linkedin.com/in/jasper-liu-a47a9024b/",
-    desc: "Hi there, my name is Jasper, a fourth year student. I am a former REU student at UT Austin and University of Rochester. My current research focus is ML/AI and HCI.",
-  },
-  {
     name: "Liam",
     title: "Project Chair",
     img: liamImg,
     github: "https://github.com/lebuckman",
     linkedin: "https://www.linkedin.com/in/liam-buckman/",
     desc: "Heyyo, I’m Liam! I’m a 4th year CS major and your Project Chair this year, helping connect members with student-led dev projects. On the dev side, I love web development and care a lot about UX and accessibility, always making sure things feel good to use. Outside of that, you’ll usually find me streaming music, binging dramas, or gaming online. I’m always down to chat or collaborate, so feel free to reach out with questions or recs :P",
+  },
+  {
+    name: "Jasper",
+    title: "Data Science Team Lead",
+    img: jasperImg,
+    github: "",
+    linkedin: "https://www.linkedin.com/in/jasper-liu-a47a9024b/",
+    desc: "Hi there, my name is Jasper, a fourth year student. I am a former REU student at UT Austin and University of Rochester. My current research focus is ML/AI and HCI.",
   },
   {
     name: "Logan",

@@ -1,17 +1,17 @@
-import kaylaImg from "../assets/boardMembers/kayla.png";
-import chrisImg from "../assets/boardMembers/Chris.jpg";
-import justinImg from "../assets/boardMembers/justin.png";
-import amarImg from "../assets/boardMembers/amar.png";
-import phuImg from "../assets/boardMembers/phu.png";
-import danielImg from "../assets/boardMembers/daniel.jpg";
-import nicholasImg from "../assets/boardMembers/nicholas.jpg";
-import jaydenImg from "../assets/boardMembers/jayden.jpg";
-import antonioImg from "../assets/boardMembers/Antonio.jpeg";
-import allisonImg from "../assets/boardMembers/Allison.jpg";
-import calebImg from "../assets/boardMembers/caleb.jpg";
-import tonyImg from "../assets/boardMembers/tony.png";
-import jadeImg from "../assets/boardMembers/Jade.jpeg";
-import placeholder from "../assets/boardMembers/placeholder.png";
+import kaylaImg from "../assets/boardMembers/kayla.webp";
+import chrisImg from "../assets/boardMembers/Chris.webp";
+import justinImg from "../assets/boardMembers/justin.webp";
+import amarImg from "../assets/boardMembers/amar.webp";
+import phuImg from "../assets/boardMembers/phu.webp";
+import danielImg from "../assets/boardMembers/daniel.webp";
+import nicholasImg from "../assets/boardMembers/nicholas.webp";
+import jaydenImg from "../assets/boardMembers/jayden.webp";
+import antonioImg from "../assets/boardMembers/Antonio.webp";
+import allisonImg from "../assets/boardMembers/Allison.webp";
+import calebImg from "../assets/boardMembers/caleb.webp";
+import tonyImg from "../assets/boardMembers/tony.webp";
+import jadeImg from "../assets/boardMembers/Jade.webp";
+import placeholder from "../assets/boardMembers/placeholder.webp";
 import type { BoardMember } from "./currentBoard";
 
 export const formerBoard: BoardMember[] = [

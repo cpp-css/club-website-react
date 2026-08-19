@@ -99,6 +99,8 @@ function FeaturedCard({
           <img
             src={event.flyer}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700"
           />
           <div className="absolute inset-0 bg-linear-to-r from-[#0a0a0a] via-[#0a0a0a]/80 to-transparent" />
@@ -159,6 +161,8 @@ function FeaturedCard({
               <img
                 src={event.flyer}
                 alt={event.title}
+                loading="lazy"
+                decoding="async"
                 className="w-full object-contain group-hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -203,6 +207,8 @@ function PastRow({
           <img
             src={event.flyer}
             alt=""
+            loading="lazy"
+            decoding="async"
             className="w-full h-full object-cover opacity-60 sm:opacity-50 group-hover:opacity-75 transition-opacity duration-300"
           />
         </div>
@@ -271,11 +277,15 @@ export const Events = () => {
           <img
             src={eventsPageHeaderBackground}
             alt="Events Page Header Background"
+            decoding="async"
+            fetchPriority="high"
             className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
           <img
             src={eventsPageHeaderBackground2}
             alt="Events Page Header Background2"
+            decoding="async"
+            fetchPriority="high"
             className="w-full lg:w-1/2 h-1/2 lg:h-full object-cover object-center opacity-70"
           />
         </div>

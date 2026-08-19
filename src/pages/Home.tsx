@@ -24,6 +24,9 @@ import aerialSsb from "../assets/aerial-ssb 1.webp";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
 import HomeImage from "../assets/redesignPhotos/HomeImage.webp";
 import HomeImage2 from "../assets/redesignPhotos/HomeImage2.webp";
+import ValuesImg from "../assets/redesignPhotos/valuesImg.webp";
+import ValuesImg2 from "../assets/redesignPhotos/valuesImg2.webp";
+import ValuesImg3 from "../assets/redesignPhotos/valuesImg3.webp";
 import { SectionBadge } from "../components/ui/SectionBadge";
 import { useModalController } from "../lib/useModalController";
 
@@ -217,11 +220,15 @@ export const Home = () => {
             <img
               src={HomeImage}
               alt="Home page event"
+              loading="lazy"
+              decoding="async"
               className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
             <img
               src={HomeImage2}
               alt="Home page event2"
+              loading="lazy"
+              decoding="async"
               className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
           </div>
@@ -263,6 +270,13 @@ export const Home = () => {
                 club focuses on as we prioritize opportunities for members to
                 connect and build networks with professionals and peers.
               </p>
+              <img
+                src={ValuesImg}
+                alt="Home page event2"
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
+              />
             </div>
 
             {/* Card 2 */}
@@ -287,6 +301,13 @@ export const Home = () => {
                 experiences that help members improve both technical and
                 non-technical skills.
               </p>
+              <img
+                src={ValuesImg2}
+                alt="Home page event2"
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
+              />
             </div>
 
             {/* Card 3 */}
@@ -311,6 +332,13 @@ export const Home = () => {
                 and develop long-term skills that prepare them for a changing
                 tech industry.
               </p>
+              <img
+                src={ValuesImg3}
+                alt="Home page event2"
+                loading="lazy"
+                decoding="async"
+                className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
+              />
             </div>
           </div>
         </div>

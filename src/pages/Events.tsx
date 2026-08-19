@@ -9,8 +9,8 @@ import {
   getStartOfToday,
   parseEventDate,
 } from "../lib/eventDate";
-import eventsPageHeaderBackground from "../assets/redesignPhotos/EventsPageHeader.webp";
-import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader2.webp";
+import eventsPageHeaderBackground from "../assets/redesignPhotos/broncoHacks2026Header.webp";
+import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader.webp";
 import { EventDetailsModal } from "../components/ui/EventDetailsModal";
 import { HeroBadge } from "../components/ui/HeroBadge";
 import { useModalController } from "../lib/useModalController";

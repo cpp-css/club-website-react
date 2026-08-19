@@ -21,7 +21,7 @@ import {
   parseEventDate,
 } from "../lib/eventDate";
 import aerialSsb from "../assets/aerial-ssb 1.webp";
-import cssLogo from "../assets/logo_for_web_2_2025.png";
+import cssLogo from "../assets/logo_for_web_2_2025-144.webp";
 import HomeImage from "../assets/redesignPhotos/HomeImage.webp";
 import HomeImage2 from "../assets/redesignPhotos/HomeImage2.webp";
 import ValuesImg from "../assets/redesignPhotos/valuesImg.webp";
@@ -36,6 +36,11 @@ const HOME_HERO_STYLES = `
   .hha2{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .22s both}
   .hha3{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .34s both}
   .hha4{animation:hero-up .8s cubic-bezier(.16,1,.3,1) .46s both}
+
+  .home-deferred-section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
 `;
 
 const PREVIEW_PROJECTS = [
@@ -103,6 +108,10 @@ export const Home = () => {
           <img
             src={aerialSsb}
             alt="Cal Poly Pomona campus"
+            width={1920}
+            height={1080}
+            fetchPriority="high"
+            decoding="async"
             className="w-full h-full object-cover opacity-65"
           />
         </div>
@@ -155,6 +164,9 @@ export const Home = () => {
               <img
                 src={cssLogo}
                 alt="CSS Logo"
+                width={144}
+                height={144}
+                decoding="async"
                 className="w-18 h-18 object-contain translate-x-[15px] translate-y-[17px]"
               />
             </div>
@@ -220,15 +232,21 @@ export const Home = () => {
             <img
               src={HomeImage}
               alt="Home page event"
+              width={1400}
+              height={933}
               loading="lazy"
               decoding="async"
+              fetchPriority="low"
               className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
             <img
               src={HomeImage2}
               alt="Home page event2"
+              width={1400}
+              height={933}
               loading="lazy"
               decoding="async"
+              fetchPriority="low"
               className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
             />
           </div>
@@ -236,7 +254,7 @@ export const Home = () => {
       </section>
 
       {/* Mission / Values */}
-      <section className="py-12 px-6">
+      <section className="home-deferred-section py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#34F5A3]/10 border border-[#34F5A3]/20 rounded-lg mb-4">
@@ -272,9 +290,12 @@ export const Home = () => {
               </p>
               <img
                 src={ValuesImg}
-                alt="Home page event2"
+                alt="CSS members connecting at a club event"
+                width={1000}
+                height={667}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
                 className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
@@ -303,9 +324,12 @@ export const Home = () => {
               </p>
               <img
                 src={ValuesImg2}
-                alt="Home page event2"
+                alt="CSS members developing their technical skills"
+                width={1000}
+                height={667}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
                 className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
@@ -334,9 +358,12 @@ export const Home = () => {
               </p>
               <img
                 src={ValuesImg3}
-                alt="Home page event2"
+                alt="CSS members building an innovative project"
+                width={1000}
+                height={667}
                 loading="lazy"
                 decoding="async"
+                fetchPriority="low"
                 className="w-full max-w-140 h-60 sm:h-72 md:h-90 object-cover rounded-xl border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.6)] brightness-95 contrast-110 transition-transform duration-500 hover:scale-[1.02]"
               />
             </div>
@@ -345,7 +372,7 @@ export const Home = () => {
       </section>
 
       {/* Preview Events */}
-      <section className="py-12 px-6 bg-[#121212]">
+      <section className="home-deferred-section py-12 px-6 bg-[#121212]">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center gap-6 mb-8">
             <div>
@@ -389,6 +416,9 @@ export const Home = () => {
                         src={event.flyer}
                         alt=""
                         aria-hidden="true"
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
                         className="w-full h-full object-cover opacity-[0.18] scale-125"
                       />
                       <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/15 via-[#050505]/60 to-[#050505]/85" />
@@ -396,6 +426,9 @@ export const Home = () => {
                     <img
                       src={event.flyer}
                       alt={event.title}
+                      loading="lazy"
+                      decoding="async"
+                      fetchPriority="low"
                       className="relative z-10 max-w-full max-h-full object-contain opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
@@ -443,7 +476,7 @@ export const Home = () => {
       </section>
 
       {/* Preview Projects */}
-      <section className="py-12 px-6">
+      <section className="home-deferred-section py-12 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col items-center text-center gap-6 mb-12">
             <div>
@@ -482,6 +515,9 @@ export const Home = () => {
                   <img
                     src={project.image}
                     alt={project.title}
+                    loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
                   />
                 </div>

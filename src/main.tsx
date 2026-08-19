@@ -5,10 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Rootlayout from "./layouts/Rootlayout.tsx";
 import { ROUTE_PATHS } from "./lib/navigation.ts";
+import { Home } from "./pages/Home.tsx";
 
-const Home = lazy(() =>
-  import("./pages/Home.tsx").then((module) => ({ default: module.Home })),
-);
 const EBoard = lazy(() =>
   import("./pages/E_Board.tsx").then((module) => ({ default: module.EBoard })),
 );
@@ -34,11 +32,7 @@ const router = createBrowserRouter(
       children: [
         {
           path: ROUTE_PATHS.home,
-          element: (
-            <Suspense fallback={null}>
-              <Home />
-            </Suspense>
-          ),
+          element: <Home />,
         },
         {
           path: ROUTE_PATHS.eBoard,

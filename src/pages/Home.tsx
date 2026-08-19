@@ -20,10 +20,10 @@ import {
   getStartOfToday,
   parseEventDate,
 } from "../lib/eventDate";
-import aerialSsb from "../assets/aerial-ssb 1.png";
+import aerialSsb from "../assets/aerial-ssb 1.webp";
 import cssLogo from "../assets/logo_for_web_2_2025.png";
-import HomeImage from "../assets/redesignPhotos/HomeImage.png";
-import HomeImage2 from "../assets/redesignPhotos/HomeImage2.png";
+import HomeImage from "../assets/redesignPhotos/HomeImage.webp";
+import HomeImage2 from "../assets/redesignPhotos/HomeImage2.webp";
 import { SectionBadge } from "../components/ui/SectionBadge";
 import { useModalController } from "../lib/useModalController";
 

@@ -23,8 +23,8 @@ const PROJECTS_HERO_STYLES = `
   }
 `;
 import projectsBanner from "../assets/redesignPhotos/projectStudents.webp";
-import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.png";
-import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.png";
+import projectPageHeaderBackground from "../assets/redesignPhotos/ProjectPageHeaderBackground.webp";
+import projectPageHeaderBackground2 from "../assets/redesignPhotos/ProjectPageHeader2.webp";
 import {
   projectsData,
   type Project,

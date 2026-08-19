@@ -4,12 +4,12 @@ import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.webp";
 import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.webp";
 import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.webp";
 import speaker3Tony2026 from "../assets/eventFlyers/s26speaker3.webp";
-import speaker42026 from "../assets/eventFlyers/s26speaker4.png";
+import speaker42026 from "../assets/eventFlyers/s26speaker4.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
 import introWebSec2025 from "../assets/eventFlyers/IntroWebSec2025.webp";
-import sqlWorkshop2025 from "../assets/eventFlyers/SQLWorkshop2025.png";
+import sqlWorkshop2025 from "../assets/eventFlyers/SQLWorkshop2025.webp";
 import halloweenSocial2025 from "../assets/eventFlyers/HalloweenSocial2025.webp";
 import dockerWorkshop2025 from "../assets/eventFlyers/DockerWorkshop2025.webp";
 import offensiveWebSec2025 from "../assets/eventFlyers/OffensiveWebSec2025.webp";

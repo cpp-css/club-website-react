@@ -1,5 +1,5 @@
 import broncoBondImg from "../assets/broncobond.png";
-import broncoHacksSiteImg from "../assets/broncoHacks2025.png";
+import broncoHacksSiteImg from "../assets/broncoHacks2025.webp";
 import broncoPortalImg from "../assets/broncoHacksApplicationPortal2025.png";
 import mlVideo from "../assets/videos/ML-project.mov";
 

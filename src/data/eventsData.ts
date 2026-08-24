@@ -19,6 +19,7 @@ import kyleSpeaker2025 from "../assets/eventFlyers/MetaKyleGuestSpeaker2025.webp
 import dexterSpeaker2025 from "../assets/eventFlyers/MetaDexterGuestSpeaker2025.webp";
 import aaronSpeaker2025 from "../assets/eventFlyers/JPLAaronGuestSpeaker2025.webp";
 import firstMeeting2025 from "../assets/eventFlyers/FirstGenMeeting2025.webp";
+import firstGenMeeting2026 from "../assets/eventFlyers/firstGenMeeting2026.webp";
 
 export interface EventItem {
   id: string;
@@ -35,6 +36,17 @@ export interface EventItem {
 
 export const eventsData: EventItem[] = [
   // Add events with flyers here
+  {
+    id: "firstGenMeeting2026",
+    title: "First General Meeting of Fall 2026",
+    description:
+      "Join the Computer Science Society for our first general meeting of the semester! Meet the CSS community, learn about upcoming workshops, mentorship, project opportunities, hackathons, socials, and more, and find out how you can get involved this semester.",
+    flyer: firstGenMeeting2026,
+    dateISO: "2026-08-27",
+    displayDate: "2026-08-27",
+    semester: "Fall 2026",
+    category: "General Meetings",
+  },
   {
     id: "broncohacks2026",
     title: "BroncoHacks Hackathon",

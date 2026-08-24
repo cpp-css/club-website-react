@@ -30,6 +30,10 @@ import {
   type Project,
   type ProjectTechnologies,
 } from "../data/projectsData";
+import {
+  compareProjectsByRecencyDesc,
+  compareProjectYearsDesc,
+} from "../lib/projectYear";
 import { HeroBadge } from "../components/ui/HeroBadge";
 import { ProjectDetailsModal } from "../components/ui/ProjectDetailsModal";
 import { useModalController } from "../lib/useModalController";
@@ -56,19 +60,7 @@ export const Projects = () => {
           (year): year is string => typeof year === "string" && year.length > 0,
         ),
     ),
-  ).sort((a, b) => {
-    // Sort by most recent start year first; prefer "present" ranges for the same start year
-    const aStart = Number(a.split("-")[0]);
-    const bStart = Number(b.split("-")[0]);
-
-    if (aStart !== bStart) return bStart - aStart;
-
-    const aPresent = a.includes("present");
-    const bPresent = b.includes("present");
-    if (aPresent !== bPresent) return aPresent ? -1 : 1;
-
-    return a.localeCompare(b);
-  });
+  ).sort(compareProjectYearsDesc);
 
   // "all" means no filtering (show every project)
   const [selectedYear, setSelectedYear] = useState<string>("all");
@@ -78,6 +70,11 @@ export const Projects = () => {
     selectedYear === "all"
       ? projects
       : projects.filter((project) => project.year === selectedYear);
+
+  const renderProjects =
+    selectedYear === "all"
+      ? [...yearFilteredProjects].sort(compareProjectsByRecencyDesc)
+      : yearFilteredProjects;
 
   // Derived states, when the page loads, all three stats count up to their real calculates values
   const totalContributors = projects.reduce((sum, project) => {
@@ -225,7 +222,7 @@ export const Projects = () => {
               <div className="flex-1 h-px bg-linear-to-r from-white/8 to-transparent" />
               {/* Count reflects the filtered list (updates when the dropdown changes) */}
               <span className="text-xs font-mono text-gray-600">
-                {yearFilteredProjects.length} projects
+                {renderProjects.length} projects
               </span>
             </div>
 
@@ -249,7 +246,7 @@ export const Projects = () => {
 
           {/* Render the grid from the filtered list (changes when the year dropdown changes) */}
           <div className="grid lg:grid-cols-2 gap-10">
-            {yearFilteredProjects.map((project) => (
+            {renderProjects.map((project) => (
               <div
                 key={project.id}
                 className="group bg-[#121212] border border-gray-800 rounded-[28px] overflow-hidden hover:border-[#34F5A3]/50 hover:shadow-2xl hover:shadow-[#34F5A3]/10 transition-all duration-300 cursor-pointer"

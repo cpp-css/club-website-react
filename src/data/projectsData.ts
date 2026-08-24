@@ -2,6 +2,7 @@ import broncoBondImg from "../assets/broncobond.png";
 import broncoHacksSiteImg from "../assets/broncoHacks2025.webp";
 import broncoPortalImg from "../assets/broncoHacksApplicationPortal2025.png";
 import mlVideo from "../assets/videos/ML-project.mov";
+import YSTEMProjImg from "../assets/YSTEMProjImg.webp";
 
 export type ProjectTechnologyKey =
   | "frontend"
@@ -387,6 +388,61 @@ export const projectsData: Project[] = [
           },
           { name: "Johnny Garcia" },
         ],
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "Y STEM and Chess Mobile App",
+    category: "Mobile App - APPLY",
+    year: "2026-present",
+    emoji: "📱",
+    description:
+      "A cross-platform mobile application bringing Y STEM and Chess Inc's educational platform to Android and iOS.",
+    fullDescription:
+      "The Y STEM and Chess Mobile App is a cross-platform application being developed for Y STEM and Chess Inc., a nonprofit that teaches chess, math, and coding to underserved and at-risk youth. Built with React Native, Expo, and TypeScript, the app is designed to extend the existing web platform to mobile devices. Planned features include secure account access, guided chess lessons and puzzles, progress tracking, games against an adjustable computer opponent, and live chess experiences between students and mentors.",
+    image: YSTEMProjImg,
+    imageType: "image",
+    links: [
+      {
+        label: "Apply",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSfr7Qg854HUdy2dvbJlxPPDe-x8cLKro-LPpyRcx33Q_Opf0Q/viewform?usp=dialog",
+        icon: "external-link",
+      },
+      {
+        label: "View Website",
+        href: "https://ystemandchess.com/",
+        icon: "external-link",
+      },
+      {
+        label: "View GitHub",
+        href: "https://github.com/YSTEMandChess/mobile",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      frontend: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "Expo Router",
+        "TanStack Query",
+      ],
+      backend: ["Node.js", "Express.js", "MongoDB", "Socket.IO", "Stockfish"],
+      services: ["GitHub Actions", "Expo Application Services (EAS)"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Umar Azizadah",
+          },
+        ],
+      },
+      {
+        role: "Developers",
+        members: [],
       },
     ],
   },

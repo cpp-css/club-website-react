@@ -20,6 +20,7 @@ import {
   getStartOfToday,
   parseEventDate,
 } from "../lib/eventDate";
+import { compareProjectsByRecencyDesc } from "../lib/projectYear";
 import aerialSsb from "../assets/aerial-ssb 1.webp";
 import cssLogo from "../assets/logo_for_web_2_2025-144.webp";
 import HomeImage from "../assets/redesignPhotos/HomeImage.webp";
@@ -43,22 +44,17 @@ const HOME_HERO_STYLES = `
   }
 `;
 
-const PREVIEW_PROJECTS = [
-  {
-    id: 1,
-    tags: ["Mobile App", "Flutter"],
-  },
-  {
-    id: 2,
-    tags: ["Web", "Hackathon"],
-  },
-];
+const PREVIEW_PROJECT_LIMIT = 2;
 
-const previewProjects = PREVIEW_PROJECTS.flatMap(({ id, tags }) => {
-  const project = projectsData.find((entry) => entry.id === id);
+const getProjectPreviewTags = (project: Project) => {
+  const technologies = Object.values(project.technologies)
+    .filter((value): value is string[] => Array.isArray(value))
+    .flat();
 
-  return project ? [{ ...project, tags }] : [];
-});
+  const secondTag = technologies[0] ?? project.year ?? "Project";
+
+  return [project.category, secondTag];
+};
 
 const openOnEnterOrSpace = <T,>(
   event: ReactKeyboardEvent<HTMLElement>,
@@ -97,6 +93,11 @@ export const Home = () => {
       : [...eventsData]
           .sort((a, b) => compareEventDatesDesc(a.dateISO, b.dateISO))
           .slice(0, 3);
+
+  const previewProjects = [...projectsData]
+    .sort(compareProjectsByRecencyDesc)
+    .slice(0, PREVIEW_PROJECT_LIMIT)
+    .map((project) => ({ ...project, tags: getProjectPreviewTags(project) }));
 
   return (
     <div>

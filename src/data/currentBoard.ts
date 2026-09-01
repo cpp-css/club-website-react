@@ -1,6 +1,6 @@
 import michaelImg from "../assets/boardMembers/michael.webp";
 import brandonImg from "../assets/boardMembers/Brandon.webp";
-import julianImg from "../assets/boardMembers/Julian.webp";
+import julianImg from "../assets/boardMembers/julian.webp";
 import umarImg from "../assets/boardMembers/umar.webp";
 import michaelHImg from "../assets/boardMembers/michaelH.webp";
 import garrisonImg from "../assets/boardMembers/garisson.webp";

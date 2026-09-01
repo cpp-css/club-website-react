@@ -1,5 +1,7 @@
 // webp for better optimization
 // 2026 event flyers
+import gitGithubWorkshop2026 from "../assets/eventFlyers/GitGitHubWorkshop.webp";
+import firstGenMeeting2026 from "../assets/eventFlyers/firstGenMeeting2026.webp";
 import broncoHacks2026 from "../assets/eventFlyers/BroncoHacks2026.webp";
 import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.webp";
 import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.webp";
@@ -19,7 +21,6 @@ import kyleSpeaker2025 from "../assets/eventFlyers/MetaKyleGuestSpeaker2025.webp
 import dexterSpeaker2025 from "../assets/eventFlyers/MetaDexterGuestSpeaker2025.webp";
 import aaronSpeaker2025 from "../assets/eventFlyers/JPLAaronGuestSpeaker2025.webp";
 import firstMeeting2025 from "../assets/eventFlyers/FirstGenMeeting2025.webp";
-import firstGenMeeting2026 from "../assets/eventFlyers/firstGenMeeting2026.webp";
 
 export interface EventItem {
   id: string;
@@ -36,6 +37,18 @@ export interface EventItem {
 
 export const eventsData: EventItem[] = [
   // Add events with flyers here
+  {
+    id: "gitGithubMeeting2026",
+    title: "Introduction to Git + Github Workshop",
+    speaker: "Caleb Szeto (CSS)",
+    description:
+      "Join us this Thursday for an Intro to Git + GitHub Workshop with Caleb Szeto, our Hackathon Co-Chair! Whether you’re completely new to version control or just want to strengthen your Git skills, this workshop will cover the fundamentals you need to start collaborating on projects with confidence. Come learn the tools that developers use every day and get a foundation you can take into your next project!",
+    flyer: gitGithubWorkshop2026,
+    dateISO: "2026-09-03",
+    displayDate: "2026-09-03",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
   {
     id: "firstGenMeeting2026",
     title: "First General Meeting of Fall 2026",

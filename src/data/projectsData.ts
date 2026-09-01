@@ -394,7 +394,7 @@ export const projectsData: Project[] = [
   {
     id: 5,
     title: "Y STEM and Chess Mobile App",
-    category: "Mobile App - APPLY",
+    category: "Mobile App",
     year: "2026-present",
     emoji: "📱",
     description:
@@ -404,11 +404,6 @@ export const projectsData: Project[] = [
     image: YSTEMProjImg,
     imageType: "image",
     links: [
-      {
-        label: "Apply",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLSfr7Qg854HUdy2dvbJlxPPDe-x8cLKro-LPpyRcx33Q_Opf0Q/viewform?usp=dialog",
-        icon: "external-link",
-      },
       {
         label: "View Website",
         href: "https://ystemandchess.com/",

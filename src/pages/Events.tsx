@@ -5,6 +5,7 @@ import type { EventItem } from "../data/eventsData";
 import {
   compareEventDatesAsc,
   compareEventDatesDesc,
+  compareSemestersDesc,
   formatEventDate,
   getStartOfToday,
   parseEventDate,
@@ -251,8 +252,7 @@ export const Events = () => {
 
   // Build the semester dropdown options from the past events (unique, newest first)
   const semesters = Array.from(new Set(pastEvents.map((e) => e.semester)))
-    .sort()
-    .reverse();
+    .sort(compareSemestersDesc);
 
   // Default to the newest semester so the list isn't empty on first load
   const [selectedSemester, setSelectedSemester] = useState(semesters[0] ?? "");

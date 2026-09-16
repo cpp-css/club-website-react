@@ -7,6 +7,8 @@ import speaker1Lucero2026 from "../assets/eventFlyers/s26speaker1.webp";
 import speaker2Tony2026 from "../assets/eventFlyers/s26speaker2.webp";
 import speaker3Tony2026 from "../assets/eventFlyers/s26speaker3.webp";
 import speaker42026 from "../assets/eventFlyers/s26speaker4.webp";
+import resumeWorkshop2026 from "../assets/eventFlyers/resumeWorkshop2026Fall.webp";
+import introDeepLearning2026 from "../assets/eventFlyers/introToDeepLearning2026Fall.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
@@ -38,6 +40,29 @@ export interface EventItem {
 export const eventsData: EventItem[] = [
   // Add events with flyers here
   {
+    id: "introDeepLearning2026",
+    title: "Intro to Deep Learning Workshop",
+    speaker: "Jasper (CSS Data Science Lead)",
+    description:
+      "Join us this Thursday for an Intro to Deep Learning Workshop hosted by CSS' Data Science Lead, Jasper! In collaboration with DS&AI, we'll dive into machine learning and explore the fundamentals behind advanced architectures like neural networks. Whether you're new to deep learning or looking to strengthen your ML knowledge, this is a great opportunity to learn something new and build your skills!",
+    flyer: introDeepLearning2026,
+    dateISO: "2026-09-17",
+    displayDate: "2026-09-17",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
+  {
+    id: "resumeWorkshop2026",
+    title: "Resume Building Workshop",
+    description:
+      "Join us this Thursday for a Resume Building Workshop! Whether you're creating your first resume, looking to improve your current one, or preparing for internships and future career opportunities, this workshop will cover the essentials of building a strong and effective resume. Come learn how to highlight your skills and experience, make your resume stand out, and put your best foot forward when applying for opportunities!",
+    flyer: resumeWorkshop2026,
+    dateISO: "2026-09-10",
+    displayDate: "2026-09-10",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
+  {
     id: "gitGithubMeeting2026",
     title: "Introduction to Git + Github Workshop",
     speaker: "Caleb Szeto (CSS)",
@@ -49,6 +74,7 @@ export const eventsData: EventItem[] = [
     semester: "Fall 2026",
     category: "Workshops",
   },
+
   {
     id: "firstGenMeeting2026",
     title: "First General Meeting of Fall 2026",

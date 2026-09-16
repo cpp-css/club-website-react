@@ -1,0 +1,172 @@
+.marquee {
+  border-block: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #0b0b0b;
+  background-image:
+    linear-gradient(rgb(174 201 184 / 2.5%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(174 201 184 / 2.5%) 1px, transparent 1px);
+  background-size: 22px 22px;
+  background-position: center;
+  box-shadow: inset 0 1px 12px rgb(52 245 163 / 2%);
+}
+
+.viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 28px,
+    #000 calc(100% - 28px),
+    transparent
+  );
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 80s linear infinite;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  min-width: 100vw;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 17px;
+  padding: 22px 28px;
+  font-family: ui-sans-serif, system-ui, sans-serif;
+  white-space: nowrap;
+}
+
+.stamp {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #547c61;
+  border-radius: 8px;
+  background: #19231a;
+  color: #34f5a3;
+  box-shadow: 5px 2px 0 rgb(119 189 152 / 13%);
+  transform: rotate(-7deg);
+}
+
+.item[data-category="Hackathons"] .stamp {
+  border-color: #548472;
+  color: #8cddba;
+  transform: rotate(5deg);
+}
+
+.item[data-category="Guest Speakers"] .stamp {
+  border-radius: 14px 14px 5px 5px;
+  transform: rotate(-4deg);
+}
+
+.item[data-category="Socials"] .stamp {
+  border-radius: 50%;
+  color: #8cddba;
+  transform: rotate(5deg);
+}
+
+.item[data-category="Tech Talks"] .stamp {
+  transform: rotate(4deg);
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  color: #e9ebe1;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+.caption {
+  color: #8d9b8d;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.025em;
+}
+
+.separator {
+  position: relative;
+  width: 7px;
+  height: 7px;
+  margin-left: 25px;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  position: absolute;
+  background: #49634d;
+}
+
+.separator::before {
+  top: 3px;
+  width: 7px;
+  height: 1px;
+}
+.separator::after {
+  left: 3px;
+  width: 1px;
+  height: 7px;
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .item {
+    padding: 19px 20px;
+    gap: 14px;
+  }
+  .label {
+    font-size: 17px;
+  }
+  .separator {
+    margin-left: 18px;
+  }
+  .stamp {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewport {
+    mask-image: none;
+  }
+  .track {
+    width: 100%;
+    animation: none;
+  }
+  .group {
+    min-width: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .group + .group,
+  .item.repeat,
+  .separator {
+    display: none;
+  }
+  .item {
+    padding: 14px 18px;
+  }
+}

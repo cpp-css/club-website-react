@@ -36,6 +36,7 @@ import {
 } from "../lib/projectYear";
 import { HeroBadge } from "../components/ui/HeroBadge";
 import { ProjectDetailsModal } from "../components/ui/ProjectDetailsModal";
+import { ProjectStats } from "../components/ui/ProjectStats";
 import { useModalController } from "../lib/useModalController";
 
 const getTechnologyValues = (technologies: ProjectTechnologies) =>
@@ -170,45 +171,11 @@ export const Projects = () => {
           </p>
         </div>
       </section>
-      {/* Stats strip */}
-      <div className="-mt-5 px-4 sm:px-8 md:px-14 lg:px-31">
-        <div className="max-w-3xl mx-auto relative">
-          {/* Ambient glow behind card */}
-          <div className="absolute -inset-px rounded-[28px] bg-linear-to-r from-[#34F5A3]/20 via-[#34F5A3]/5 to-[#34F5A3]/20 blur-md pointer-events-none" />
-          <div className="relative rounded-[28px] border border-white/10 bg-[#0b0b0b] backdrop-blur-xl overflow-hidden shadow-[0_24px_80px_rgba(0,0,0,0.6)]">
-            {/* Top accent line */}
-            <div className="absolute top-0 left-10 right-10 h-px bg-linear-to-r from-transparent via-[#34F5A3]/60 to-transparent" />
-            <div className="grid grid-cols-1 sm:grid-cols-3">
-              {stats.map((stat, index) => (
-                <div
-                  key={stat.label}
-                  className={`group/stat relative py-7 sm:py-9 px-4 text-center cursor-default transition-all duration-300 hover:bg-[#34F5A3]/5 ${
-                    index !== stats.length - 1
-                      ? "border-b border-white/10 sm:border-b-0 sm:border-r sm:border-white/10"
-                      : ""
-                  }`}
-                >
-                  {/* Hover bottom accent */}
-                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[#34F5A3]/70 rounded-full transition-all duration-300 group-hover/stat:w-3/4" />
-                  <p
-                    className={`text-4xl md:text-5xl font-bold tracking-tight tabular-nums transition-colors duration-300 ${
-                      stat.label === "Contributors"
-                        ? "text-[#34F5A3]"
-                        : "text-white group-hover/stat:text-[#34F5A3]"
-                    }`}
-                  >
-                    {counts[index]}
-                    {stat.suffix}
-                  </p>
-                  <p className="mt-2.5 text-xs md:text-sm uppercase tracking-[0.2em] text-gray-500 transition-colors duration-300 group-hover/stat:text-gray-300">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
+      <ProjectStats
+        projects={counts[0]}
+        contributors={counts[1]}
+        liveApps={counts[2]}
+      />
       {/* Projects Grid */}
       <section className="py-24 px-6 bg-black">
         <div className="max-w-7xl mx-auto">

@@ -14,6 +14,7 @@ import eventsPageHeaderBackground from "../assets/redesignPhotos/broncoHacks2026
 import eventsPageHeaderBackground2 from "../assets/redesignPhotos/EventsPageHeader.webp";
 import { EventDetailsModal } from "../components/ui/EventDetailsModal";
 import { HeroBadge } from "../components/ui/HeroBadge";
+import { EventsMarquee } from "../components/ui/EventsMarquee";
 import { useModalController } from "../lib/useModalController";
 
 /* Keyframes & utility styles */
@@ -34,10 +35,6 @@ const EVENTS_STYLES = `
     from { opacity:0; transform:scale(.96) translateY(16px) }
     to   { opacity:1; transform:none }
   }
-  @keyframes ticker-slide {
-    from { transform: translateX(0) }
-    to   { transform: translateX(-50%) }
-  }
 
   .eha1 { animation: hero-up .9s cubic-bezier(.16,1,.3,1) .05s both }
   .eha2 { animation: hero-up .9s cubic-bezier(.16,1,.3,1) .18s both }
@@ -57,9 +54,6 @@ const EVENTS_STYLES = `
 
   .pulse-dot { animation: pulse-dot 2s ease-in-out infinite }
 
-  .ticker-wrap { overflow:hidden; white-space:nowrap }
-  .ticker-inner { display:inline-block; animation: ticker-slide 28s linear infinite }
-
   .card-glow:hover {
     box-shadow: 0 0 0 1px rgba(52,245,163,.3), 0 24px 60px rgba(52,245,163,.07);
   }
@@ -71,15 +65,6 @@ const EVENTS_STYLES = `
   .no-scrollbar::-webkit-scrollbar { display:none }
   .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none }
 `;
-
-/* ─── Ticker content ───────────────────────────────────────────────── */
-const TICKER_ITEMS = [
-  "WORKSHOPS",
-  "HACKATHONS",
-  "GUEST SPEAKERS",
-  "SOCIALS",
-  "TECH TALKS",
-];
 
 /* ─── Featured (next upcoming) card ───────────────────────────────── */
 function FeaturedCard({
@@ -322,22 +307,7 @@ export const Events = () => {
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-b from-transparent to-[#080808] pointer-events-none" />
       </div>
 
-      {/* Ticker*/}
-      <div className="border-y border-white/5 bg-[#0d0d0d] py-3 overflow-hidden">
-        <div className="ticker-wrap">
-          <div className="ticker-inner">
-            {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-              <span
-                key={i}
-                className="inline-flex items-center gap-4 mx-6 text-xs font-mono text-gray-300 uppercase tracking-[.25em]"
-              >
-                <span className="w-1 h-1 rounded-full bg-[#34F5A3]/40" />
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
+      <EventsMarquee />
 
       {/* Upcoming Events */}
       <div className="py-20 px-6">

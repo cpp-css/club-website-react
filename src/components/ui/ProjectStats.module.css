@@ -74,7 +74,7 @@
   position: relative;
   margin-bottom: 12px;
   color: #f0eee2;
-  font-size: 48px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.07em;
@@ -95,14 +95,13 @@
   right: -5px;
   bottom: -5px;
   height: 5px;
-  border-top: 2px solid rgba(52, 245, 163, 0.7);
   border-radius: 50%;
   transform: rotate(-4deg);
 }
 
 .label {
   color: #e4e8dc;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
 }
 .note {

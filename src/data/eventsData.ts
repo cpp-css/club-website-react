@@ -9,6 +9,7 @@ import speaker3Tony2026 from "../assets/eventFlyers/s26speaker3.webp";
 import speaker42026 from "../assets/eventFlyers/s26speaker4.webp";
 import resumeWorkshop2026 from "../assets/eventFlyers/resumeWorkshop2026Fall.webp";
 import introDeepLearning2026 from "../assets/eventFlyers/introToDeepLearning2026Fall.webp";
+import leetcodeWorkshop2026 from "../assets/eventFlyers/LeetCodeWorkshop2026.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
@@ -39,6 +40,17 @@ export interface EventItem {
 
 export const eventsData: EventItem[] = [
   // Add events with flyers here
+  {
+    id: "leetcodeWorkshop2026",
+    title: "LeetCode and Interview Prep Workshop",
+    description:
+      "Join us for a workshop focused on LeetCode and technical interview prep. We'll explore coding challenges, problem-solving strategies, and tips to help you prepare for the technical interview process.",
+    flyer: leetcodeWorkshop2026,
+    dateISO: "2026-10-01",
+    displayDate: "2026-10-01",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
   {
     id: "introDeepLearning2026",
     title: "Intro to Deep Learning Workshop",

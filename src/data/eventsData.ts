@@ -10,6 +10,8 @@ import speaker42026 from "../assets/eventFlyers/s26speaker4.webp";
 import resumeWorkshop2026 from "../assets/eventFlyers/resumeWorkshop2026Fall.webp";
 import introDeepLearning2026 from "../assets/eventFlyers/introToDeepLearning2026Fall.webp";
 import leetcodeWorkshop2026 from "../assets/eventFlyers/LeetCodeWorkshop2026.webp";
+import introToRAG2026 from "../assets/eventFlyers/IntroToRAG2026.jpg";
+import broncoMiniHacks2026 from "../assets/eventFlyers/broncoMiniHacks2026.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
@@ -40,6 +42,30 @@ export interface EventItem {
 
 export const eventsData: EventItem[] = [
   // Add events with flyers here
+  {
+    id: "broncoMiniHacks2026",
+    title: "Bronco MiniHacks 2026",
+    url: "https://events.mlh.com/events/15095-hacktoberfest-hack-day-pomona-x-computer-science-society",
+    description:
+      "Curious about hackathons? Join us at CSS Bronco MiniHacks on October 23 from 10:00 AM to 9:00 PM at Building 163, Rooms 1032 and 2026! Whether you're a beginner looking to experience your first hackathon or an experienced developer ready for a new challenge, this event is a chance to learn, collaborate, and turn your ideas into reality. The event is open to all experience levels; teams must have at least 2 and no more than 4 students. Register through Major League Hacking (click the link icon), join the Discord server to find teammates and get announcements, and enjoy free food, snacks, and beverages. Winning teams will receive prizes!",
+    flyer: broncoMiniHacks2026,
+    dateISO: "2026-10-23",
+    displayDate: "2026-10-23",
+    semester: "Fall 2026",
+    category: "Hackathons",
+  },
+  {
+    id: "introToRAG2026",
+    title: "Intro to RAG (Retrieval-Augmented Generation)",
+    speaker: "Michael Hawara (CSS Vice President)",
+    description:
+      "Join us this Thursday for an Intro to RAG (Retrieval-Augmented Generation), hosted by CSS' Vice President, Michael Hawara! We'll dive into how RAG allows AI models to retrieve information from external sources to generate more accurate and relevant responses. No prior experience with RAG is needed, so feel free to stop by and learn something new!",
+    flyer: introToRAG2026,
+    dateISO: "2026-10-15",
+    displayDate: "2026-10-15",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
   {
     id: "leetcodeWorkshop2026",
     title: "LeetCode and Interview Prep Workshop",

@@ -13,6 +13,7 @@ import leetcodeWorkshop2026 from "../assets/eventFlyers/LeetCodeWorkshop2026.web
 import introToRAG2026 from "../assets/eventFlyers/IntroToRAG2026.jpg";
 import broncoMiniHacks2026 from "../assets/eventFlyers/broncoMiniHacks2026.webp";
 import halloweenSocial2026 from "../assets/eventFlyers/CSHalloweenSocial2026.webp";
+import applicationPenetrationTesting2026 from "../assets/eventFlyers/ApplicationPenetrationTesting2026.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
@@ -44,15 +45,28 @@ export interface EventItem {
 export const eventsData: EventItem[] = [
   // Add events with flyers here
   {
+    id: "applicationPenetrationTesting2026",
+    title: "Application Penetration Testing",
+    speaker: "Tony Tong (CoStar)",
+    description:
+      "Join us this Thursday for a guest speaker presentation on Application Penetration Testing, featuring Tony Tong, former CSS Events & Outreach Chair and current Security Engineer at CoStar! We'll explore application penetration testing, evaluating security vulnerabilities in applications, and gain insights from Tony's experience in the industry. The event will be held on Thursday, November 5th, from 12–1 PM in Building 8, Room 345.",
+    flyer: applicationPenetrationTesting2026,
+    dateISO: "2026-11-05",
+    displayDate: "2026-11-05",
+    semester: "Fall 2026",
+    category: "Speaker Events",
+  },
+  {
     id: "halloweenSocial2026",
     title: "CS Halloween Social",
-    description: "This Thursday we're teaming up with several CS clubs for our CS Halloween Social! Take a break from classes and come hang out with fellow students for some pumpkin painting, horror games, and board games.",
+    description:
+      "This Thursday we're teaming up with several CS clubs for our CS Halloween Social! Take a break from classes and come hang out with fellow students for some pumpkin painting, horror games, and board games.",
     flyer: halloweenSocial2026,
     dateISO: "2026-10-29",
     displayDate: "2026-10-29",
     semester: "Fall 2026",
     category: "Socials",
-},
+  },
   {
     id: "broncoMiniHacks2026",
     title: "Bronco MiniHacks 2026",

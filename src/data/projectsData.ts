@@ -1,14 +1,14 @@
-import broncoBondImg from "../assets/broncobond.png";
-import broncoHacksSiteImg from "../assets/broncoHacks2025.webp";
-import broncoPortalImg from "../assets/broncoHacksApplicationPortal2025.png";
-import mlVideo from "../assets/videos/ML-project.mov";
-import YSTEMProjImg from "../assets/YSTEMProjImg.webp";
-import gazeCardHeader from "../assets/GazeCardHeader.webp";
-import dsmlCardHeader from "../assets/CSS-DSMLCardHeader.webp";
-import cookieMonsterCardHeader from "../assets/CookieMonsterCardHeader.webp";
-import smartClockProjHeader from "../assets/SmartClockProjHeader.webp";
-import vyuhCardHeader from "../assets/VYUHCardHeader.webp";
-import broncoHacksPortal2027CardHeader from "../assets/BroncoHacksPortal2027CardHeader.webp";
+import broncoBondImg from "../assets/projects/broncobond.png";
+import broncoHacksSiteImg from "../assets/projects/broncoHacks2025.webp";
+import broncoPortalImg from "../assets/projects/broncoHacksApplicationPortal2025.png";
+import mlVideo from "../assets/projects/ML-project.mov";
+import YSTEMProjImg from "../assets/projects/YSTEMProjImg.webp";
+import gazeCardHeader from "../assets/projects/GazeCardHeader.webp";
+import dsmlCardHeader from "../assets/projects/CSS-DSMLCardHeader.webp";
+import cookieMonsterCardHeader from "../assets/projects/CookieMonsterCardHeader.webp";
+import smartClockProjHeader from "../assets/projects/SmartClockProjHeader.webp";
+import vyuhCardHeader from "../assets/projects/VYUHCardHeader.webp";
+import broncoHacksPortal2027CardHeader from "../assets/projects/BroncoHacksPortal2027CardHeader.webp";
 
 export type ProjectTechnologyKey =
   | "frontend"

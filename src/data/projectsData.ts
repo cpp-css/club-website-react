@@ -1,8 +1,14 @@
-import broncoBondImg from "../assets/broncobond.png";
-import broncoHacksSiteImg from "../assets/broncoHacks2025.webp";
-import broncoPortalImg from "../assets/broncoHacksApplicationPortal2025.png";
-import mlVideo from "../assets/videos/ML-project.mov";
-import YSTEMProjImg from "../assets/YSTEMProjImg.webp";
+import broncoBondImg from "../assets/projects/broncobond.png";
+import broncoHacksSiteImg from "../assets/projects/broncoHacks2025.webp";
+import broncoPortalImg from "../assets/projects/broncoHacksApplicationPortal2025.png";
+import mlVideo from "../assets/projects/ML-project.mov";
+import ystemCardHeader from "../assets/projects/YSTEMCardHeader.webp";
+import gazeCardHeader from "../assets/projects/GazeCardHeader.webp";
+import dsmlCardHeader from "../assets/projects/CSS-DSMLCardHeader.webp";
+import cookieMonsterCardHeader from "../assets/projects/CookieMonsterCardHeader.webp";
+import smartClockProjHeader from "../assets/projects/SmartClockProjHeader.webp";
+import vyuhCardHeader from "../assets/projects/VYUHCardHeader.webp";
+import broncoHacksPortal2027CardHeader from "../assets/projects/BroncoHacksPortal2027CardHeader.webp";
 
 export type ProjectTechnologyKey =
   | "frontend"
@@ -401,7 +407,7 @@ export const projectsData: Project[] = [
       "A cross-platform mobile application bringing Y STEM and Chess Inc's educational platform to Android and iOS.",
     fullDescription:
       "The Y STEM and Chess Mobile App is a cross-platform application being developed for Y STEM and Chess Inc., a nonprofit that teaches chess, math, and coding to underserved and at-risk youth. Built with React Native, Expo, and TypeScript, the app is designed to extend the existing web platform to mobile devices. Planned features include secure account access, guided chess lessons and puzzles, progress tracking, games against an adjustable computer opponent, and live chess experiences between students and mentors.",
-    image: YSTEMProjImg,
+    image: ystemCardHeader,
     imageType: "image",
     links: [
       {
@@ -432,12 +438,549 @@ export const projectsData: Project[] = [
         members: [
           {
             name: "Umar Azizadah",
+            linkedin: "https://www.linkedin.com/in/umar-azizadah-24578234b/",
           },
         ],
       },
       {
         role: "Developers",
-        members: [],
+        members: [
+          {
+            name: "Brandon Tseng",
+            linkedin: "https://www.linkedin.com/in/bt7274/",
+          },
+          {
+            name: "Ryan Sarmiento",
+            linkedin: "https://www.linkedin.com/in/ryan-sarmiento-54759a24b/",
+          },
+          {
+            name: "Kyle Moreno",
+            linkedin: "https://www.linkedin.com/in/kyle-moreno-6ab856302/",
+          },
+          {
+            name: "Diego Anaya",
+            linkedin: "https://www.linkedin.com/in/diego-anaya-347709315/",
+          },
+          {
+            name: "Julian Alfonso",
+            linkedin: "https://www.linkedin.com/in/jtalfonso/",
+          },
+          {
+            name: "Mandy Ly",
+            linkedin: "https://www.linkedin.com/in/mandy-ly-ab74a723a/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Gaze",
+    category: "Computer Vision",
+    year: "2026-present",
+    emoji: "👁",
+    description:
+      "Gaze uses a Raspberry Pi 5 to recognize hand gestures when you face the camera, letting you control a light switch hands-free.",
+    fullDescription:
+      "Gaze uses computer vision to recognize hand gestures only when you face the camera. Looking away tells the system to ignore your gestures, which helps prevent accidental triggers during everyday movement. The prototype uses one camera and a small device that flips an existing light switch without rewiring. It offers hands-free control for people who find switches, phones, or voice commands hard to use. The team plans to add more gestures, support for curtains and doors, eye tracking, and an infrared camera for use in the dark.",
+    image: gazeCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/CPP-CSSPI-VisionDev/Gaze",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      "Computer Vision": ["Python", "OpenCV", "MediaPipe"],
+      Hardware: [
+        "Raspberry Pi 5",
+        "Raspberry Pi Camera Module 3",
+        "ESP32",
+        "Servo Motor",
+      ],
+      Embedded: ["C++", "Arduino IDE"],
+      Design: ["Fusion 360"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Tejas Jain",
+            linkedin: "https://www.linkedin.com/in/tejasjainatwork/",
+          },
+        ],
+      },
+      {
+        role: "Computer Vision Co-Lead",
+        members: [
+          {
+            name: "Havish Karthick",
+            linkedin: "https://www.linkedin.com/in/havish-karthick/",
+          },
+        ],
+      },
+      {
+        role: "Electronics Co-Lead",
+        members: [{ name: "Dean Triguero" }],
+      },
+      {
+        role: "Computer Vision",
+        members: [
+          { name: "Kevin Phon" },
+          { name: "Ryan Mora" },
+          { name: "Lahari Gudimella" },
+        ],
+      },
+      {
+        role: "Electronics",
+        members: [
+          {
+            name: "James Lents",
+            linkedin: "https://www.linkedin.com/in/james-lents-39502b445/",
+          },
+          { name: "Neptune Castaneda" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "CSS-DSML",
+    category: "DS / ML",
+    year: "2026-present",
+    emoji: "📊",
+    description:
+      "CSS-DSML is a semester-long project where students work in pairs to explore the MovieLens dataset using data science and machine learning.",
+    fullDescription:
+      "Students work in pairs to analyze MovieLens data with Python. They clean and prepare the data, engineer features, visualize patterns, and apply machine learning algorithms. By the end of the semester, each pair aims to have a project they can share on their résumés and experience applying core data science concepts together.",
+    image: dsmlCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/XmanJL/css-dsml-fall2027",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      Libraries: ["pandas", "NumPy", "scikit-learn", "Matplotlib"],
+      "Development Tools": [
+        "Git",
+        "GitHub",
+        "Visual Studio Code",
+        "Jupyter Notebook",
+        "Markdown",
+      ],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Jasper Liu",
+            linkedin: "https://www.linkedin.com/in/jasper-liu-a47a9024b/",
+          },
+        ],
+      },
+      {
+        role: "Supervisor",
+        members: [
+          {
+            name: "Liam Buck",
+            linkedin: "https://www.linkedin.com/in/liam-buckman/",
+          },
+        ],
+      },
+      {
+        role: "Members",
+        members: [
+          {
+            name: "Hector Hernandez",
+            linkedin: "https://www.linkedin.com/in/hector-hernandez-158738351/",
+          },
+          {
+            name: "Timothy Cortez",
+            linkedin: "https://www.linkedin.com/in/timothy-cortez-5411b4274/",
+          },
+          {
+            name: "Kevin Phon",
+            linkedin: "https://www.linkedin.com/in/kevin-phon-b64b422aa/",
+          },
+          {
+            name: "Anden Beers",
+            linkedin: "https://www.linkedin.com/in/anden-beers-a971093b5/",
+          },
+          {
+            name: "Sarah Liu",
+            linkedin: "https://www.linkedin.com/in/sarah-liuu/",
+          },
+          {
+            name: "Katia Choi",
+            linkedin: "https://www.linkedin.com/in/katia-c-326887141/",
+          },
+          {
+            name: "MD Arif Arman",
+            linkedin: "https://www.linkedin.com/in/md-arif-arman-894031368/",
+          },
+          {
+            name: "Aaron Strong",
+            linkedin: "https://www.linkedin.com/in/aaron-strong-778494414/",
+          },
+          {
+            name: "Jessica Gonzalez",
+            linkedin: "https://www.linkedin.com/in/jessicagonzalez02/",
+          },
+          {
+            name: "Grecia Mendoza",
+            linkedin: "https://www.linkedin.com/in/grecia-mendoza-b020b7370/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "BroncoHacks Portal 2027",
+    category: "Web Platform",
+    year: "2026-present",
+    emoji: "🐴",
+    description:
+      "This project aims to develop a registration portal for BroncoHacks, Cal Poly Pomona's annual student-run hackathon, to better organize teams, users, and submissions.",
+    fullDescription:
+      "BroncoHacks is a 24-hour event where students form teams of one to four members to develop projects around a yearly theme. The team is building a registration portal for the 2027 registration period to organize users, teams, and hackathon submissions.",
+    image: broncoHacksPortal2027CardHeader,
+    imageType: "image",
+    links: [],
+    technologies: {
+      frontend: ["Next.js", "React", "TypeScript"],
+      backend: [
+        "Spring Boot",
+        "Java",
+        "Spring Security",
+        "PostgreSQL",
+        "Maven",
+      ],
+      services: ["GitHub Actions", "Docker"],
+      Testing: ["Vitest", "JUnit 5"],
+      Design: ["Figma"],
+      "API Testing": ["Postman"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Kyle Moreno",
+            linkedin: "https://www.linkedin.com/in/kyle-moreno-6ab856302/",
+          },
+        ],
+      },
+      {
+        role: "Backend",
+        members: [
+          {
+            name: "Matthew Ponciano",
+            linkedin: "https://www.linkedin.com/in/matthew-ponciano/",
+          },
+          {
+            name: "Jose Godinez",
+            linkedin: "https://www.linkedin.com/in/jose-godinez-948645314/",
+          },
+        ],
+      },
+      {
+        role: "Full Stack",
+        members: [
+          {
+            name: "Trung Tran",
+            linkedin: "https://www.linkedin.com/in/trung-hh-tran/",
+          },
+          {
+            name: "Thuy An Nguyen",
+            linkedin: "https://www.linkedin.com/in/thuy-an-nguyen99/",
+          },
+        ],
+      },
+      {
+        role: "UI/UX",
+        members: [
+          {
+            name: "Shuvashree Basnet",
+            linkedin: "https://www.linkedin.com/in/shuvashreebasnet/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 9,
+    title: "Cookie Monster",
+    category: "DS / ML",
+    year: "2026-present",
+    emoji: "🍪",
+    description:
+      "Cookie Monster is a Firefox extension that compares actual HTTP cookie behavior against privacy policy claims.",
+    fullDescription:
+      "Privacy policies can be hard to understand. Cookie Monster helps Firefox users see whether the HTTP cookies a website sets match what its privacy policy says. The project aims to make data collection more transparent and hold companies accountable for their privacy commitments.",
+    image: cookieMonsterCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/ClarenceBallensky/Cookie_Monster",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      frontend: ["Firefox", "WebExtensions API", "Manifest V3"],
+      backend: ["FastAPI", "PostgreSQL"],
+      "Machine Learning": ["Hugging Face Transformers"],
+      "Data Science": ["pandas", "NumPy"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Clarence Ballensky",
+            linkedin:
+              "https://www.linkedin.com/in/clarence-ballensky-a90442361/",
+          },
+        ],
+      },
+      {
+        role: "Frontend",
+        members: [
+          {
+            name: "Zuber Sandhu",
+            linkedin: "https://www.linkedin.com/in/zubersandhu/",
+          },
+          {
+            name: "Terrell Fontanilla",
+            linkedin: "https://www.linkedin.com/in/terrell-f-4b28a4396/",
+          },
+        ],
+      },
+      {
+        role: "Backend",
+        members: [
+          {
+            name: "Logan Quon",
+            linkedin: "https://www.linkedin.com/in/logan-quon/",
+          },
+        ],
+      },
+      {
+        role: "Data Science",
+        members: [
+          {
+            name: "Sergio Milian",
+            linkedin: "https://www.linkedin.com/in/sergio-milian-8a0545292/",
+          },
+          {
+            name: "Paolo Halog",
+            linkedin: "https://www.linkedin.com/in/paolo-halog/",
+          },
+          {
+            name: "Aaron Strong",
+            linkedin: "https://www.linkedin.com/in/aaron-strong-778494414/",
+          },
+        ],
+      },
+      {
+        role: "Machine Learning",
+        members: [
+          {
+            name: "Vanessa Ramirez",
+            linkedin: "https://www.linkedin.com/in/vanessairamirez/",
+          },
+          {
+            name: "Youseff Garcia",
+            linkedin: "https://www.linkedin.com/in/youseff-garcia/",
+          },
+          {
+            name: "Jason Lin",
+            linkedin: "https://www.linkedin.com/in/jasonrlin/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 10,
+    title: "SmartClock AI (Workers Time Clock System)",
+    category: "Full Stack App",
+    year: "2026-present",
+    emoji: "⏰",
+    description:
+      "SmartClock AI provides shift workers with a seamless, photo-free facial recognition clock-in kiosk while giving managers a real-time attendance dashboard.",
+    fullDescription:
+      "SmartClock AI is a touchless attendance system for small shift-based businesses such as restaurants, retail shops, and local warehouses. Employees can clock in through facial recognition instead of using paper timecards, PINs, or badges. The system converts facial features into mathematical embeddings and deletes raw images rather than saving photos. Managers can monitor attendance, review hours, and correct timecard mistakes before payroll. The Fall 2026 MVP is being developed locally, with smart shift scheduling and photo-spoofing protection planned for future updates.",
+    image: smartClockProjHeader,
+    imageType: "image",
+    links: [],
+    technologies: {
+      frontend: ["React"],
+      backend: ["Python", "FastAPI", "PostgreSQL", "pgvector", "Docker"],
+      services: ["GitHub"],
+      "AI & Computer Vision": ["OpenCV", "DeepFace"],
+      "Design & Project Management": ["Figma", "Asana"],
+    },
+    team: [
+      {
+        role: "Tech Lead / Full-Stack Lead",
+        members: [
+          {
+            name: "Angel Raygoza",
+            linkedin: "https://www.linkedin.com/in/angel-raygoza-bba85835a/",
+          },
+        ],
+      },
+      {
+        role: "AI / Computer Vision Co-Lead",
+        members: [
+          {
+            name: "Harry Lavine",
+            linkedin: "https://www.linkedin.com/in/harry-lavine-427940431",
+          },
+        ],
+      },
+      {
+        role: "Backend",
+        members: [
+          {
+            name: "Howard",
+            linkedin: "https://www.linkedin.com/in/chaoward/",
+          },
+        ],
+      },
+      {
+        role: "Frontend",
+        members: [
+          {
+            name: "Sivana Thilak",
+            linkedin: "https://www.linkedin.com/in/sivana-thilak/",
+          },
+        ],
+      },
+      {
+        role: "Data / QA & Project Operations",
+        members: [
+          {
+            name: "Elvira Pineda",
+            linkedin: "https://www.linkedin.com/in/elvira-p-67b416362/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 11,
+    title: "VYUH Learning Intelligence",
+    category: "Web Platform",
+    year: "2026-present",
+    emoji: "🎓",
+    description:
+      "VYUH Learning Intelligence is an AI-powered educational platform that helps students understand concepts and helps educators identify learning gaps.",
+    fullDescription:
+      "VYUH Learning Intelligence is an AI-powered educational platform designed to help teachers understand how students learn, not only how they score. Guided AI learning, Proof of Learning, and Learning MRI aim to identify misconceptions, track concept-level mastery, and give educators actionable insights. Through personalized interventions and teacher-controlled AI assistance, VYUH envisions a continuous feedback loop where students receive meaningful support and teachers can address learning gaps before exams.",
+    image: vyuhCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "View Website",
+        href: "https://vyuhli.app/",
+        icon: "external-link",
+      },
+      {
+        label: "GitHub Organization",
+        href: "https://github.com/VYUH-LI",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      frontend: ["React", "TypeScript", "HTML/CSS", "Vite", "JavaScript"],
+      backend: ["Python", "FastAPI", "Supabase", "PostgreSQL"],
+      services: ["DigitalOcean", "Name.com", "Resend", "GitHub"],
+      "Version Control & Project Management": [
+        "GitHub Issues",
+        "GitHub Projects",
+        "Git",
+      ],
+      Prototype: ["Base44"],
+      "Development Tools": ["Visual Studio Code"],
+    },
+    team: [
+      {
+        role: "Project Lead / Frontend",
+        members: [
+          {
+            name: "Gudimella Lahari",
+            linkedin: "https://www.linkedin.com/in/lahari-glv/",
+          },
+        ],
+      },
+      {
+        role: "Co-Lead / Backend",
+        members: [
+          {
+            name: "Adi Levy",
+            linkedin: "https://www.linkedin.com/in/adilevy07/",
+          },
+        ],
+      },
+      {
+        role: "Frontend",
+        members: [
+          {
+            name: "Julian Nava-Perez",
+            linkedin: "https://www.linkedin.com/in/julian-nava-perez/",
+          },
+          {
+            name: "Abraham Mourad",
+            linkedin: "https://www.linkedin.com/in/abraham-mourad-00a430289/",
+          },
+          {
+            name: "Havish Karthick",
+            linkedin: "https://www.linkedin.com/in/havish-karthick/",
+          },
+          {
+            name: "Clarence Mariano",
+            linkedin: "https://www.linkedin.com/in/clarence-mariano-68b92132a/",
+          },
+        ],
+      },
+      {
+        role: "Backend",
+        members: [
+          {
+            name: "Ryan Mora",
+            linkedin: "https://www.linkedin.com/in/ryan-mora-b78273338/",
+          },
+          {
+            name: "Calvin Truong",
+            linkedin: "https://www.linkedin.com/in/calvin-truong23/",
+          },
+          {
+            name: "Kevin Phon",
+            linkedin: "https://www.linkedin.com/in/kevin-phon-b64b422aa/",
+          },
+          {
+            name: "Ahmed Elnaggar",
+            linkedin: "https://www.linkedin.com/in/ahmedelnaggar04/",
+          },
+          {
+            name: "Paolo Halog",
+            linkedin: "https://www.linkedin.com/in/paolo-halog/",
+          },
+          {
+            name: "Huy Nguyen",
+            linkedin: "https://www.linkedin.com/in/huy-nguyen-376a4433b/",
+          },
+        ],
       },
     ],
   },

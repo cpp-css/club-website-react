@@ -3,6 +3,8 @@ import broncoHacksSiteImg from "../assets/broncoHacks2025.webp";
 import broncoPortalImg from "../assets/broncoHacksApplicationPortal2025.png";
 import mlVideo from "../assets/videos/ML-project.mov";
 import YSTEMProjImg from "../assets/YSTEMProjImg.webp";
+import gazeCardHeader from "../assets/GazeCardHeader.webp";
+import dsmlCardHeader from "../assets/CSS-DSMLCardHeader.webp";
 
 export type ProjectTechnologyKey =
   | "frontend"
@@ -438,6 +440,174 @@ export const projectsData: Project[] = [
       {
         role: "Developers",
         members: [],
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: "Gaze",
+    category: "Computer Vision",
+    year: "2026-present",
+    emoji: "👁",
+    description:
+      "Gaze uses a Raspberry Pi 5 to recognize hand gestures when you face the camera, letting you control a light switch hands-free.",
+    fullDescription:
+      "Gaze uses computer vision to recognize hand gestures only when you face the camera. Looking away tells the system to ignore your gestures, which helps prevent accidental triggers during everyday movement. The prototype uses one camera and a small device that flips an existing light switch without rewiring. It offers hands-free control for people who find switches, phones, or voice commands hard to use. The team plans to add more gestures, support for curtains and doors, eye tracking, and an infrared camera for use in the dark.",
+    image: gazeCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/CPP-CSSPI-VisionDev/Gaze",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      "Computer Vision": ["Python", "OpenCV", "MediaPipe"],
+      Hardware: [
+        "Raspberry Pi 5",
+        "Raspberry Pi Camera Module 3",
+        "ESP32",
+        "Servo Motor",
+      ],
+      Embedded: ["C++", "Arduino IDE"],
+      Design: ["Fusion 360"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Tejas Jain",
+            linkedin: "https://www.linkedin.com/in/tejasjainatwork/",
+          },
+        ],
+      },
+      {
+        role: "Computer Vision Co-Lead",
+        members: [
+          {
+            name: "Havish Karthick",
+            linkedin: "https://www.linkedin.com/in/havish-karthick/",
+          },
+        ],
+      },
+      {
+        role: "Electronics Co-Lead",
+        members: [{ name: "Dean Triguero" }],
+      },
+      {
+        role: "Computer Vision",
+        members: [
+          { name: "Kevin Phon" },
+          { name: "Ryan Mora" },
+          { name: "Lahari Gudimella" },
+        ],
+      },
+      {
+        role: "Electronics",
+        members: [
+          {
+            name: "James Lents",
+            linkedin: "https://www.linkedin.com/in/james-lents-39502b445/",
+          },
+          { name: "Neptune Castaneda" },
+        ],
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: "CSS-DSML",
+    category: "DS / ML",
+    year: "2026-present",
+    emoji: "📊",
+    description:
+      "CSS-DSML is a semester-long project where students work in pairs to explore the MovieLens dataset using data science and machine learning.",
+    fullDescription:
+      "Students work in pairs to analyze MovieLens data with Python. They clean and prepare the data, engineer features, visualize patterns, and apply machine learning algorithms. By the end of the semester, each pair aims to have a project they can share on their résumés and experience applying core data science concepts together.",
+    image: dsmlCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/XmanJL/css-dsml-fall2027",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      Libraries: ["pandas", "NumPy", "scikit-learn", "Matplotlib"],
+      "Development Tools": [
+        "Git",
+        "GitHub",
+        "Visual Studio Code",
+        "Jupyter Notebook",
+        "Markdown",
+      ],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Jasper Liu",
+            linkedin: "https://www.linkedin.com/in/jasper-liu-a47a9024b/",
+          },
+        ],
+      },
+      {
+        role: "Supervisor",
+        members: [
+          {
+            name: "Liam Buck",
+            linkedin: "https://www.linkedin.com/in/liam-buckman/",
+          },
+        ],
+      },
+      {
+        role: "Members",
+        members: [
+          {
+            name: "Hector Hernandez",
+            linkedin: "https://www.linkedin.com/in/hector-hernandez-158738351/",
+          },
+          {
+            name: "Timothy Cortez",
+            linkedin: "https://www.linkedin.com/in/timothy-cortez-5411b4274/",
+          },
+          {
+            name: "Kevin Phon",
+            linkedin: "https://www.linkedin.com/in/kevin-phon-b64b422aa/",
+          },
+          {
+            name: "Anden Beers",
+            linkedin: "https://www.linkedin.com/in/anden-beers-a971093b5/",
+          },
+          {
+            name: "Sarah Liu",
+            linkedin: "https://www.linkedin.com/in/sarah-liuu/",
+          },
+          {
+            name: "Katia Choi",
+            linkedin: "https://www.linkedin.com/in/katia-c-326887141/",
+          },
+          {
+            name: "MD Arif Arman",
+            linkedin: "https://www.linkedin.com/in/md-arif-arman-894031368/",
+          },
+          {
+            name: "Aaron Strong",
+            linkedin: "https://www.linkedin.com/in/aaron-strong-778494414/",
+          },
+          {
+            name: "Jessica Gonzalez",
+            linkedin: "https://www.linkedin.com/in/jessicagonzalez02/",
+          },
+          {
+            name: "Grecia Mendoza",
+            linkedin: "https://www.linkedin.com/in/grecia-mendoza-b020b7370/",
+          },
+        ],
       },
     ],
   },

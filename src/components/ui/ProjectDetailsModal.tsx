@@ -48,6 +48,15 @@ export function ProjectDetailsModal({
     return null;
   }
 
+  const hasStackSummary = [
+    "frontend",
+    "backend",
+    "services",
+    "stack",
+    "libraries",
+    "tools",
+  ].some((key) => project.technologies[key]?.length);
+
   return (
     <ModalShell
       onClose={onClose}
@@ -186,7 +195,11 @@ export function ProjectDetailsModal({
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-3 gap-4 pt-2">
+                <div
+                  className={
+                    hasStackSummary ? "grid sm:grid-cols-3 gap-4 pt-2" : "hidden"
+                  }
+                >
                   <div className="p-4 rounded-2xl bg-[#34F5A3]/10 border border-[#34F5A3]/20">
                     <div className="flex items-center gap-2 text-[#34F5A3] mb-2">
                       <Code2 className="w-4 h-4" />

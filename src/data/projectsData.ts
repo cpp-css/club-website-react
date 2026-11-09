@@ -5,6 +5,7 @@ import mlVideo from "../assets/videos/ML-project.mov";
 import YSTEMProjImg from "../assets/YSTEMProjImg.webp";
 import gazeCardHeader from "../assets/GazeCardHeader.webp";
 import dsmlCardHeader from "../assets/CSS-DSMLCardHeader.webp";
+import cookieMonsterCardHeader from "../assets/CookieMonsterCardHeader.webp";
 
 export type ProjectTechnologyKey =
   | "frontend"
@@ -606,6 +607,99 @@ export const projectsData: Project[] = [
           {
             name: "Grecia Mendoza",
             linkedin: "https://www.linkedin.com/in/grecia-mendoza-b020b7370/",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: "Cookie Monster",
+    category: "DS / ML",
+    year: "2026-present",
+    emoji: "🍪",
+    description:
+      "Cookie Monster is a Firefox extension that compares actual HTTP cookie behavior against privacy policy claims.",
+    fullDescription:
+      "Privacy policies can be hard to understand. Cookie Monster helps Firefox users see whether the HTTP cookies a website sets match what its privacy policy says. The project aims to make data collection more transparent and hold companies accountable for their privacy commitments.",
+    image: cookieMonsterCardHeader,
+    imageType: "image",
+    links: [
+      {
+        label: "GitHub Repository",
+        href: "https://github.com/ClarenceBallensky/Cookie_Monster",
+        icon: "github",
+      },
+    ],
+    technologies: {
+      frontend: ["Firefox", "WebExtensions API", "Manifest V3"],
+      backend: ["FastAPI", "PostgreSQL"],
+      "Machine Learning": ["Hugging Face Transformers"],
+      "Data Science": ["pandas", "NumPy"],
+    },
+    team: [
+      {
+        role: "Project Lead",
+        members: [
+          {
+            name: "Clarence Ballensky",
+            linkedin: "https://www.linkedin.com/in/clarence-ballensky-a90442361/",
+          },
+        ],
+      },
+      {
+        role: "Frontend",
+        members: [
+          {
+            name: "Zuber Sandhu",
+            linkedin: "https://www.linkedin.com/in/zubersandhu/",
+          },
+          {
+            name: "Terrell Fontanilla",
+            linkedin: "https://www.linkedin.com/in/terrell-f-4b28a4396/",
+          },
+        ],
+      },
+      {
+        role: "Backend",
+        members: [
+          {
+            name: "Logan Quon",
+            linkedin: "https://www.linkedin.com/in/logan-quon/",
+          },
+        ],
+      },
+      {
+        role: "Data Science",
+        members: [
+          {
+            name: "Sergio Milian",
+            linkedin: "https://www.linkedin.com/in/sergio-milian-8a0545292/",
+          },
+          {
+            name: "Paolo Halog",
+            linkedin: "https://www.linkedin.com/in/paolo-halog/",
+          },
+          {
+            name: "Aaron Strong",
+            linkedin: "https://www.linkedin.com/in/aaron-strong-778494414/",
+          },
+        ],
+      },
+      {
+        role: "Machine Learning",
+        members: [
+          {
+            name: "Vanessa Ramirez",
+            linkedin: "https://www.linkedin.com/in/vanessairamirez/",
+          },
+          {
+            name: "Youseff Garcia",
+            linkedin: "https://www.linkedin.com/in/youseff-garcia/",
+          },
+          {
+            name: "Jason Lin",
+            linkedin: "https://www.linkedin.com/in/jasonrlin/",
           },
         ],
       },

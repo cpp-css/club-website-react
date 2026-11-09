@@ -2,7 +2,7 @@ import broncoBondImg from "../assets/projects/broncobond.png";
 import broncoHacksSiteImg from "../assets/projects/broncoHacks2025.webp";
 import broncoPortalImg from "../assets/projects/broncoHacksApplicationPortal2025.png";
 import mlVideo from "../assets/projects/ML-project.mov";
-import YSTEMProjImg from "../assets/projects/YSTEMProjImg.webp";
+import ystemCardHeader from "../assets/projects/YSTEMCardHeader.webp";
 import gazeCardHeader from "../assets/projects/GazeCardHeader.webp";
 import dsmlCardHeader from "../assets/projects/CSS-DSMLCardHeader.webp";
 import cookieMonsterCardHeader from "../assets/projects/CookieMonsterCardHeader.webp";
@@ -407,7 +407,7 @@ export const projectsData: Project[] = [
       "A cross-platform mobile application bringing Y STEM and Chess Inc's educational platform to Android and iOS.",
     fullDescription:
       "The Y STEM and Chess Mobile App is a cross-platform application being developed for Y STEM and Chess Inc., a nonprofit that teaches chess, math, and coding to underserved and at-risk youth. Built with React Native, Expo, and TypeScript, the app is designed to extend the existing web platform to mobile devices. Planned features include secure account access, guided chess lessons and puzzles, progress tracking, games against an adjustable computer opponent, and live chess experiences between students and mentors.",
-    image: YSTEMProjImg,
+    image: ystemCardHeader,
     imageType: "image",
     links: [
       {
@@ -438,12 +438,38 @@ export const projectsData: Project[] = [
         members: [
           {
             name: "Umar Azizadah",
+            linkedin: "https://www.linkedin.com/in/umar-azizadah-24578234b/",
           },
         ],
       },
       {
         role: "Developers",
-        members: [],
+        members: [
+          {
+            name: "Brandon Tseng",
+            linkedin: "https://www.linkedin.com/in/bt7274/",
+          },
+          {
+            name: "Ryan Sarmiento",
+            linkedin: "https://www.linkedin.com/in/ryan-sarmiento-54759a24b/",
+          },
+          {
+            name: "Kyle Moreno",
+            linkedin: "https://www.linkedin.com/in/kyle-moreno-6ab856302/",
+          },
+          {
+            name: "Diego Anaya",
+            linkedin: "https://www.linkedin.com/in/diego-anaya-347709315/",
+          },
+          {
+            name: "Julian Alfonso",
+            linkedin: "https://www.linkedin.com/in/jtalfonso/",
+          },
+          {
+            name: "Mandy Ly",
+            linkedin: "https://www.linkedin.com/in/mandy-ly-ab74a723a/",
+          },
+        ],
       },
     ],
   },

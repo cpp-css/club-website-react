@@ -14,6 +14,8 @@ import introToRAG2026 from "../assets/eventFlyers/IntroToRAG2026.jpg";
 import broncoMiniHacks2026 from "../assets/eventFlyers/broncoMiniHacks2026.webp";
 import halloweenSocial2026 from "../assets/eventFlyers/CSHalloweenSocial2026.webp";
 import applicationPenetrationTesting2026 from "../assets/eventFlyers/ApplicationPenetrationTesting2026.webp";
+import portfolioWorkshop2026 from "../assets/eventFlyers/portfolioWorkshop2026.webp";
+import sealsCircleStudySes2026 from "../assets/eventFlyers/sealsCircleStudySes2026.webp";
 
 // 2025 event flyers
 import winterSocial2025 from "../assets/eventFlyers/CSWinterWonderLand2025.webp";
@@ -44,6 +46,30 @@ export interface EventItem {
 
 export const eventsData: EventItem[] = [
   // Add events with flyers here
+  {
+    id: "sealsCircleStudySession2026",
+    title: "Seal's Circle Study Session",
+    description:
+      "Feeling the post-midterm slump? Come take a break, get some studying done, and hang out with us at Seal's Circle! We're collaborating with SEA and DS&AI for a study session where you can work alongside fellow students, socialize, and enjoy some free snacks! Whether you need a break, some company while studying, or just want to stop by and grab a snack, everyone is welcome. The study session is Thursday, November 19th, from 12–1 PM in iLab, Building 1, Room 113.",
+    flyer: sealsCircleStudySes2026,
+    dateISO: "2026-11-19",
+    displayDate: "2026-11-19",
+    semester: "Fall 2026",
+    category: "Socials",
+  },
+  {
+    id: "portfolioWorkshop2026",
+    title: "Portfolio Workshop",
+    speaker: "sheCodes",
+    url: "https://25live.collegenet.com/pro/cpp#/connect25",
+    description:
+      "Join us this Thursday for a collaborative Portfolio Workshop with sheCodes! Come learn how to create a portfolio highlighting your work using Adobe Express. Whether you're building your first portfolio or looking to improve an existing one, this is a great opportunity to develop your personal brand and present your projects professionally. The workshop is Thursday, November 12th, from 12–1 PM in Building 8, Room 4. Interested in becoming an official CSS member? Register through CPP's club registration portal using your CPP credentials.",
+    flyer: portfolioWorkshop2026,
+    dateISO: "2026-11-12",
+    displayDate: "2026-11-12",
+    semester: "Fall 2026",
+    category: "Workshops",
+  },
   {
     id: "applicationPenetrationTesting2026",
     title: "Application Penetration Testing",
